@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-function LeftBar () {
+const LeftBar: FC = () => {
     return (
         <div>Left Bar</div>
     )
