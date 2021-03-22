@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import MainPage from './components/MainPage';
 import reportWebVitals from './reportWebVitals';
+import { Reset} from 'styled-reset';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Reset />
+    <MainPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
