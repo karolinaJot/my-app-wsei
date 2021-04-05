@@ -7,7 +7,7 @@ import LeftBar from '../leftBar/LeftBar';
 
 
 const Wrapper = styled.div`
-  max-width: 1400px;
+  max-width: 1285px;
   margin-left: auto;
   margin-right: auto;
   background-color: ${Colors.bg};
