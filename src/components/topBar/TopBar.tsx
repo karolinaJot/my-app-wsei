@@ -62,8 +62,20 @@ const SearchInput = styled.input`
 const SearchSubmit = styled.input`
    height: 20px;
    padding-right: 5px;
-
-   
+`
+const RightSideIconsWrapper = styled.div`
+    width: 120px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+`
+const HomeRightIcon = styled.img`
+`
+const CommentsIcon = styled.img`
+`
+const BellIcon = styled.img`
 `
 
 
@@ -82,7 +94,11 @@ const TopBar: FC = () => {
                 <SearchInput type='search' placeholder='Search Legalcluster'></SearchInput>
                 <SearchSubmit type='image' alt='Submit' src='./media/icons/search.png'></SearchSubmit>
             </SearchWrapper>
-
+            <RightSideIconsWrapper>
+                <HomeRightIcon src='./media/icons/house.png'></HomeRightIcon>
+                <CommentsIcon src='./media/icons/comments.png'></CommentsIcon>
+                <BellIcon src='./media/icons/bell.png'></BellIcon>
+            </RightSideIconsWrapper>
         </Wrapper>
     );
 }

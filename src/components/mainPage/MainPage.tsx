@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import TopBar from '../topBar/TopBar';
 import LeftBar from '../leftBar/LeftBar';
+import MainContent from '../mainContent/MainContent';
 
 
 const Wrapper = styled.div`
@@ -14,12 +15,15 @@ const Wrapper = styled.div`
   `
   
   const Content = styled.div`
-    max-width: 1200px;
+   
     align-items: center;
     display: flex;
+    flex-direction: row;
     margin-left: auto;
     margin-right: auto;
-    height: calc(100vh - 30px);
+    height: calc(100vh - 50px);
+    position: relative;
+    
 `
 
 
@@ -29,7 +33,7 @@ const MainPage : FC = () => {
       <TopBar />
       <Content>
         <LeftBar />
-        <div>Hello from content</div>
+        <MainContent />
       </Content>
     </Wrapper>
   );
