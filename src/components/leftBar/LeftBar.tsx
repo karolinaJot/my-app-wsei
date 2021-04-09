@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
+import { Colors } from '../../styledHelpers/Colors';
 
 const Wrapper = styled.div`
-    background-color: green;
     width: 230px;
     height: 370px;
     position: absolute;
@@ -11,9 +11,16 @@ const Wrapper = styled.div`
     height: calc(100vh - 50px);
 `
 const CurrentUser = styled.div`
+    height: 225px;
+    width: 100%;
+    padding: 18px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background-color: ${Colors.white};
+    border-radius: 3%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    
+    
 
 `
 
@@ -27,9 +34,35 @@ const UserInfo = styled.div`
 
 `
 const Name = styled.p`
+    color: #5A6AB3;
+    padding-top:18px;
+    text-align: center;
 `
 const Job = styled.p`
+    padding: 18px 0;
+    border-bottom: solid 3px ${Colors.bg};
+    text-align: center;
+
 `
+const UserNetworkPublications = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+
+`
+const NetworkPublicationsText = styled.p`
+    flex-grow: 4;
+    text-align: center;
+
+`
+
+const CurrentUserIcons = styled.img`
+    flex-grow: 0;
+    text-align: center;
+    padding: 0 18px;
+
+`
+
 
 const LeftBar: FC = () => {
     return (
@@ -39,6 +72,16 @@ const LeftBar: FC = () => {
                 <UserInfo>
                     <Name>Aniela Kowalska</Name>
                     <Job>Job title - Company</Job>
+                    <UserNetworkPublications>
+                        <CurrentUserIcons src='./media/icons/network.png'></CurrentUserIcons>
+                        <NetworkPublicationsText>Your Network</NetworkPublicationsText>
+                        <CurrentUserIcons src='./media/icons/people.png'></CurrentUserIcons>
+                    </UserNetworkPublications>
+                    <UserNetworkPublications>
+                        <CurrentUserIcons src='./media/icons/publications.png'></CurrentUserIcons>
+                        <NetworkPublicationsText>Your Publications</NetworkPublicationsText>
+                        <CurrentUserIcons src='./media/icons/plus.png'></CurrentUserIcons>
+                    </UserNetworkPublications>
                 </UserInfo>
             </CurrentUser>
         </Wrapper>

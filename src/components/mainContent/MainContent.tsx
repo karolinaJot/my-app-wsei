@@ -5,6 +5,8 @@ const Wrapper = styled.div`
     width: 900px;
     background-color: pink;
     height: calc(100vh - 50px);
+    border: solid 4px black;
+    padding-left: 230px;
 `
 
 const MainContent: FC = () => {
