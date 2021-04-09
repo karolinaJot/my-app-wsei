@@ -19,6 +19,7 @@ const Wrapper = styled.div`
     align-items: center;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     height: calc(100vh - 50px);
