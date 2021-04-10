@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     background-color: pink;
     height: calc(100vh - 50px);
     border: solid 4px black;
-    padding-left: 230px;
+    margin: 0 auto;
 `
 
 const MainContent: FC = () => {
