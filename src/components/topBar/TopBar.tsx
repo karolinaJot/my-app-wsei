@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
-import { fontSize } from '../../styledHelpers/FontSizes';
+import { FontSize } from '../../styledHelpers/FontSizes';
 
 const Wrapper = styled.div`
     margin-top: 3px;
@@ -30,7 +30,7 @@ const SelectWrapper = styled.div`
     height: 50px;
     width: 210px;
     text-align: center;
-    font-size: ${fontSize[18]};
+    font-size: ${FontSize[18]};
     margin-left: 15px;
     display: flex;
     justify-content: space-between;

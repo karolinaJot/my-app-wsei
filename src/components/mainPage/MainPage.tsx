@@ -9,21 +9,15 @@ import MainContent from '../mainContent/MainContent';
 
 const Wrapper = styled.div`
   max-width: 1285px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   background-color: ${Colors.bg};
   `
   
-  const Content = styled.div`
-   
-    align-items: center;
+  const Content = styled.main`
     display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    height: calc(100vh - 50px);
-    position: relative;
-    
+    flex: 6;
+    margin: 15px 88px 0 25px
+   
 `
 
 
