@@ -69,7 +69,6 @@ const RightSideIconsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    float: right;
 `
 const HomeRightIcon = styled.img`
 `
