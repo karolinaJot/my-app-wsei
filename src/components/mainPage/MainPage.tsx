@@ -11,14 +11,13 @@ const Wrapper = styled.div`
   max-width: 1285px;
   margin: 0 auto;
   background-color: ${Colors.bg};
-  `
+  `;
   
   const Content = styled.main`
     display: flex;
     flex: 6;
-    margin: 15px 88px 0 25px
-   
-`
+    margin: 15px 88px 0 25px;
+`;
 
 
 const MainPage : FC = () => {

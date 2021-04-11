@@ -1,7 +1,10 @@
 import React, {FC} from 'react';
+import useDropdown from 'react-dropdown-hook';
 import styled from 'styled-components';
+
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
+import ExpandedMenu from '../topBar/ExpandedMenu';
 
 const Wrapper = styled.div`
     margin-top: 3px;
@@ -69,7 +72,6 @@ const RightSideIconsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    float: right;
 `
 const HomeRightIcon = styled.img`
 `
@@ -79,16 +81,26 @@ const BellIcon = styled.img`
 `
 
 
-const TopBar: FC = () => {
+const TopBar: FC = (props) => {
+    const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
+
+    const menuHandler = () => {
+        togggleDropdown();
+    }
+
+
     return (
         <Wrapper>
             <Logo src='./media/icons/logo.png'></Logo>
             <HouseImg src='./media/icons/house2.png'></HouseImg>
-            <SelectWrapper>
+            <SelectWrapper ref={wrapperRef} onClick={menuHandler}>
                 <HomeText>Home</HomeText>
                 <ArrowWrapper>
                     <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
                 </ArrowWrapper>
+                {dropdownOpen && 
+                    <ExpandedMenu/>
+                }
             </SelectWrapper>
             <SearchWrapper>
                 <SearchInput type='search' placeholder='Search Legalcluster'></SearchInput>
