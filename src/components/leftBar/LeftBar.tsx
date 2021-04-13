@@ -1,7 +1,9 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
+
+
 
 const Wrapper = styled.aside`
     height: 370px;
@@ -18,16 +20,12 @@ const CurrentUser = styled.div`
     background-color: ${Colors.white};
     border-radius: 3%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    
-    
-
 `
 
 const ImageBox = styled.div`
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color:blanchedalmond;
     overflow: hidden;
 `
 const UserImage = styled.img`
@@ -67,7 +65,7 @@ const NetworkPublicationsText = styled.p`
 const CurrentUserIcons = styled.img`
     text-align: center;
     flex: 0;
-    /* padding: 0 18px; */
+
 `
 const PersonButton = styled.button`
     background-image: url('./media/icons/people.png');
@@ -80,7 +78,18 @@ const PersonButton = styled.button`
     border: solid 1px ${Colors.black};
     border-radius: 10%;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
-
+`
+const PlusButton = styled.button`
+    background-image: url('./media/icons/plus.png');
+    width: 35px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+    background-color: ${Colors.white};
+    border: solid 1px ${Colors.black};
+    border-radius: 10%;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
 `
 
 
@@ -89,7 +98,7 @@ const LeftBar: FC = () => {
         <Wrapper>
             <CurrentUser>
                 <ImageBox>
-                    <UserImage></UserImage>
+                    <UserImage src='./media/icons/userAvatar_2.jpg'></UserImage>
                 </ImageBox>
                 <UserInfo>
                     <Name>Aniela Kowalska</Name>
@@ -102,7 +111,7 @@ const LeftBar: FC = () => {
                     <UserNetworkPublications>
                         <CurrentUserIcons src='./media/icons/publications.png'></CurrentUserIcons>
                         <NetworkPublicationsText>Your Publications</NetworkPublicationsText>
-                        <CurrentUserIcons src='./media/icons/plus.png'></CurrentUserIcons>
+                        <PlusButton></PlusButton>
                     </UserNetworkPublications>
                 </UserInfo>
             </CurrentUser>

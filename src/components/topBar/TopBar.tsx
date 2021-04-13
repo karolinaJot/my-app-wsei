@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import { FC } from 'react';
 import useDropdown from 'react-dropdown-hook';
 import styled from 'styled-components';
 
