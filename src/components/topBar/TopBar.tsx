@@ -31,30 +31,34 @@ const Logo = styled.img`
     height: 40px;
     width: 40px;
 `;
-const HouseImg = styled.img`
-    height: 20px;
-    width: 20px;
-`;
 
 const SelectWrapper = styled.div`
     height: 50px;
-    width: 210px;
+    width: 230px;
     text-align: center;
     font-size: ${FontSize[18]};
     display: flex;
     justify-content: space-between;
     align-items: center;
-`
-const HomeText = styled.div`
+    position: relative;
 `;
+
+const HouseImg = styled.img`
+    height: 20px;
+    width: 20px;
+    margin-left: 15px;
+`;
+
 const ArrowWrapper = styled.div`
+    margin-right: 15px;
 `;
+
 const ArrowIcon = styled.img`
 vertical-align: middle;
 `;
+
 const SearchWrapper = styled.div`
     width: 535px;
-    margin-left: 15px;
     height: 30px;
     display: flex;
     justify-content: space-between;
@@ -103,9 +107,9 @@ const TopBar: FC = (props) => {
         <Wrapper>
             <IconsWrapper>
                 <Logo src='./media/icons/logo.png'></Logo>
-                <HouseImg src='./media/icons/house2.png'></HouseImg>
                 <SelectWrapper ref={wrapperRef} onClick={menuHandler}>
-                    <HomeText>Home</HomeText>
+                    <HouseImg src='./media/icons/house2.png'></HouseImg>
+                    <span>Home</span>
                     <ArrowWrapper>
                         <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
                     </ArrowWrapper>
