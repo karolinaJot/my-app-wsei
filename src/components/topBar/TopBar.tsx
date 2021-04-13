@@ -15,19 +15,19 @@ const Wrapper = styled.div`
     margin-top: 2px;
     align-items: center;
 
-`
+`;
 const Logo = styled.img`
     height: 40px;
     width: 40px;
     margin-left: 15px;
     padding: 0 3px;
-`
+`;
 const HouseImg = styled.img`
     height: 20px;
     width: 20px;
     margin-left: 15px;
     padding: 0 3px;
-`
+`;
 
 const SelectWrapper = styled.div`
     height: 50px;
@@ -40,12 +40,12 @@ const SelectWrapper = styled.div`
     align-items: center;
 `
 const HomeText = styled.div`
-`
+`;
 const ArrowWrapper = styled.div`
-`
+`;
 const ArrowIcon = styled.img`
 vertical-align: middle;
-`
+`;
 const SearchWrapper = styled.div`
     width: 535px;
     margin-left: 15px;
@@ -54,31 +54,37 @@ const SearchWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     border: solid 2px #D2D3D6;
-`
+`;
 
 const SearchInput = styled.input`
     height: 100%;
     width: 500px;
     border: none;
     text-align: center;
-`
+    &:focus {
+        outline: none;
+    }
+`;
 const SearchSubmit = styled.input`
    height: 20px;
    padding-right: 5px;
-`
+   &:focus {
+        outline: none;
+    };
+`;
 const RightSideIconsWrapper = styled.div`
     width: 120px;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-`
+`;
 const HomeRightIcon = styled.img`
-`
+`;
 const CommentsIcon = styled.img`
-`
+`;
 const BellIcon = styled.img`
-`
+`;
 
 
 const TopBar: FC = (props) => {
@@ -86,7 +92,7 @@ const TopBar: FC = (props) => {
 
     const menuHandler = () => {
         togggleDropdown();
-    }
+    };
 
 
     return (
@@ -113,6 +119,6 @@ const TopBar: FC = (props) => {
             </RightSideIconsWrapper>
         </Wrapper>
     );
-}
+};
 
 export default TopBar;
