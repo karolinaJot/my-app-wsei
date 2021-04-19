@@ -26,6 +26,12 @@ const Filter = styled.input`
     height: 100%;
     border-radius: 5%;
 `;
+// TODO: upewnić się czy działa scrollowanie dla menu
+const MenuItemsWrapper = styled.div`
+    height: 336px;
+    border-bottom: solid 1px black;
+    overflow: auto;
+`;
 
 const SectionName = styled.span`
 
@@ -57,7 +63,6 @@ const MenuAdmin = styled(MenuHome)`
     background-image: url('./media/icons/administration.png');
 `;
 
-
 const MenuClientContract = styled(MenuHome)`
     background-image: url('./media/icons/entities2.png');
 `;
@@ -78,6 +83,43 @@ const MenuRealEstateContracts = styled(MenuHome)`
     background-image: url('./media/icons/entities2.png');
 `;
 
+const MenuItem = styled(MenuHome)`
+    background-image: url('./media/icons/entities2.png');
+`;
+
+const AccountWrapper = styled.div`
+`;
+
+const AccountItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 10px;
+
+`;
+
+const IconBox = styled.div`
+    width: 32px;
+    height: 32px;
+
+`;
+
+const ImageBox = styled(IconBox)`
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    };
+    
+`;
+
+const AccountUserName = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 
 
 const ExpandedMenu: FC = () => {
@@ -86,7 +128,7 @@ const ExpandedMenu: FC = () => {
             <FilterBox>
                 <Filter type='search'placeholder='Filter...' ></Filter>
             </FilterBox>
-            <div>
+            <MenuItemsWrapper>
                 <SectionName>Platform</SectionName>
                 <ul>
                     <MenuHome>Home</MenuHome>
@@ -102,8 +144,37 @@ const ExpandedMenu: FC = () => {
                     <MenuCorporate>Corporate</MenuCorporate>
                     <MenuGroupNorms>Group Norms</MenuGroupNorms>
                     <MenuRealEstateContracts>Real estate contracts</MenuRealEstateContracts>
+                    <MenuItem>Menu Item</MenuItem>
+                    <MenuItem>Menu Item</MenuItem>
+                    <MenuItem>Menu Item</MenuItem>
+                    <MenuItem>Menu Item</MenuItem>
                 </ul>
-            </div>
+            </MenuItemsWrapper>
+            <AccountWrapper>
+                <SectionName>Account</SectionName>
+                <AccountItem>
+                    <ImageBox>
+                        <img src='./media/icons/userAvatar_2.jpg' ></img>
+                    </ImageBox>
+                    <AccountUserName>
+                        <span>Aniela Kowalska</span>
+                        <span>See profile</span>
+                    </AccountUserName>
+                </AccountItem>
+                <AccountItem>
+                    <IconBox>
+                        <img src='./media/icons/privacy.png'></img>
+                    </IconBox>
+                    <span>Privacy</span>
+                </AccountItem>
+                <AccountItem>
+                    <IconBox>
+                        <img src='./media/icons/settings.png'></img>
+                    </IconBox>
+                    <span>Settings</span>
+                </AccountItem>
+
+            </AccountWrapper>
         </Wrapper>
     )
 }
