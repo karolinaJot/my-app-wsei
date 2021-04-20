@@ -91,7 +91,30 @@ const PlusButton = styled.button`
     border-radius: 10%;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
 `
+const LinksListWrapper = styled.div`
 
+`;
+
+const ListItem = styled.li`
+    display: flex;
+    margin: 5px 0;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+        text-align: left;
+    };
+
+    span {
+        padding-left: 10px;
+    }
+`;
+
+const IconBox = styled.span`
+    width: 30px;
+    height: 30px;
+`;
 
 const LeftBar: FC = () => {
     return (
@@ -115,6 +138,34 @@ const LeftBar: FC = () => {
                     </UserNetworkPublications>
                 </UserInfo>
             </CurrentUser>
+            <LinksListWrapper>
+                <ul>
+                    <ListItem>
+                        <IconBox>
+                            <img src='./media/icons/publications.png'></img>
+                        </IconBox>
+                        <a href='#'>
+                            <span>Publications</span>
+                        </a>
+                    </ListItem>
+                    <ListItem>
+                        <IconBox>
+                            <img src='./media/icons/ecosystem.png'></img>
+                        </IconBox>
+                        <a href='#'>
+                            <span>Ecosystem</span>
+                        </a>
+                    </ListItem>
+                    <ListItem>
+                        <IconBox>
+                            <img src='./media/icons/entities2.png'></img>
+                        </IconBox>
+                        <a href='#'>
+                            <span>Entities</span>
+                        </a>
+                    </ListItem>
+                </ul>
+            </LinksListWrapper>
         </Wrapper>
     )
 
