@@ -38,7 +38,6 @@ const ExpandedMenuWrapper = styled.div`
     text-align: center;
     font-size: ${FontSize[18]};
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     position: relative;
 
@@ -54,10 +53,12 @@ const IconBox = styled.span`
 const MenuItemText = styled.span`
     width: 170px;
     text-align: left;
+    cursor: pointer;
 `;
 
 const ArrowWrapper = styled.span`
     margin-right: 15px;
+    cursor: pointer;
 `;
 
 const ArrowIcon = styled.img`
