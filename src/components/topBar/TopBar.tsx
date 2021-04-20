@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 `;
 
-const IconsWrapper = styled.div`
+const IconsRightWrapper = styled.div`
     width: 310px;
     display: flex;
     justify-content: space-between;
@@ -32,24 +32,31 @@ const Logo = styled.img`
     width: 40px;
 `;
 
-const SelectWrapper = styled.div`
+const ExpandedMenuWrapper = styled.div`
     height: 50px;
     width: 230px;
     text-align: center;
     font-size: ${FontSize[18]};
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     position: relative;
+
+    span {
+        padding-left: 10px;
+    };
 `;
 
-const HouseImg = styled.img`
-    height: 20px;
-    width: 20px;
-    margin-left: 15px;
+const IconBox = styled.span`
+    width: 30px;
 `;
 
-const ArrowWrapper = styled.div`
+const MenuItemText = styled.span`
+    width: 170px;
+    text-align: left;
+`;
+
+const ArrowWrapper = styled.span`
     margin-right: 15px;
 `;
 
@@ -86,6 +93,14 @@ const SearchSubmit = styled.input`
     };
 `;
 
+const LeftWrapper = styled.div`
+    width: 310px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+`;
+
 const HomeRightIcon = styled.img`
     padding-left: 190px;
 `;
@@ -105,28 +120,30 @@ const TopBar: FC = (props) => {
 
     return (
         <Wrapper>
-            <IconsWrapper>
+            <LeftWrapper>
                 <Logo src='./media/icons/logo.png'></Logo>
-                <SelectWrapper ref={wrapperRef} onClick={menuHandler}>
-                    <HouseImg src='./media/icons/house2.png'></HouseImg>
-                    <span>Home</span>
+                <ExpandedMenuWrapper ref={wrapperRef} onClick={menuHandler}>
+                    <IconBox>
+                        <img src='./media/icons/house2.png'></img>
+                    </IconBox>
+                    <MenuItemText>Home</MenuItemText>
                     <ArrowWrapper>
                         <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
                     </ArrowWrapper>
                     {dropdownOpen && 
                         <ExpandedMenu/>
                     }
-                </SelectWrapper>
-            </IconsWrapper>    
+                </ExpandedMenuWrapper>
+            </LeftWrapper>    
             <SearchWrapper>
                 <SearchInput type='search' placeholder='Search Legalcluster'></SearchInput>
                 <SearchSubmit type='image' alt='Submit' src='./media/icons/search.png'></SearchSubmit>
             </SearchWrapper>
-            <IconsWrapper>
+            <IconsRightWrapper>
                 <HomeRightIcon src='./media/icons/house.png'></HomeRightIcon>
                 <CommentsIcon src='./media/icons/comments.png'></CommentsIcon>
                 <BellIcon src='./media/icons/bell.png'></BellIcon>
-            </IconsWrapper>
+            </IconsRightWrapper>
         </Wrapper>
     );
 };
