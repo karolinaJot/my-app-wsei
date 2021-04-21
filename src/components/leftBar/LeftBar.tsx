@@ -57,6 +57,7 @@ const CradLinksWrapper = styled.div`
 
 const CardLinksItem = styled.li`
     display: flex;
+    position: relative;
 
     span {
         padding-left: 10px;
@@ -64,7 +65,7 @@ const CardLinksItem = styled.li`
 `;
 
 const CardLinksItemIconBox = styled.span`
-
+    
     img {
 
     };
@@ -74,10 +75,13 @@ const CardLinksItemText = styled.span`
 `;
 
 const CardLinksItemBtn = styled.span`
+    position: absolute;
+    top: 0;
+    right: -50%;
 
     button {
-        width: 35px;
-        height: 25px;
+        width: 30px;
+        height: 20px;
         background-repeat: no-repeat;
         background-size: 16px;
         background-position: center;
@@ -85,6 +89,7 @@ const CardLinksItemBtn = styled.span`
         border: solid 1px ${Colors.black};
         border-radius: 10%;
         box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
+        cursor: pointer;
     };
 `;
 
@@ -99,7 +104,7 @@ const PlusButton = styled.button`
 
 
 const LinksListWrapper = styled.div`
-
+    margin-top: 20px;
 `;
 
 const ListItem = styled.li`
