@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import styled from 'styled-components';
+
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
@@ -10,14 +11,13 @@ const Wrapper = styled.aside`
     margin-right: 40px;
 `
 const CurrentUserCard = styled.div`
-    height: 225px;
-    padding: 18px 0;
+    padding-top: 18px;
     background-color: ${Colors.white};
     border-radius: 3%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 `
 const UserCardInfoWrapper = styled.div`
-    border-bottom: solid 3px ${Colors.bg};
+    border-bottom: solid 1px ${Colors.bg};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,6 +57,9 @@ const CradLinksWrapper = styled.div`
 
 const CardLinksItem = styled.li`
     display: flex;
+    position: relative;
+    margin-bottom: 15px;
+
 
     span {
         padding-left: 10px;
@@ -64,7 +67,7 @@ const CardLinksItem = styled.li`
 `;
 
 const CardLinksItemIconBox = styled.span`
-
+    
     img {
 
     };
@@ -74,17 +77,31 @@ const CardLinksItemText = styled.span`
 `;
 
 const CardLinksItemBtn = styled.span`
+    position: absolute;
+    top: 0;
+    right: -50%;
 
     button {
-        width: 35px;
-        height: 25px;
+        width: 30px;
+        height: 20px;
         background-repeat: no-repeat;
         background-size: 16px;
         background-position: center;
         background-color: ${Colors.white};
         border: solid 1px ${Colors.black};
         border-radius: 10%;
-        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        
+        &:focus {
+            outline: none;
+        };
+
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+
+        };
     };
 `;
 
@@ -99,7 +116,7 @@ const PlusButton = styled.button`
 
 
 const LinksListWrapper = styled.div`
-
+    margin-top: 20px;
 `;
 
 const ListItem = styled.li`
@@ -142,7 +159,7 @@ const LeftBar: FC = () => {
                             </CardLinksItemIconBox>
                             <CardLinksItemText>Your Network</CardLinksItemText>
                             <CardLinksItemBtn>
-                                <PersonButton></PersonButton>
+                                <PersonButton type='button'></PersonButton>
                             </CardLinksItemBtn>
                         </CardLinksItem>
                         <CardLinksItem>
@@ -151,7 +168,7 @@ const LeftBar: FC = () => {
                             </CardLinksItemIconBox>
                             <CardLinksItemText>Your Publications</CardLinksItemText>
                             <CardLinksItemBtn>
-                                <PlusButton></PlusButton>
+                                <PlusButton type='button'></PlusButton>
                             </CardLinksItemBtn>
                         </CardLinksItem>
                     </ul>

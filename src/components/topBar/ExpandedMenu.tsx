@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     width: 230px;
     background-color: ${Colors.white};
     border: solid 1px gray;
+    z-index: 160;
 `;
 
 const FilterBox = styled.div`
