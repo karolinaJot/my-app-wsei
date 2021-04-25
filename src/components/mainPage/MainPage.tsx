@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 import TopBar from '../topBar/TopBar';
@@ -22,13 +23,15 @@ const Wrapper = styled.div`
 
 const MainPage : FC = () => {
   return (
-    <Wrapper>
-      <TopBar />
-      <Content>
-        <LeftBar />
-        <MainContent />
-      </Content>
-    </Wrapper>
+    <Router>
+      <Wrapper>
+        <TopBar />
+        <Content>
+          <LeftBar />
+          <MainContent />
+        </Content>
+      </Wrapper>
+    </Router>
   );
 }
 
