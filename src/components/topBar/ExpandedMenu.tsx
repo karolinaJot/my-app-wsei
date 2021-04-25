@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -51,16 +52,16 @@ const MenuItem = styled.li`
     display: flex;
     margin: 5px 0;
 
-    a {
-        text-decoration: none;
-        cursor: pointer;
-        color: black;
-        text-align: left;
-    };
-
     span {
         padding-left: 10px;
     }
+`;
+
+const CostumLink = styled(Link)`
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    text-align: left;
 `;
 
 const IconBox = styled.span`
@@ -97,6 +98,7 @@ const LogoutBtn = styled.button`
     font-size: ${FontSize[16]};
     padding: 10px;
     width: 100%;
+    cursor: pointer;
 `;
 
 
@@ -114,41 +116,41 @@ const ExpandedMenu: FC = () => {
                         <IconBox>
                             <img src='./media/icons/house2.png'></img>
                         </IconBox>
-                        <a>
+                        <CostumLink to="/">
                             <span>Home</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/publications.png'></img>
                         </IconBox>
-                        <a>
+                        <CostumLink to="/publications">
                             <span>Publications</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/people.png'></img>
                         </IconBox>
-                        <a>
+                        <CostumLink to="/people">
                             <span>People</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/entities.png'></img>
                         </IconBox>
-                        <a>
+                        <CostumLink to="/entities">
                             <span>Entities</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/administration.png'></img>
                         </IconBox>
-                        <a>
+                        <CostumLink to="/administration">
                             <span>Administration</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                 </ul>
                 <SectionTitle>Workspaces</SectionTitle>
@@ -157,73 +159,73 @@ const ExpandedMenu: FC = () => {
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/clientcontract">
                             <span> Client Contract</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/suppliercontract">
                             <span>Supplier Contract</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/corporate">
                             <span>Corporate</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/groupnorms">
                             <span>Group Norms</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/realestatecontracts">
                             <span>Real estate contracts</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src ='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/nextitem">
                             <span>Next Item</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src ='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/nextitem">
                             <span>Next Item</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src ='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/nextitem">
                             <span>Next Item</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src ='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/nextitem">
                             <span>Next Item</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                 </ul>
             </MenuItemsWrapper>
@@ -236,26 +238,26 @@ const ExpandedMenu: FC = () => {
                         </ImageBox>
                         <AccountUserName>
                             <span>Aniela Kowalska</span>
-                            <a href='#'>
+                            <CostumLink to="profile">
                                 <AccountUserLink>See profile</AccountUserLink>
-                            </a>
+                            </CostumLink>
                         </AccountUserName>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/privacy.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="privacy">
                             <span>Privacy</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
                             <img src='./media/icons/settings.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/settings">
                             <span>Settings</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                 </ul>
             </AccountWrapper>

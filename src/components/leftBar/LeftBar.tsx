@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -123,16 +124,16 @@ const ListItem = styled.li`
     display: flex;
     margin: 5px 0;
 
-    a {
-        text-decoration: none;
-        cursor: pointer;
-        color: black;
-        text-align: left;
-    };
-
     span {
         padding-left: 10px;
     };
+`;
+
+const CostumLink = styled(Link)`
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    text-align: left;
 `;
 
 const IconBox = styled.span`
@@ -157,7 +158,9 @@ const LeftBar: FC = () => {
                             <CardLinksItemIconBox>
                                 <img src='./media/icons/network.png'></img>
                             </CardLinksItemIconBox>
-                            <CardLinksItemText>Your Network</CardLinksItemText>
+                            <CostumLink to="network">
+                                <CardLinksItemText>Your Network</CardLinksItemText>
+                            </CostumLink>
                             <CardLinksItemBtn>
                                 <PersonButton type='button'></PersonButton>
                             </CardLinksItemBtn>
@@ -166,7 +169,9 @@ const LeftBar: FC = () => {
                             <CardLinksItemIconBox>
                                 <img src='./media/icons/publications.png'></img>
                             </CardLinksItemIconBox>
-                            <CardLinksItemText>Your Publications</CardLinksItemText>
+                            <CostumLink to="/publications">
+                                <CardLinksItemText>Your Publications</CardLinksItemText>
+                            </CostumLink>
                             <CardLinksItemBtn>
                                 <PlusButton type='button'></PlusButton>
                             </CardLinksItemBtn>
@@ -180,25 +185,25 @@ const LeftBar: FC = () => {
                         <IconBox>
                             <img src='./media/icons/publications.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/publications">
                             <span>Publications</span>
-                        </a>
+                        </CostumLink>
                     </ListItem>
                     <ListItem>
                         <IconBox>
                             <img src='./media/icons/ecosystem.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/ecosystem">
                             <span>Ecosystem</span>
-                        </a>
+                        </CostumLink>
                     </ListItem>
                     <ListItem>
                         <IconBox>
                             <img src='./media/icons/entities2.png'></img>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/entities">
                             <span>Entities</span>
-                        </a>
+                        </CostumLink>
                     </ListItem>
                 </ul>
             </LinksListWrapper>
