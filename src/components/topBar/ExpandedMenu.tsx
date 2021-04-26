@@ -26,6 +26,10 @@ const Filter = styled.input`
     width: 100%;
     height: 100%;
     border-radius: 5%;
+
+    &:focus {
+        outline: none;
+    }
 `;
 
 const MenuItemsWrapper = styled.div`
