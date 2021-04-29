@@ -135,7 +135,9 @@ const TopBar: FC = (props) => {
     return (
         <Wrapper>
             <LeftWrapper>
-                <Logo src='./media/icons/logo.png'></Logo>
+                <Link to="/">
+                    <Logo src='./media/icons/logo.png'></Logo>
+                </Link>
                 <ExpandedMenuWrapper ref={wrapperRef} >
                     <ButtonExpandedMenu onClick={menuHandler}>
                         <IconBox>
