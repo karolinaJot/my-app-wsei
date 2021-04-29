@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -26,6 +26,10 @@ const Filter = styled.input`
     width: 100%;
     height: 100%;
     border-radius: 5%;
+
+    &:focus {
+        outline: none;
+    }
 `;
 
 const MenuItemsWrapper = styled.div`
@@ -105,10 +109,18 @@ const LogoutBtn = styled.button`
 
 
 const ExpandedMenu: FC = () => {
+
+    const [inputText, setInputText] = useState<string>('');
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    }
+
     return(
         <Wrapper>
             <FilterBox>
-                <Filter type='search'placeholder='Filter...' ></Filter>
+                <Filter type='text' value={inputText} onChange={inputHandler} placeholder='Filter...' ></Filter>
             </FilterBox>
             <MenuItemsWrapper>
                 <SectionTitle>Platform</SectionTitle>
@@ -120,7 +132,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/">
-                            <span>Home</span>
+                            {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Home</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -130,7 +144,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/publications">
-                            <span>Publications</span>
+                            {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Publications</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -140,7 +156,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/people">
-                            <span>People</span>
+                            {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>People</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -150,7 +168,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/entities">
-                            <span>Entities</span>
+                            {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Entities</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -160,7 +180,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/administration">
-                            <span>Administration</span>
+                            {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Administration</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                 </ul>
@@ -173,7 +195,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/clientcontract">
-                            <span> Client Contract</span>
+                            {'Client Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span> Client Contract</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -183,7 +207,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/suppliercontract">
-                            <span>Supplier Contract</span>
+                            {'Supplier Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Supplier Contract</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -193,7 +219,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/corporate">
-                            <span>Corporate</span>
+                            {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Corporate</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -203,7 +231,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/groupnorms">
-                            <span>Group Norms</span>
+                            {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Group Norms</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -213,7 +243,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/realestatecontracts">
-                            <span>Real estate contracts</span>
+                            {'Real estate contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Real estate contracts</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -223,7 +255,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
-                            <span>Next Item</span>
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -233,7 +267,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
-                            <span>Next Item</span>
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -243,7 +279,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
-                            <span>Next Item</span>
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                     <MenuItem>
@@ -253,7 +291,9 @@ const ExpandedMenu: FC = () => {
                             </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
-                            <span>Next Item</span>
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
                         </CostumLink>
                     </MenuItem>
                 </ul>
