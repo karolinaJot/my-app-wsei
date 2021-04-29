@@ -118,10 +118,35 @@ const IconsRightWrapper = styled.div`
 const HomeRightIcon = styled.img`
     padding-left: 190px;
 `;
-const CommentsIcon = styled.img`
+const NotificationsIcon = styled.div`
+    padding: 5px;
+    background-color: pink;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
 `;
-const BellIcon = styled.img`
+
+const Badge = styled.span`
+    position:absolute;
+    top: 0;
+    right: 0;
+    color: ${Colors.white};
+    font-size: ${FontSize[12]};
+    height: 14px;
+    width:20px;
+    border-radius: 40%;
+    background-color: #0381BE;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
 `;
+
 
 
 const TopBar: FC = (props) => {
@@ -159,8 +184,14 @@ const TopBar: FC = (props) => {
             </SearchWrapper>
             <IconsRightWrapper>
                 <HomeRightIcon src='./media/icons/house.png'></HomeRightIcon>
-                <CommentsIcon src='./media/icons/comments.png'></CommentsIcon>
-                <BellIcon src='./media/icons/bell.png'></BellIcon>
+                <NotificationsIcon>
+                    <img src='./media/icons/comments.png'></img>
+                    <Badge>3</Badge>
+                 </NotificationsIcon>
+                <NotificationsIcon>
+                    <img src='./media/icons/bell.png'></img>
+                    <Badge>3</Badge>
+                </NotificationsIcon>
             </IconsRightWrapper>
         </Wrapper>
     );
