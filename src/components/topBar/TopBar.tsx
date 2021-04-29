@@ -49,6 +49,7 @@ const ExpandedMenuWrapper = styled.div`
 
 const IconBox = styled.span`
     width: 30px;
+    cursor: pointer;
 `;
 
 const MenuItemText = styled.span`
@@ -123,7 +124,7 @@ const TopBar: FC = (props) => {
     return (
         <Wrapper>
             <LeftWrapper>
-                <Link to='./'>
+                <Link to='/'>
                     <Logo src='./media/icons/logo.png'></Logo>
                 </Link>
                 <ExpandedMenuWrapper ref={wrapperRef} onClick={menuHandler}>

@@ -18,7 +18,7 @@ const CurrentUserCard = styled.div`
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 `
 const UserCardInfoWrapper = styled.div`
-    border-bottom: solid 1px ${Colors.bg};
+    border-bottom: solid 2px ${Colors.bg};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,12 +43,14 @@ const Name = styled.span`
     padding-top:18px;
     text-align: center;
     font-size: ${FontSize[18]};
+    display: block;
 `;
 const Job = styled.span`
     padding: 18px 0;
     text-align: center;
     font-size: ${FontSize[16]};
     color:  #B6B9C2;
+    display: block;
 `;
 const CradLinksWrapper = styled.div`
     display: flex;
@@ -147,33 +149,47 @@ const LeftBar: FC = () => {
             <CurrentUserCard>
                 <UserCardInfoWrapper>
                     <ImageBox>
-                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                        <Link to="profile">
+                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                        </Link>
                     </ImageBox>
-                    <Name>Aniela Kowalska</Name>
-                    <Job>Job title - Company</Job>
+                    <CostumLink to="profile">
+                        <Name>Aniela Kowalska</Name>
+                    </CostumLink>
+                    <CostumLink to="profile">
+                        <Job>Job title - Company</Job>
+                    </CostumLink>
                 </UserCardInfoWrapper>
                 <CradLinksWrapper>
                     <ul>
                         <CardLinksItem>
                             <CardLinksItemIconBox>
-                                <img src='./media/icons/network.png'></img>
+                                <Link to="network">
+                                    <img src='./media/icons/network.png'></img>
+                                </Link>
                             </CardLinksItemIconBox>
                             <CostumLink to="network">
                                 <CardLinksItemText>Your Network</CardLinksItemText>
                             </CostumLink>
                             <CardLinksItemBtn>
-                                <PersonButton type='button'></PersonButton>
+                                <Link to="network">
+                                    <PersonButton type='button'></PersonButton>
+                                </Link>
                             </CardLinksItemBtn>
                         </CardLinksItem>
                         <CardLinksItem>
                             <CardLinksItemIconBox>
-                                <img src='./media/icons/publications.png'></img>
+                                <Link to="/publications">
+                                    <img src='./media/icons/publications.png'></img>
+                                </Link>
                             </CardLinksItemIconBox>
                             <CostumLink to="/publications">
                                 <CardLinksItemText>Your Publications</CardLinksItemText>
                             </CostumLink>
                             <CardLinksItemBtn>
-                                <PlusButton type='button'></PlusButton>
+                                <Link to="/publications">
+                                    <PlusButton type='button'></PlusButton>
+                                </Link>
                             </CardLinksItemBtn>
                         </CardLinksItem>
                     </ul>
@@ -183,7 +199,9 @@ const LeftBar: FC = () => {
                 <ul>
                     <ListItem>
                         <IconBox>
-                            <img src='./media/icons/publications.png'></img>
+                            <Link to="/publications">
+                                <img src='./media/icons/publications.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/publications">
                             <span>Publications</span>
@@ -191,7 +209,9 @@ const LeftBar: FC = () => {
                     </ListItem>
                     <ListItem>
                         <IconBox>
-                            <img src='./media/icons/ecosystem.png'></img>
+                            <Link to="/ecosystem">
+                                <img src='./media/icons/ecosystem.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/ecosystem">
                             <span>Ecosystem</span>
@@ -199,7 +219,9 @@ const LeftBar: FC = () => {
                     </ListItem>
                     <ListItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/entities">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/entities">
                             <span>Entities</span>
