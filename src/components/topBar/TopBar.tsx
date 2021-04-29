@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import useDropdown from 'react-dropdown-hook';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -59,6 +60,7 @@ const ButtonExpandedMenu = styled.button`
 
 const IconBox = styled.span`
     width: 30px;
+    cursor: pointer;
 `;
 
 const MenuItemText = styled.span`

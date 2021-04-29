@@ -71,6 +71,7 @@ const CostumLink = styled(Link)`
 const IconBox = styled.span`
     width: 30px;
     height: 30px;
+    display: block;
 `;
 
 const ImageBox = styled(IconBox)`
@@ -126,7 +127,9 @@ const ExpandedMenu: FC = () => {
                 <ul>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/house2.png'></img>
+                            <Link to="/">
+                                <img src='./media/icons/house2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/">
                             {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -136,7 +139,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/publications.png'></img>
+                            <Link to="/publications">
+                                <img src='./media/icons/publications.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/publications">
                             {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -146,7 +151,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/people.png'></img>
+                            <Link to="/people">
+                                <img src='./media/icons/people.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/people">
                             {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -156,7 +163,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities.png'></img>
+                            <Link to="/entities">
+                                <img src='./media/icons/entities.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/entities">
                             {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -166,7 +175,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/administration.png'></img>
+                            <Link to="/administration">
+                                <img src='./media/icons/administration.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/administration">
                             {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -179,7 +190,9 @@ const ExpandedMenu: FC = () => {
                 <ul>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/clientcontract">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/clientcontract">
                             {'Client Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -189,7 +202,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/suppliercontract">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/suppliercontract">
                             {'Supplier Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -199,7 +214,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/corporate">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/corporate">
                             {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -209,7 +226,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/groupnorms">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/groupnorms">
                             {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -219,7 +238,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/realestatecontracts">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/realestatecontracts">
                             {'Real estate contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -229,7 +250,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
                             {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -239,7 +262,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
                             {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -249,7 +274,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
                             {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -259,7 +286,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/nextitem">
                             {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
@@ -274,10 +303,14 @@ const ExpandedMenu: FC = () => {
                 <ul>
                     <MenuItem>
                         <ImageBox>
-                            <img src='./media/icons/userAvatar_2.jpg' ></img>
+                            <Link to="profile">
+                                <img src='./media/icons/userAvatar_2.jpg' ></img>
+                            </Link>
                         </ImageBox>
                         <AccountUserName>
-                            <span>Aniela Kowalska</span>
+                            <CostumLink to="profile">
+                                <span>Aniela Kowalska</span>
+                            </CostumLink>
                             <CostumLink to="profile">
                                 <AccountUserLink>See profile</AccountUserLink>
                             </CostumLink>
@@ -285,7 +318,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/privacy.png'></img>
+                            <Link to="privacy">
+                                <img src='./media/icons/privacy.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="privacy">
                             <span>Privacy</span>
@@ -293,7 +328,9 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/settings.png'></img>
+                            <Link to="/settings">
+                                <img src='./media/icons/settings.png'></img>
+                            </Link>
                         </IconBox>
                         <CostumLink to="/settings">
                             <span>Settings</span>
