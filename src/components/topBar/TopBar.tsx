@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import useDropdown from 'react-dropdown-hook';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -122,7 +123,9 @@ const TopBar: FC = (props) => {
     return (
         <Wrapper>
             <LeftWrapper>
-                <Logo src='./media/icons/logo.png'></Logo>
+                <Link to='./'>
+                    <Logo src='./media/icons/logo.png'></Logo>
+                </Link>
                 <ExpandedMenuWrapper ref={wrapperRef} onClick={menuHandler}>
                     <IconBox>
                         <img src='./media/icons/house2.png'></img>
