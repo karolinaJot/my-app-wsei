@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -25,6 +26,10 @@ const Filter = styled.input`
     width: 100%;
     height: 100%;
     border-radius: 5%;
+
+    &:focus {
+        outline: none;
+    }
 `;
 
 const MenuItemsWrapper = styled.div`
@@ -51,21 +56,22 @@ const MenuItem = styled.li`
     display: flex;
     margin: 5px 0;
 
-    a {
-        text-decoration: none;
-        cursor: pointer;
-        color: black;
-        text-align: left;
-    };
-
     span {
         padding-left: 10px;
     }
 `;
 
+const CostumLink = styled(Link)`
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    text-align: left;
+`;
+
 const IconBox = styled.span`
     width: 30px;
     height: 30px;
+    display: block;
 `;
 
 const ImageBox = styled(IconBox)`
@@ -97,133 +103,198 @@ const LogoutBtn = styled.button`
     font-size: ${FontSize[16]};
     padding: 10px;
     width: 100%;
+    cursor: pointer;
 `;
 
 
 
 const ExpandedMenu: FC = () => {
+
+    const [inputText, setInputText] = useState<string>('');
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    }
+
     return(
         <Wrapper>
             <FilterBox>
-                <Filter type='search'placeholder='Filter...' ></Filter>
+                <Filter type='text' value={inputText} onChange={inputHandler} placeholder='Filter...' ></Filter>
             </FilterBox>
             <MenuItemsWrapper>
                 <SectionTitle>Platform</SectionTitle>
                 <ul>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/house2.png'></img>
+                            <Link to="/">
+                                <img src='./media/icons/house2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a>
-                            <span>Home</span>
-                        </a>
+                        <CostumLink to="/">
+                            {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Home</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/publications.png'></img>
+                            <Link to="/publications">
+                                <img src='./media/icons/publications.png'></img>
+                            </Link>
                         </IconBox>
-                        <a>
-                            <span>Publications</span>
-                        </a>
+                        <CostumLink to="/publications">
+                            {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Publications</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/people.png'></img>
+                            <Link to="/people">
+                                <img src='./media/icons/people.png'></img>
+                            </Link>
                         </IconBox>
-                        <a>
-                            <span>People</span>
-                        </a>
+                        <CostumLink to="/people">
+                            {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>People</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities.png'></img>
+                            <Link to="/entities">
+                                <img src='./media/icons/entities.png'></img>
+                            </Link>
                         </IconBox>
-                        <a>
-                            <span>Entities</span>
-                        </a>
+                        <CostumLink to="/entities">
+                            {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Entities</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/administration.png'></img>
+                            <Link to="/administration">
+                                <img src='./media/icons/administration.png'></img>
+                            </Link>
                         </IconBox>
-                        <a>
-                            <span>Administration</span>
-                        </a>
+                        <CostumLink to="/administration">
+                            {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Administration</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                 </ul>
                 <SectionTitle>Workspaces</SectionTitle>
                 <ul>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/clientcontract">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span> Client Contract</span>
-                        </a>
+                        <CostumLink to="/clientcontract">
+                            {'Client Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span> Client Contract</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/suppliercontract">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Supplier Contract</span>
-                        </a>
+                        <CostumLink to="/suppliercontract">
+                            {'Supplier Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Supplier Contract</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/corporate">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Corporate</span>
-                        </a>
+                        <CostumLink to="/corporate">
+                            {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Corporate</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/groupnorms">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Group Norms</span>
-                        </a>
+                        <CostumLink to="/groupnorms">
+                            {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Group Norms</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/entities2.png'></img>
+                            <Link to="/realestatecontracts">
+                                <img src='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Real estate contracts</span>
-                        </a>
+                        <CostumLink to="/realestatecontracts">
+                            {'Real estate contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Real estate contracts</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Next Item</span>
-                        </a>
+                        <CostumLink to="/nextitem">
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Next Item</span>
-                        </a>
+                        <CostumLink to="/nextitem">
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Next Item</span>
-                        </a>
+                        <CostumLink to="/nextitem">
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src ='./media/icons/entities2.png'></img>
+                            <Link to="/nextitem">
+                                <img src ='./media/icons/entities2.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
-                            <span>Next Item</span>
-                        </a>
+                        <CostumLink to="/nextitem">
+                            {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
+                                <span>Next Item</span>
+                            }
+                        </CostumLink>
                     </MenuItem>
                 </ul>
             </MenuItemsWrapper>
@@ -232,30 +303,38 @@ const ExpandedMenu: FC = () => {
                 <ul>
                     <MenuItem>
                         <ImageBox>
-                            <img src='./media/icons/userAvatar_2.jpg' ></img>
+                            <Link to="profile">
+                                <img src='./media/icons/userAvatar_2.jpg' ></img>
+                            </Link>
                         </ImageBox>
                         <AccountUserName>
-                            <span>Aniela Kowalska</span>
-                            <a href='#'>
+                            <CostumLink to="profile">
+                                <span>Aniela Kowalska</span>
+                            </CostumLink>
+                            <CostumLink to="profile">
                                 <AccountUserLink>See profile</AccountUserLink>
-                            </a>
+                            </CostumLink>
                         </AccountUserName>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/privacy.png'></img>
+                            <Link to="privacy">
+                                <img src='./media/icons/privacy.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="privacy">
                             <span>Privacy</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <img src='./media/icons/settings.png'></img>
+                            <Link to="/settings">
+                                <img src='./media/icons/settings.png'></img>
+                            </Link>
                         </IconBox>
-                        <a href='#'>
+                        <CostumLink to="/settings">
                             <span>Settings</span>
-                        </a>
+                        </CostumLink>
                     </MenuItem>
                 </ul>
             </AccountWrapper>

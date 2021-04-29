@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import useDropdown from 'react-dropdown-hook';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
 
 `;
 
-const IconsRightWrapper = styled.div`
+const LeftWrapper = styled.div`
     width: 310px;
     display: flex;
     justify-content: space-between;
@@ -37,17 +38,29 @@ const ExpandedMenuWrapper = styled.div`
     width: 230px;
     text-align: center;
     font-size: ${FontSize[18]};
+    position: relative;
+    background-color: ${Colors.white};
+
+
+`;
+
+const ButtonExpandedMenu = styled.button`
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    position: relative;
+    background-color: ${Colors.white};
+    border: none;
 
     span {
         padding-left: 10px;
     };
 `;
 
+
 const IconBox = styled.span`
     width: 30px;
+    cursor: pointer;
 `;
 
 const MenuItemText = styled.span`
@@ -94,7 +107,7 @@ const SearchSubmit = styled.input`
     };
 `;
 
-const LeftWrapper = styled.div`
+const IconsRightWrapper = styled.div`
     width: 310px;
     display: flex;
     justify-content: space-between;
@@ -123,19 +136,21 @@ const TopBar: FC = (props) => {
         <Wrapper>
             <LeftWrapper>
                 <Logo src='./media/icons/logo.png'></Logo>
-                <ExpandedMenuWrapper ref={wrapperRef} onClick={menuHandler}>
-                    <IconBox>
-                        <img src='./media/icons/house2.png'></img>
-                    </IconBox>
-                    <MenuItemText>Home</MenuItemText>
-                    <ArrowWrapper>
-                        <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
-                    </ArrowWrapper>
-                    {dropdownOpen && 
-                        <ExpandedMenu/>
+                <ExpandedMenuWrapper ref={wrapperRef} >
+                    <ButtonExpandedMenu onClick={menuHandler}>
+                        <IconBox>
+                            <img src='./media/icons/house2.png'></img>
+                        </IconBox>
+                        <MenuItemText>Home</MenuItemText>
+                        <ArrowWrapper>
+                            <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
+                        </ArrowWrapper>
+                    </ButtonExpandedMenu>
+                    {dropdownOpen &&
+                        <ExpandedMenu />
                     }
                 </ExpandedMenuWrapper>
-            </LeftWrapper>    
+            </LeftWrapper>
             <SearchWrapper>
                 <SearchInput type='search' placeholder='Search Legalcluster'></SearchInput>
                 <SearchSubmit type='image' alt='Submit' src='./media/icons/search.png'></SearchSubmit>
