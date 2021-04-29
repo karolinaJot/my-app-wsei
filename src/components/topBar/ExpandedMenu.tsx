@@ -39,7 +39,7 @@ const MenuItemsWrapper = styled.div`
 `;
 
 const SectionTitle = styled.span`
-    margin-bottom: 10px;
+    margin: 15px 0;
     display: block;
     color: gray;
     font-weight: 700;
@@ -58,6 +58,7 @@ const MenuItem = styled.li`
 
     span {
         padding-left: 10px;
+        display: inline-block;
     }
 `;
 
