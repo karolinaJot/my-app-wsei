@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
+import { SliderCard } from './SliderCard';
 
 
 
@@ -15,7 +16,9 @@ export const Slider: FC = () => {
 
     return(
         
-        <Wrapper></Wrapper>
+        <Wrapper>
+            <SliderCard></SliderCard>
+        </Wrapper>
     
     );
 
