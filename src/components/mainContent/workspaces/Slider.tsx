@@ -9,6 +9,10 @@ import { SliderCard } from './SliderCard';
 
 const Wrapper = styled.div`
     border: 2px solid blue;
+    width: 1005;
+    margin-top: 3px;
+    display: flex;
+    justify-content: left;
     flex: 1;
 `;
 
@@ -18,6 +22,9 @@ export const Slider: FC = () => {
         
         <Wrapper>
             <SliderCard></SliderCard>
+            <SliderCard></SliderCard>
+            <SliderCard></SliderCard>
+          
         </Wrapper>
     
     );
