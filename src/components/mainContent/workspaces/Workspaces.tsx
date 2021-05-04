@@ -9,7 +9,6 @@ import { Slider } from '../workspaces/Slider'
 const Wrapper =styled.div`
     height: 235px;
     width: 100%;
-    background-color: ${Colors.white};
     border: 2px solid greenyellow;
     display: flex;
     flex-direction: column;

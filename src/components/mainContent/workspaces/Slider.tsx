@@ -8,7 +8,8 @@ import { SliderCard } from './SliderCard';
 
 
 const Wrapper = styled.div`
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
+    margin-top: 3px;
     flex: 1;
 `;
 
