@@ -44,9 +44,9 @@ const IconBox = styled.div`
 
   
     img {
-        padding-top: 5px;
-        width: 80%;
-        height: 80%;
+        padding-top: 10px;
+        width: 60%;
+        height: 70%;
         object-fit: cover;
         
     };
