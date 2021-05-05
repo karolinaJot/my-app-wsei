@@ -20,7 +20,8 @@ const SectionTitle = styled.span`
     font-weight: 700;
     display: block;
     color: grey;
-    padding: 10px;
+    padding-left: 10px;
+    margin: 25px 0 10px 0;
 `;
 
 

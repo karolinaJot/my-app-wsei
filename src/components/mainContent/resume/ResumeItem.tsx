@@ -5,7 +5,7 @@ import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
 const Wrapper = styled.div`
-    margin: 20px 0;
+    margin: 15px 0;
     padding: 0 10px;
     display: flex;
     flex-direction: column;
