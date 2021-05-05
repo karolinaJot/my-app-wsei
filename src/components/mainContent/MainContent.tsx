@@ -1,15 +1,14 @@
 import {FC} from 'react';
 import styled from 'styled-components';
 
-import { Publications } from './Publications';
+import { Publications } from './publications/Publications';
 import { Workspaces } from './workspaces/Workspaces';
 import { Resume } from './Resume';
 
 const Wrapper = styled.div`
     width: 900px;
-    
     height: calc(100vh - 50px);
-    border: solid 4px black;
+    /* border: solid 4px black; */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
