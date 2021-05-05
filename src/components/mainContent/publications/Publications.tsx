@@ -1,25 +1,24 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import ListItem from './ListItem';
-import { PublicationDetails, Date, ImageBox, Author, PublicationText } from './Common';
+import { PublicationDetails, ImageBox, PublicationText } from './Common';
 
 
 
 const Wrapper = styled.div`
+    background-color: ${Colors.white};
     height: 300px;
     width: 100%;
-    background-color: ${Colors.white};
-    border: 2px solid black;
     display: flex;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
 `;
 
 const NewPublicationWrapper = styled.div`
-    background-color: lightcoral;
     height: 100%;
     flex: 1;
     background-image: linear-gradient(
@@ -38,21 +37,51 @@ const NewPublicationWrapper = styled.div`
 
 `;
 
+export const Date = styled.span` 
+    display: block;
+`;
+
+const Author = styled.span`
+    padding-left: 5px;
+    display: block;
+`;
+
 const LatestPublicationsWrapper = styled.div`
-    background-color: lightgreen;
     height: 100%;
     flex: 2;
+    display: flex;
+    flex-direction: column;
 `;
 
 const HeaderText = styled.span`
-    margin: 20px 0 10px 10px;
+    margin: 10px 0 0 10px;
     font-size: ${FontSize[16]};
     font-weight: 700;
     letter-spacing: 0.4px;
+    flex: 1;
 `;
 
 const ListItemsWrapper = styled.div`
      margin: 10px;
+     display: flex;
+     flex-direction: column;
+     flex: 4;
+`;
+
+
+const LinkWrapper = styled.div`
+    margin-left: 10px;
+    flex: 1;
+`;
+
+const CostumLink = styled(Link)`
+    text-decoration: none;
+    cursor: pointer;
+    color: #0381BE;
+    text-align: left;
+    font-size: ${FontSize[14]};
+    font-weight: 500;
+    letter-spacing: 0.4px;
 `;
 
 
@@ -76,8 +105,13 @@ export const Publications: FC = () => {
             <LatestPublicationsWrapper>
                 <HeaderText>Latest Publications</HeaderText>
                 <ListItemsWrapper>
-                   <ListItem></ListItem>
+                   <ListItem/>
+                   <ListItem/>
+                   <ListItem/>
                 </ListItemsWrapper>
+                <LinkWrapper>
+                    <CostumLink to="publications"> See more publications</CostumLink>
+                </LinkWrapper>
             </LatestPublicationsWrapper>
         </Wrapper>
     );

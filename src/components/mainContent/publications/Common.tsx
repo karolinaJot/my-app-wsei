@@ -6,7 +6,7 @@ import { FontSize } from '../../../styledHelpers/FontSizes';
 
 
 
- export const PublicationDetails = styled.div`
+export const PublicationDetails = styled.div`
 margin: 5px;
 display: flex;
 justify-content: left;
@@ -14,9 +14,6 @@ font-size: ${FontSize[14]};
 font-weight: 300;
 `;
 
-export const Date = styled.span` 
-    display: block;
-`;
 
 export const ImageBox = styled.span`
     width: 20px;
@@ -34,12 +31,7 @@ export const ImageBox = styled.span`
     }
 `;
 
-export const Author = styled.span`
-    padding-left: 5px;
-    display: block;    
-`;
-
- export const PublicationText = styled.p`
+export const PublicationText = styled.p`
     margin-bottom: 10px;
     margin-left: 5px;
     font-weight: 500;

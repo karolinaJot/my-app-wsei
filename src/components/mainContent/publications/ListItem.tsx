@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
-import { PublicationDetails, Date, ImageBox, Author, PublicationText } from './Common';
+import { PublicationDetails, ImageBox, PublicationText } from './Common';
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 
 `;
 
@@ -27,8 +28,19 @@ const ListItemInfo = styled.div`
 `;
 
 const ItemText = styled(PublicationText)`
-
 `;
+
+const Date = styled.span` 
+    display: block;
+    color: lightgrey;
+`;
+
+const Author = styled.span`
+    padding-left: 5px;
+    display: block;
+    color: grey;    
+`;
+
 
 const ListItem: FC = () => {
 
