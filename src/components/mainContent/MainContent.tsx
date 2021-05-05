@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import styled from 'styled-components';
 
-import { Publications } from './Publications';
+import { Publications } from './publications/Publications';
 import { Workspaces } from './workspaces/Workspaces';
 import { Resume } from './Resume';
 
