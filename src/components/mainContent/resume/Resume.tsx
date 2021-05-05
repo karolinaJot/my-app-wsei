@@ -12,7 +12,6 @@ import ResumeNavigation from './ResumeNavigation';
 const Wrapper =styled.div`
     height: auto;
     width: 100%;
-    border: 2px solid violet;
 `;
 
 const ResumeItemsWrapper = styled.div``;
@@ -23,6 +22,14 @@ export const Resume: FC = () => {
         <Wrapper>
             <ResumeHeader></ResumeHeader>
             <ResumeItemsWrapper>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
+                <ResumeItem></ResumeItem>
                 <ResumeItem></ResumeItem>
                 <ResumeItem></ResumeItem>
             </ResumeItemsWrapper>
