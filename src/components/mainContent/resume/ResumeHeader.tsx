@@ -6,7 +6,7 @@ import { FontSize } from '../../../styledHelpers/FontSizes';
 
 
 const Wrapper = styled.div`
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

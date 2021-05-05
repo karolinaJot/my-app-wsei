@@ -11,12 +11,13 @@ const Wrapper = styled.div`
     flex-direction: column;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
+    background-color: ${Colors.white};
 `;
 
 
 const Title = styled.span`
     display: block;
-    margin-bottom: 5px;   
+    margin: 5px 0;   
     font-size: ${FontSize[16]}; 
     font-weight: 500;
     color: #0381BE;

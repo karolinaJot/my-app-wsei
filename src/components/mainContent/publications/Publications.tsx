@@ -55,11 +55,13 @@ const LatestPublicationsWrapper = styled.div`
 
 const HeaderText = styled.span`
     margin: 10px 0 0 10px;
-    font-size: ${FontSize[16]};
+    font-size: ${FontSize[18]};
     font-weight: 700;
     letter-spacing: 0.4px;
+    color: grey;
     flex: 1;
 `;
+
 
 const ListItemsWrapper = styled.div`
      margin: 10px;
