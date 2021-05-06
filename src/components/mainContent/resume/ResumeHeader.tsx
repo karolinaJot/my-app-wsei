@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
@@ -29,9 +29,39 @@ const RightSideWrapper = styled.div`
     flex-direction: row;
 `;
 
-const FilerBox = styled.span`
-    color: lightgray;
+const FilerBox = styled.div`
+    /* border: solid 1px grey; */
     margin-right: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    background-color: ${Colors.white};
+
+`;
+
+const Filter = styled.input`
+   
+color: lightgray;
+    display: block;
+    border: none;
+    border-radius: 8%;
+    width: 100%;
+    height: 100%;
+
+    &:focus {
+        outline: none;
+    };
+`;
+
+const FilterSubmit = styled.input`
+   height: 100%;
+   display: block;
+   /* padding-right: 5px; */
+   &:focus {
+        outline: none;
+    };
 `;
 
 const FollowBox = styled.span`
@@ -41,11 +71,22 @@ const FollowBox = styled.span`
 
 
 const ResumeHeader: FC = () =>{
+    
+    const [inputText, setInputText] = useState<string>('');
+    
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    };
+    
     return(
         <Wrapper>
             <HeaderText>Resume your work</HeaderText>
             <RightSideWrapper>
-                <FilerBox>Filter by title...</FilerBox>
+                <FilerBox>
+                    <Filter type='text' value={inputText} onChange={inputHandler} placeholder='Filter by title...'></Filter>
+                    <FilterSubmit type='image' alt='submit' src='./media/icons/search.png'></FilterSubmit>
+                </FilerBox>
                 <FollowBox>O Followed</FollowBox>
             </RightSideWrapper>
         </Wrapper>

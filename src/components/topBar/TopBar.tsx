@@ -180,7 +180,7 @@ const TopBar: FC = (props) => {
             </LeftWrapper>
             <SearchWrapper>
                 <SearchInput type='search' placeholder='Search Legalcluster'></SearchInput>
-                <SearchSubmit type='image' alt='Submit' src='./media/icons/search.png'></SearchSubmit>
+                <SearchSubmit type='image' alt='submit' src='./media/icons/search.png'></SearchSubmit>
             </SearchWrapper>
             <IconsRightWrapper>
                 <HomeRightIcon src='./media/icons/house.png'></HomeRightIcon>

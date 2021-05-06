@@ -29,7 +29,7 @@ const Filter = styled.input`
 
     &:focus {
         outline: none;
-    }
+    };
 `;
 
 const MenuItemsWrapper = styled.div`
