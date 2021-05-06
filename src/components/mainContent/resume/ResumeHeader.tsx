@@ -1,6 +1,7 @@
 import React, { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
 import styled from 'styled-components';
 
+
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
@@ -70,21 +71,21 @@ const FollowBox = styled.span`
 `;
 
 
-const ResumeHeader: FC = () =>{
+const ResumeHeader: FC = (props) =>{
     
-    const [inputText, setInputText] = useState<string>('');
     
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const text = e.target.value;
-        setInputText(text);
-    };
+    // const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    //     const text = e.target.value;
+    //     props.setInputText(text);
+    // };
+    // value={props.inputText} onChange={inputHandler} 
     
     return(
         <Wrapper>
             <HeaderText>Resume your work</HeaderText>
             <RightSideWrapper>
                 <FilerBox>
-                    <Filter type='text' value={inputText} onChange={inputHandler} placeholder='Filter by title...'></Filter>
+                    <Filter type='text'placeholder='Filter by title...'></Filter> 
                     <FilterSubmit type='image' alt='submit' src='./media/icons/search.png'></FilterSubmit>
                 </FilerBox>
                 <FollowBox>O Followed</FollowBox>
