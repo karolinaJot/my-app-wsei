@@ -81,14 +81,18 @@ const Update = styled.span`
     color: lightgray;
 `;
 
+interface IResumeItemProps {
+    title: string;
+};
 
-const ResumeItem: FC = () =>{
+
+const ResumeItem: FC<IResumeItemProps> = (props: IResumeItemProps) =>{
     return(
         <Wrapper>
-            <Title>World company SAS</Title>
+            <Title>{props.title}</Title>
             <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aspernatur 
                 nesciunt possimus amet vel doloremque ab aliquam veniam autem, exercitationem 
-                corrupti architecto delectus ad maiores odit, fuga eius laboriosam sequi?
+                corrupti architecto delectus ad maiores odit, fuga eius laboriosam sequi"
             </Text>
             <InfoWrapper>
                 <LogoBox>
