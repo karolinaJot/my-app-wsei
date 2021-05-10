@@ -5,13 +5,15 @@ import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
 const Wrapper = styled.div`
-    width: 240px;
+    min-width: 240px;
     height: auto;
     display: flex;
     flex-direction:column;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
     margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
 `;
 
 const BackgroundBox = styled.div`

@@ -8,12 +8,11 @@ import { SliderCard } from './SliderCard';
 
 
 const Wrapper = styled.div`
-    /* border: 2px solid blue; */
-    width: 1005;
+    height: 100%;
     margin-top: 3px;
     display: flex;
-    justify-content: left;
-    flex: 1;
+    
+    overflow: hidden;
 `;
 
 export const Slider: FC = () => {
@@ -49,6 +48,42 @@ export const Slider: FC = () => {
                 detailsHeaderText="Norms"
                 detailsHeaderUsers="45 users"
             />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Real estate contracts"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Contract"
+                detailsHeaderUsers="10 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Next Item"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Super"
+                detailsHeaderUsers="100 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Next Item"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Super"
+                detailsHeaderUsers="200 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Next Item"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Super"
+                detailsHeaderUsers="300 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Next Item"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Super"
+                detailsHeaderUsers="400 users"
+            />
+           
             
           
         </Wrapper>
