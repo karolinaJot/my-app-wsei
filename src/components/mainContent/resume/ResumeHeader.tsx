@@ -71,6 +71,8 @@ const FollowBox = styled.span`
 `;
 
 
+
+
 const ResumeHeader: FC = (props) =>{
     
     
