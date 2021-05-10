@@ -105,27 +105,36 @@ const UpdateInfo = styled.span`
     color: grey;
 `;
 
-export const SliderCard: FC = () => {
+interface ISliderCardProps {
+    bigIcon: string;
+    title: string;
+    detailsHeaderText: string;
+    smallIcon: string;
+    detailsHeaderUsers: string;
+
+};
+
+export const SliderCard: FC <ISliderCardProps> = (props: ISliderCardProps) => {
     return (
         <Wrapper>
             <BackgroundBox></BackgroundBox>
             <HeaderWrapper>
                 <IconBox>
-                        <img src='./media/icons/entities2.svg' alt='icon'></img>
+                        <img src={props.bigIcon} alt='icon'></img>
                 </IconBox>
-                <Title>Client contract</Title>
+                <Title>{props.title}</Title>
             </HeaderWrapper>
             <Details>
                 <DetailsHeader>
                     <DetailsHeaderIcon>
-                        <img src='./media/icons/entities2.svg' alt='icon'></img>
+                        <img src={props.smallIcon} alt='icon'></img>
                     </DetailsHeaderIcon>
-                    <DetailsHeaderText>Contract</DetailsHeaderText>
+                    <DetailsHeaderText>{props.detailsHeaderText}</DetailsHeaderText>
                     <DetailsHeaderDot>.</DetailsHeaderDot>
                     <DetailsHeaderIcon>
                         <img src='./media/icons/people.svg' alt='icon'></img>
                     </DetailsHeaderIcon>
-                    <DetailsHeaderText>150 users</DetailsHeaderText>
+                    <DetailsHeaderText>{props.detailsHeaderUsers}</DetailsHeaderText>
                 </DetailsHeader>
                 <UpdateInfo>Last update 2 days ago</UpdateInfo>
             </Details>

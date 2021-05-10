@@ -21,9 +21,35 @@ export const Slider: FC = () => {
     return(
         
         <Wrapper>
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Client contract"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Contract"
+                detailsHeaderUsers="150 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Supplier Contract"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Contract"
+                detailsHeaderUsers="25 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Corporate"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Contract"
+                detailsHeaderUsers="15 users"
+            />
+            <SliderCard
+                bigIcon="./media/icons/entities2.svg"
+                title="Group Norms"
+                smallIcon="./media/icons/entities2.svg"
+                detailsHeaderText="Norms"
+                detailsHeaderUsers="45 users"
+            />
+            
           
         </Wrapper>
     
