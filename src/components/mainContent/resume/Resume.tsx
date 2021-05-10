@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
@@ -19,7 +19,12 @@ const ResumeItemsWrapper = styled.div``;
 
 export const Resume: FC = () => {
 
-    // const [inputText, setInputText] = useState<string>("");
+    const [inputText, setInputText] = useState<string>("");
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    };
 
     return(
         <Wrapper>

@@ -117,7 +117,7 @@ const ExpandedMenu: FC = () => {
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text);
-    }
+    };
 
     return (
         <Wrapper>

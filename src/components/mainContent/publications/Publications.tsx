@@ -34,6 +34,7 @@ const NewPublicationWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: hidden;
 
 `;
 

@@ -7,9 +7,8 @@ import { Slider } from '../workspaces/Slider'
 
 
 const Wrapper =styled.div`
-    height: 235px;
+    min-height: 235px;
     width: 100%;
-    /* border: 2px solid greenyellow; */
     display: flex;
     flex-direction: column;
 
