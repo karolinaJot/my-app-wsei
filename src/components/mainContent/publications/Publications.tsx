@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     display: flex;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 `;
 
 const NewPublicationWrapper = styled.div`
