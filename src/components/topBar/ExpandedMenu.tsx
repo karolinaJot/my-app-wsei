@@ -57,7 +57,7 @@ const MenuItem = styled.li`
     margin: 5px 0;
 
     span {
-        padding-left: 10px;
+        margin-left: 10px;
         display: inline-block;
     }
 `;
