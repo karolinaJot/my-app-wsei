@@ -18,6 +18,7 @@ const CurrentUserCard = styled.div`
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 `
 const UserCardInfoWrapper = styled.div`
+    
     border-bottom: solid 2px ${Colors.bg};
     display: flex;
     flex-direction: column;
@@ -55,17 +56,24 @@ const Job = styled.span`
 const CradLinksWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding-top: 15px;
+
+    ul {
+        width: 100%;
+    };
 `;
 
 const CardLinksItem = styled.li`
+    width: 100%;
     display: flex;
-    position: relative;
     margin-bottom: 15px;
+    justify-content: space-between;
+    align-items: center;
 
 
     span {
-        padding-left: 10px;
+        padding: 0 10px;
     };
 `;
 
@@ -80,9 +88,6 @@ const CardLinksItemText = styled.span`
 `;
 
 const CardLinksItemBtn = styled.span`
-    position: absolute;
-    top: 0;
-    right: -50%;
 
     button {
         width: 30px;
