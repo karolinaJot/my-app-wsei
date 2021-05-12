@@ -7,6 +7,7 @@ import TopBar from '../topBar/TopBar';
 import LeftBar from '../leftBar/LeftBar';
 import MainContent from '../mainContent/MainContent';
 import { UnderConstructionPage } from '../underConstructionPage/UnderConstructionPage';
+import Entities from '../entities/Entities';
 
 
 const Wrapper = styled.div`
@@ -37,7 +38,7 @@ const MainPage : FC = () => {
               <UnderConstructionPage />
             </Route>
             <Route path="/entities" exact>
-              <UnderConstructionPage />
+              <Entities />
             </Route>
             <Route path="/administration" exact>
               <UnderConstructionPage />
