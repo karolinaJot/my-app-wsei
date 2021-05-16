@@ -36,7 +36,7 @@ const TextBox = styled.div`
     width: 140px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
 `;
 
 const CompanyName = styled.span`
