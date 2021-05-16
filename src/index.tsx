@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainPage from './components/mainPage/MainPage';
-import { Reset} from 'styled-reset';
 import { Provider } from 'react-redux';
+import { Reset} from 'styled-reset';
+
+import MainPage from './components/mainPage/MainPage';
+import store from './tools/store';
 
 ReactDOM.render(
   <Provider store={store}>
