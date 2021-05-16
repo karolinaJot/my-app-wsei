@@ -28,7 +28,7 @@ export const Resume: FC = () => {
 
     return(
         <Wrapper>
-            <ResumeHeader/>
+            <ResumeHeader changeText={inputHandler}/>
             <ResumeItemsWrapper>
                 <ResumeItem title="World Company SAS"/>
                 <ResumeItem title="Company XVT"/>
