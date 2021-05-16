@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainPage from './components/mainPage/MainPage';
+import { Provider } from 'react-redux';
 import { Reset} from 'styled-reset';
 
+import MainPage from './components/mainPage/MainPage';
+import store from './tools/store';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Reset />
     <MainPage />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

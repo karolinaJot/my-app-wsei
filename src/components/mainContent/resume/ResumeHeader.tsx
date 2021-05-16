@@ -70,10 +70,12 @@ const FollowBox = styled.span`
     margin-right: 10px;
 `;
 
+interface ResumeHeaderProps {
+    changeText(e: ChangeEvent<HTMLInputElement>): void;
+}
 
 
-
-const ResumeHeader: FC = (props) =>{
+const ResumeHeader: FC<ResumeHeaderProps> = (props) =>{
     
     
     // const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -87,7 +89,7 @@ const ResumeHeader: FC = (props) =>{
             <HeaderText>Resume your work</HeaderText>
             <RightSideWrapper>
                 <FilerBox>
-                    <Filter type='text'placeholder='Filter by title...'></Filter> 
+                    <Filter onChange={props.changeText} type='text'placeholder='Filter by title...'></Filter> 
                     <FilterSubmit type='image' alt='submit' src='./media/icons/search.png'></FilterSubmit>
                 </FilerBox>
                 <FollowBox>O Followed</FollowBox>

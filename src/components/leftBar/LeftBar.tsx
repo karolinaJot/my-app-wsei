@@ -1,7 +1,10 @@
 import {FC} from 'react';
+import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
@@ -149,8 +152,15 @@ const IconBox = styled.span`
 `;
 
 const LeftBar: FC = () => {
+
+//---------- ODCZYT DANYCH --- TEST---
+const { usersList } = useSelector<IState, IUsersReducer>(state => ({
+    ...state.users
+}));
+
     return (
         <Wrapper>
+            {console.log(usersList)};
             <CurrentUserCard>
                 <UserCardInfoWrapper>
                     <ImageBox>
