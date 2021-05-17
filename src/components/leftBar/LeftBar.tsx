@@ -160,7 +160,7 @@ const { usersList } = useSelector<IState, IUsersReducer>(state => ({
 
     return (
         <Wrapper>
-            {console.log(usersList)};
+            {console.log(usersList)}
             <CurrentUserCard>
                 <UserCardInfoWrapper>
                     <ImageBox>
