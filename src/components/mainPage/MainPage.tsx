@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { Colors } from '../../styledHelpers/Colors';
 import TopBar from '../topBar/TopBar';
@@ -8,6 +9,9 @@ import LeftBar from '../leftBar/LeftBar';
 import MainContent from '../mainContent/MainContent';
 import { UnderConstructionPage } from '../underConstructionPage/UnderConstructionPage';
 import Entities from '../entities/Entities';
+import { getUsers } from '../../actions/usersActions';
+
+type GetUsers = ReturnType<typeof getUsers>;
 
 
 const Wrapper = styled.div`
@@ -23,7 +27,15 @@ const Wrapper = styled.div`
 `;
 
 
+
 const MainPage : FC = () => {
+
+  const dispach = useDispatch();
+
+  useEffect(() => {
+    dispach<GetUsers>(getUsers());
+  }, []);
+
   return (
     <Router>
       <Wrapper>
