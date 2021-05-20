@@ -66,8 +66,7 @@ const MenuItem = styled.li`
     }
 `;
 
-const CostumLink = 
-styled(Link)`
+const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     color: black;
