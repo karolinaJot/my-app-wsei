@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import * as actionTypes from '../actions/actionTypes/commentType';
 import { ISingleComment } from '../entities/comments';
 
-export const getComments= (): Promise<ISingleComment[]> => ((dispatch: Dispatch) => {
+export const getComments = (): Promise<ISingleComment[]> => ((dispatch: Dispatch) => {
     
     return fetch('https://jsonplaceholder.typicode.com/comments')
     .then(response => response.json())

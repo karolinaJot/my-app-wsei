@@ -2,10 +2,10 @@ import { FC, useState, ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { IState } from '../../reducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
-
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
