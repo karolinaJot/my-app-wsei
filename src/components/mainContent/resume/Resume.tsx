@@ -45,7 +45,10 @@ export const Resume: FC = () => {
             {console.log(commentsList)}
             <ResumeHeader changeText={inputHandler}/>
             <ResumeItemsWrapper>
-                <ResumeItem title="World Company SAS"/>
+
+                {/* <ResumeItem title= {commentsList[0].name}/> */}
+                    
+            
                 <ResumeItem title="Company XVT"/>
                 <ResumeItem title="Great Company"/>
                 <ResumeItem title="Fantastic Foo"/>
