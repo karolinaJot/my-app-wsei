@@ -1,6 +1,9 @@
 import { FC, useState, ChangeEvent } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
@@ -118,6 +121,12 @@ const ExpandedMenu: FC = () => {
         const text = e.target.value;
         setInputText(text);
     };
+
+    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+    
+
 
     return (
         <Wrapper>
@@ -289,7 +298,7 @@ const ExpandedMenu: FC = () => {
                         </ImageBox>
                         <AccountUserName>
                             <CostumLink to="profile">
-                                <span>Aniela Kowalska</span>
+                                <span>{usersList[1].name}</span>
                             </CostumLink>
                             <CostumLink to="profile">
                                 <AccountUserLink>See profile</AccountUserLink>

@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { IState } from '../../reducers';
+import { IPhotosReducer } from '../../reducers/photosReducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
@@ -153,14 +154,15 @@ const IconBox = styled.span`
 
 const LeftBar: FC = () => {
 
-//---------- ODCZYT DANYCH --- TEST---
-const { usersList } = useSelector<IState, IUsersReducer>(state => ({
-    ...state.users
+
+const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer>(state => ({
+    ...state.users,
+    ...state.photos
 }));
 
     return (
         <Wrapper>
-            {console.log(usersList)}
+            {console.log(photosList)}
             <CurrentUserCard>
                 <UserCardInfoWrapper>
                     <ImageBox>
@@ -169,10 +171,10 @@ const { usersList } = useSelector<IState, IUsersReducer>(state => ({
                         </Link>
                     </ImageBox>
                     <CostumLink to="profile">
-                        <Name>Aniela Kowalska</Name>
+                        <Name>{usersList[1].name}</Name>
                     </CostumLink>
                     <CostumLink to="profile">
-                        <Job>Job title - Company</Job>
+                        <Job>{usersList[1].company.name}</Job>
                     </CostumLink>
                 </UserCardInfoWrapper>
                 <CradLinksWrapper>
