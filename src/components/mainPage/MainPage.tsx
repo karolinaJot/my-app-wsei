@@ -8,6 +8,7 @@ import TopBar from '../topBar/TopBar';
 import LeftBar from '../leftBar/LeftBar';
 import MainContent from '../mainContent/MainContent';
 import { UnderConstructionPage } from '../underConstructionPage/UnderConstructionPage';
+import Profile from '../profile/Profile'; 
 import Entities from '../entities/Entities';
 import { getUsers } from '../../actions/usersActions';
 import { getPhotos } from '../../actions/photosActions';
@@ -86,7 +87,7 @@ const MainPage : FC = () => {
               <UnderConstructionPage />
             </Route>
             <Route path="/profile" exact>
-              <UnderConstructionPage />
+              <Profile />
             </Route>
             <Route path="/privacy" exact>
               <UnderConstructionPage />
