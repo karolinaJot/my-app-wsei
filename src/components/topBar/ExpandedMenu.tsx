@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IState } from '../../reducers';
+import { IPhotosReducer } from '../../reducers/photosReducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -122,8 +123,10 @@ const ExpandedMenu: FC = () => {
         setInputText(text);
     };
 
-    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
-        ...state.users
+    const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer >(state => ({
+        ...state.users,
+        ...state.photos
+    
     }));
     
 
@@ -293,12 +296,12 @@ const ExpandedMenu: FC = () => {
                     <MenuItem>
                         <ImageBox>
                             <Link to="profile">
-                                <img src='./media/icons/userAvatar_2.jpg' ></img>
+                                <img src={photosList[0].url}></img>
                             </Link>
                         </ImageBox>
                         <AccountUserName>
                             <CostumLink to="profile">
-                                <span>{usersList[1].name}</span>
+                                <span>{usersList[0].name}</span>
                             </CostumLink>
                             <CostumLink to="profile">
                                 <AccountUserLink>See profile</AccountUserLink>

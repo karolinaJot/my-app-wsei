@@ -155,26 +155,28 @@ const IconBox = styled.span`
 const LeftBar: FC = () => {
 
 
-const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer>(state => ({
+const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer >(state => ({
     ...state.users,
     ...state.photos
+
 }));
 
     return (
         <Wrapper>
+            {console.log(usersList)}
             {console.log(photosList)}
             <CurrentUserCard>
                 <UserCardInfoWrapper>
                     <ImageBox>
                         <Link to="profile">
-                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                            <img src={photosList[0].url}></img>
                         </Link>
                     </ImageBox>
                     <CostumLink to="profile">
-                        <Name>{usersList[1].name}</Name>
+                        <Name>{usersList[0].name}</Name>
                     </CostumLink>
                     <CostumLink to="profile">
-                        <Job>{usersList[1].company.name}</Job>
+                        <Job>{usersList[0].company.name}</Job>
                     </CostumLink>
                 </UserCardInfoWrapper>
                 <CradLinksWrapper>

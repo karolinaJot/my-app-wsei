@@ -11,9 +11,11 @@ import { UnderConstructionPage } from '../underConstructionPage/UnderConstructio
 import Entities from '../entities/Entities';
 import { getUsers } from '../../actions/usersActions';
 import { getPhotos } from '../../actions/photosActions';
+import { getComments } from '../../actions/commentsActions';
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
+type GetComments = ReturnType<typeof getComments>;
 
 
 const Wrapper = styled.div`
@@ -40,6 +42,10 @@ const MainPage : FC = () => {
 
   useEffect(()=> {
     dispach<GetPhotos>(getPhotos());
+  }, []);
+
+  useEffect(()=> {
+    dispach<GetComments>(getComments());
   }, []);
 
   return (
