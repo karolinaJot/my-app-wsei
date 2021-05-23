@@ -8,6 +8,9 @@ import ProfileHeaderTopBar from './ProfileHeaderTopBar';
 const Wrapper = styled.div`
     height: 300px;
     border: 2px solid pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 `;
 
