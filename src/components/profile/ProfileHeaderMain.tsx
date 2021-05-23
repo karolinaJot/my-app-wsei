@@ -8,16 +8,23 @@ import { FontSize } from '../../styledHelpers/FontSizes';
 
 const Wrapper = styled.div`
     height: 150px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     margin: 20px 20px;
+    border-bottom: 2px solid white;
 
 `;
+
+const Wrapper2 = styled.div`
+    display: flex;
+`;
+
 
 const PhotoEleWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin: 20px 20px 0 0;
 
 `;
 
@@ -94,21 +101,20 @@ const DetailsTextSmall = styled.span`
     margin-top: 5px;
 `;
 
-const LeftElemsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 20px 0;
-`;
 
 const EditWrapper = styled.div`
-    display: flex;
-    justify-content: flex-end;
+    img {
+        padding: 0 15px;
+        width: 25px;
+        height: 25px;
+    }
  
 `;
 const ContactsWrapper = styled.span`
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 20px;
    
 
 `;
@@ -116,36 +122,37 @@ const ContactsWrapper = styled.span`
 const ProfileHeaderMain: FC = () => {
     return (
         <Wrapper>
-            <PhotoEleWrapper>
-                <PhotoWrapper>
-                    <PhotoBox>
-                        <img src='./media/icons/userAvatar_2.jpg'></img>
-                    </PhotoBox>
-                    <PhotoDotBox></PhotoDotBox>
-                </PhotoWrapper>
-                <CostumLink to='profile'>
-                    <PhotoText>See profile</PhotoText>
-                </CostumLink>
-            </PhotoEleWrapper>
-            <DetailsWrapper>
-                <div>
-                    <DetailsTextBig>Aniela Kowalska</DetailsTextBig>
-                    <DetailsTextBig>fajna firma</DetailsTextBig>
-                </div>
-                <div>
-                    <DetailsTextSmall>City Krakow</DetailsTextSmall>
-                    <DetailsTextSmall>Szef główny</DetailsTextSmall>
-                </div>
-            </DetailsWrapper>
-            <LeftElemsWrapper>
-                <EditWrapper>
-                    <span>Edit</span>
-                </EditWrapper>
+            <Wrapper2>
+
+                <PhotoEleWrapper>
+                    <PhotoWrapper>
+                        <PhotoBox>
+                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                        </PhotoBox>
+                        <PhotoDotBox></PhotoDotBox>
+                    </PhotoWrapper>
+                    <CostumLink to='profile'>
+                        <PhotoText>See profile</PhotoText>
+                    </CostumLink>
+                </PhotoEleWrapper>
+                <DetailsWrapper>
+                    <div>
+                        <DetailsTextBig>Aniela Kowalska</DetailsTextBig>
+                        <DetailsTextBig>fajna firma</DetailsTextBig>
+                    </div>
+                    <div>
+                        <DetailsTextSmall>City Krakow</DetailsTextSmall>
+                        <DetailsTextSmall>Szef główny</DetailsTextSmall>
+                    </div>
+                </DetailsWrapper>
                 <ContactsWrapper>
                     <DetailsTextSmall>fajnymail@gmail.com</DetailsTextSmall>
                     <DetailsTextSmall>+33 (0)62345667733</DetailsTextSmall>
                 </ContactsWrapper>
-            </LeftElemsWrapper>
+            </Wrapper2>
+            <EditWrapper>
+                <img src='./media/icons/settings.svg'></img>
+            </EditWrapper>
         </Wrapper>
     );
 };
