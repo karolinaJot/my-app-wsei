@@ -39,13 +39,7 @@ const MainPage : FC = () => {
 
   useEffect(() => {
     dispach<GetUsers>(getUsers());
-  }, []);
-
-  useEffect(()=> {
     dispach<GetPhotos>(getPhotos());
-  }, []);
-
-  useEffect(()=> {
     dispach<GetComments>(getComments());
   }, []);
 
