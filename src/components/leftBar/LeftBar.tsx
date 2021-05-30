@@ -169,14 +169,14 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                 <UserCardInfoWrapper>
                     <ImageBox>
                         <Link to="profile">
-                            {/* <img src={photosList[0].url}></img> */}
+                            <img src={photosList[0]?.url}></img>
                         </Link>
                     </ImageBox>
                     <CostumLink to="profile">
-                        {/* <Name>{usersList[0].name}</Name> */}
+                        <Name>{usersList[0]?.name}</Name>
                     </CostumLink>
                     <CostumLink to="profile">
-                        {/* <Job>{usersList[0].company.name}</Job> */}
+                        <Job>{usersList[0]?.company.name}</Job>
                     </CostumLink>
                 </UserCardInfoWrapper>
                 <CradLinksWrapper>
