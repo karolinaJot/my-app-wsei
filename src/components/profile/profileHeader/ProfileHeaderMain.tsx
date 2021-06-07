@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontSize } from '../../styledHelpers/FontSizes';
+import { FontSize } from '../../../styledHelpers/FontSizes';
 
 
 
