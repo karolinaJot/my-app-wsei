@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import ProfileHeader from './ProfileHeader';
+import ProfileDetails from './profileDeatils/ProfileDetails';
+import ProfileHeader from './profileHeader/ProfileHeader';
 
 
 
@@ -12,6 +13,7 @@ const Profile: FC = () => {
     return (
         <Wrapper>
             <ProfileHeader></ProfileHeader>
+            <ProfileDetails></ProfileDetails>
         </Wrapper>
     );
 };
