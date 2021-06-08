@@ -6,13 +6,13 @@ export interface IPostsReducers {
 };
 
 const defaultState = (): IPostsReducers => ({
-    postsList: []
+    postsList: [],
 });
 
 export default ( state = defaultState(), action: any) => {
     switch (action.type) {
         case actionTypes.GET_POSTS: {
-            const data: actionTypes.IPostTypes['GET_POSTS']
+            const data: actionTypes.IPostTypes['GET_POSTS'] = action;
             return {
                 ...state,
                 postsList: data.postsList
