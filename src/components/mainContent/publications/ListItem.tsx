@@ -41,24 +41,28 @@ const Author = styled.span`
     color: grey;    
 `;
 
+interface IListItemProps {
+    text: string,
+    image: string,
+    author: string,
+}
 
-const ListItem: FC = () => {
+
+const ListItem: FC<IListItemProps> = (props: IListItemProps) => {
 
     return (
         <Wrapper>
             <ListItemImg>
-                <img src='./media/icons/bg-image.jpg'></img>
+                <img src={props.image}></img>
             </ListItemImg>
             <ListItemInfo>
-                <ItemText>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magni sed corrupti distinctio
-            </ItemText>
+                <ItemText>{props.text}</ItemText>
                 <PublicationDetails>
                     <Date>7 jan. 2020</Date>
                     <ImageBox>
                         <img src='./media/icons/userAvatar_2.jpg'></img>
                     </ImageBox>
-                    <Author>Aniela Kowalska</Author>
+                    <Author>{props.author}</Author>
                 </PublicationDetails>
             </ListItemInfo>
         </Wrapper>
