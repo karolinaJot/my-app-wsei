@@ -6,6 +6,10 @@ import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import ListItem from './ListItem';
 import { PublicationDetails, ImageBox, PublicationText } from './Common';
+import { useSelector } from 'react-redux';
+import { IState } from '../../../reducers';
+import { IUsersReducer } from '../../../reducers/usersReducers';
+import { IPhotosReducer } from '../../../reducers/photosReducers';
 
 
 
@@ -90,6 +94,12 @@ const CostumLink = styled(Link)`
 
 
 export const Publications: FC = () => {
+    
+    const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer >(state => ({
+        ...state.users,
+        ...state.photos,
+    }));
+
 
     return (
         <Wrapper>
