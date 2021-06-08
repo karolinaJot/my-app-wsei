@@ -10,6 +10,7 @@ export const PublicationDetails = styled.div`
 margin: 5px;
 display: flex;
 justify-content: left;
+align-items: center;
 font-size: ${FontSize[14]};
 font-weight: 300;
 `;

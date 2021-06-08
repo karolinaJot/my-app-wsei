@@ -55,10 +55,20 @@ export const Resume: FC = () => {
 
     const [inputText, setInputText] = useState<string>("");
     const [currentPage, setCurentPage] = useState<number>(0);
+    const [followed, setFollowed] = useState<string>("All");
+    const [isAllFollowed, setIsAllFollowed] = useState<boolean>(true);
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text);
+    };
+
+    const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        const text = e.target.value;
+        setFollowed(text);
+        text === "My" ? setIsAllFollowed(false) : setIsAllFollowed(true)
+
+
     };
 
     const handlePageClick = (data: any) => {
@@ -68,8 +78,10 @@ export const Resume: FC = () => {
 
     return (
         <Wrapper>
-            <ResumeHeader changeText={inputHandler} />
-            {commentsList &&
+            <ResumeHeader changeText={inputHandler}
+                changeFollowed={selectHandler}
+            />
+            {isAllFollowed &&
                 <ResumeItemsWrapper>
                     {commentsList.slice(currentPage, currentPage + 10)
                         .map(comment =>
@@ -84,6 +96,24 @@ export const Resume: FC = () => {
                         )
                     }
                 </ResumeItemsWrapper>
+            }
+            {!isAllFollowed &&
+                <ResumeItemsWrapper>
+                    {commentsList.slice(currentPage, currentPage + 10)
+                        .map(comment =>
+                            comment.name.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
+                            comment.postId === 1 &&
+                            <ResumeItem
+                                key={comment.id}
+                                title={comment.name}
+                                body={comment.body}
+                                author={usersList[comment.postId - 1] ? usersList[comment.postId - 1].name : usersList[1].name}
+                                company={usersList[comment.postId - 1] ? usersList[comment.postId - 1].company.name : usersList[1].company.name}
+                            />
+                        )
+                    }
+                </ResumeItemsWrapper>
+
             }
             <ResumeNavigation>
                 <ReactPaginate

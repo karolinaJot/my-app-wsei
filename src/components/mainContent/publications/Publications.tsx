@@ -6,12 +6,17 @@ import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import ListItem from './ListItem';
 import { PublicationDetails, ImageBox, PublicationText } from './Common';
+import { useSelector } from 'react-redux';
+import { IState } from '../../../reducers';
+import { IUsersReducer } from '../../../reducers/usersReducers';
+import { IPhotosReducer } from '../../../reducers/photosReducers';
+import { IPostsReducers } from '../../../reducers/postsReducers';
 
 
 
 const Wrapper = styled.div`
     background-color: ${Colors.white};
-    height: 300px;
+    height: auto;
     width: 100%;
     display: flex;
     border-radius: 5px;
@@ -75,6 +80,7 @@ const ListItemsWrapper = styled.div`
 
 const LinkWrapper = styled.div`
     margin-left: 10px;
+    margin-bottom: 10px;
     flex: 1;
 `;
 
@@ -91,32 +97,52 @@ const CostumLink = styled(Link)`
 
 export const Publications: FC = () => {
 
+    const { usersList, photosList, postsList } = useSelector<IState, IUsersReducer & IPhotosReducer & IPostsReducers>(state => ({
+        ...state.users,
+        ...state.photos,
+        ...state.posts
+    }));
+
+
     return (
         <Wrapper>
-            <NewPublicationWrapper>
-                <PublicationText>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quidem odio fugiat et sequi illo ex consequuntur nulla voluptatum laborum ab!
-                </PublicationText>
-                <PublicationDetails>
-                    <Date>7 jan. 2020</Date>
-                    <ImageBox>
-                        <img src='./media/icons/userAvatar_2.jpg'></img>
-                    </ImageBox>
-                    <Author>Aniela Kowalska</Author>
-                </PublicationDetails>
-            </NewPublicationWrapper>
-            <LatestPublicationsWrapper>
-                <HeaderText>Latest Publications</HeaderText>
-                <ListItemsWrapper>
-                   <ListItem/>
-                   <ListItem/>
-                   <ListItem/>
-                </ListItemsWrapper>
-                <LinkWrapper>
-                    <CostumLink to="publications"> See more publications</CostumLink>
-                </LinkWrapper>
-            </LatestPublicationsWrapper>
+            {console.log(postsList)}
+            {postsList && usersList &&
+                <NewPublicationWrapper>
+                    <PublicationText>
+                        {postsList[0].title}
+                    </PublicationText>
+                    <PublicationDetails>
+                        <Date>7 jan. 2020</Date>
+                        <ImageBox>
+                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                        </ImageBox>
+                        <Author>{usersList[0].name}</Author>
+                    </PublicationDetails>
+                </NewPublicationWrapper>
+            }
+            {postsList && usersList && photosList &&
+                <LatestPublicationsWrapper>
+                    <HeaderText>Latest Publications</HeaderText>
+                    <ListItemsWrapper>
+                        <ListItem text={postsList[1].body}
+                            image={photosList[postsList[1].userId].url}
+                            author={usersList[postsList[1].userId].name}
+                        />
+                        <ListItem text={postsList[2].body}
+                            image={photosList[postsList[2].userId].url}
+                            author={usersList[postsList[2].userId].name}
+                        />
+                        <ListItem text={postsList[3].body}
+                            image={photosList[postsList[3].userId].url}
+                            author={usersList[postsList[3].userId].name}
+                        />
+                    </ListItemsWrapper>
+                    <LinkWrapper>
+                        <CostumLink to="publications"> See more publications</CostumLink>
+                    </LinkWrapper>
+                </LatestPublicationsWrapper>
+            }
         </Wrapper>
     );
 

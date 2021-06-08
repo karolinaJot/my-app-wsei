@@ -13,10 +13,12 @@ import Entities from '../entities/Entities';
 import { getUsers } from '../../actions/usersActions';
 import { getPhotos } from '../../actions/photosActions';
 import { getComments } from '../../actions/commentsActions';
+import { getPosts } from '../../actions/postsActions';
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
 type GetComments = ReturnType<typeof getComments>;
+type GetPosts = ReturnType<typeof getPosts>;
 
 
 const Wrapper = styled.div`
@@ -41,6 +43,7 @@ const MainPage : FC = () => {
     dispatch<GetUsers>(getUsers());
     dispatch<GetPhotos>(getPhotos());
     dispatch<GetComments>(getComments());
+    dispatch<GetPosts>(getPosts());
   }, []);
 
   return (
