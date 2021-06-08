@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
+
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
@@ -79,33 +80,38 @@ const InfoDot = styled.span`
 
 const Update = styled.span`
     color: lightgray;
+
+    span {
+        display: inline-block;
+    };
 `;
 
 interface IResumeItemProps {
     title: string;
+    body: string;
+    author: string;
+    company: string
 };
 
 
 const ResumeItem: FC<IResumeItemProps> = (props: IResumeItemProps) =>{
     return(
         <Wrapper>
+
             <Title>{props.title}</Title>
-            <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aspernatur 
-                nesciunt possimus amet vel doloremque ab aliquam veniam autem, exercitationem 
-                corrupti architecto delectus ad maiores odit, fuga eius laboriosam sequi"
-            </Text>
+            <Text>{props.body}</Text>
             <InfoWrapper>
                 <LogoBox>
                     <img src='./media/icons/logo.png' alt='logo'></img>
                 </LogoBox>
-                <InfoText>Subsid. corp.</InfoText>
+                <InfoText>{props.company}</InfoText>
                 <InfoDot>.</InfoDot>
                 <IconBox>
                     <img src='./media/icons/entities2.svg' alt='icon'></img>
                 </IconBox>
                 <InfoText>Corporate</InfoText>
                 <InfoDot>.</InfoDot>
-                <Update>Updated 3 days ago by Aniela Kowalska</Update>
+                <Update><span>Updated 3 days ago by</span> <span>{props.author}</span></Update>
             </InfoWrapper>
         </Wrapper>
     );

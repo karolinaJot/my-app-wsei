@@ -15,20 +15,21 @@ import ResumeNavigation from './ResumeNavigation';
 
 
 
-const Wrapper =styled.div`
+const Wrapper = styled.div`
     height: auto;
     width: 100%;
 `;
 
-const ResumeItemsWrapper = styled.div``;
+const ResumeItemsWrapper = styled.div`
+ `;
 
 export const Resume: FC = () => {
 
-    const { usersList, photosList, commentsList } = useSelector<IState, IUsersReducer & IPhotosReducer & ICommetsReducer >(state => ({
+    const { usersList, photosList, commentsList } = useSelector<IState, IUsersReducer & IPhotosReducer & ICommetsReducer>(state => ({
         ...state.users,
         ...state.photos,
         ...state.comments,
-    
+
     }));
 
     const [inputText, setInputText] = useState<string>("");
@@ -40,25 +41,24 @@ export const Resume: FC = () => {
 
 
 
-    return(
+    return (
         <Wrapper>
-            {console.log(commentsList)}
-            <ResumeHeader changeText={inputHandler}/>
-            <ResumeItemsWrapper>
-
-                {/* <ResumeItem title= {commentsList[0].name}/> */}
-                    
-            
-                <ResumeItem title="Company XVT"/>
-                <ResumeItem title="Great Company"/>
-                <ResumeItem title="Fantastic Foo"/>
-                <ResumeItem title="Dreames job"/>
-                <ResumeItem title="Great Company"/>
-                <ResumeItem title="Fantastic Foo"/>
-                <ResumeItem title="Dreames job"/>
-                <ResumeItem title="World Company SAS"/>
-                <ResumeItem title="World Company SAS"/> 
-            </ResumeItemsWrapper>
+            <ResumeHeader changeText={inputHandler} />
+            {commentsList &&
+                <ResumeItemsWrapper>
+                    {
+                        commentsList.map(comment => 
+                            <ResumeItem
+                                key={comment.id}
+                                title={comment.name}
+                                body={comment.body}
+                                author={usersList[comment.postId -1]? usersList[comment.postId -1].name : usersList[0].name  }
+                                company={usersList[comment.postId - 1]? usersList[comment.postId -1].company.name : usersList[0].company.name }
+                            />
+                        )
+                    }
+                </ResumeItemsWrapper>
+            }
             <ResumeNavigation></ResumeNavigation>
         </Wrapper>
     );

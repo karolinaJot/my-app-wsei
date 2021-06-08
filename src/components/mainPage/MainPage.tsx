@@ -35,12 +35,12 @@ const Wrapper = styled.div`
 
 const MainPage : FC = () => {
 
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispach<GetUsers>(getUsers());
-    dispach<GetPhotos>(getPhotos());
-    dispach<GetComments>(getComments());
+    dispatch<GetUsers>(getUsers());
+    dispatch<GetPhotos>(getPhotos());
+    dispatch<GetComments>(getComments());
   }, []);
 
   return (

@@ -15,7 +15,7 @@ export default ( state = defaultState(), action: any ) => {
             const data: actionTypes.ICommetTypes['GET_COMMENTS'] = action;
             return {
                 ...state,
-                commetsList: data.commentsList
+                commentsList: data.commentsList
             }
         }
 
