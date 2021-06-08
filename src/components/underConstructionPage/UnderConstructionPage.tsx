@@ -10,7 +10,6 @@ const Wrapper = styled.div`
     width: 900px;
     background-color: gold;
     height: calc(100vh - 50px);
-    border: solid 4px black;
     margin: 0 auto;
     font-size: ${FontSize[24]};
     font-weight: 700;

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     margin-top: 3px;
     display: flex;
     
-    overflow: hidden;
+    overflow: auto;
 `;
 
 export const Slider: FC = () => {

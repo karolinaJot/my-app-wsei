@@ -31,7 +31,6 @@ const RightSideWrapper = styled.div`
 `;
 
 const FilerBox = styled.div`
-    /* border: solid 1px grey; */
     margin-right: 50px;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
@@ -59,7 +58,6 @@ color: lightgray;
 const FilterSubmit = styled.input`
    height: 100%;
    display: block;
-   /* padding-right: 5px; */
    &:focus {
         outline: none;
     };
@@ -76,13 +74,6 @@ interface ResumeHeaderProps {
 
 
 const ResumeHeader: FC<ResumeHeaderProps> = (props) =>{
-    
-    
-    // const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    //     const text = e.target.value;
-    //     props.setInputText(text);
-    // };
-    // value={props.inputText} onChange={inputHandler} 
     
     return(
         <Wrapper>
