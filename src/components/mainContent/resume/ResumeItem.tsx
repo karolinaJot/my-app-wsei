@@ -97,7 +97,6 @@ interface IResumeItemProps {
 const ResumeItem: FC<IResumeItemProps> = (props: IResumeItemProps) =>{
     return(
         <Wrapper>
-
             <Title>{props.title}</Title>
             <Text>{props.body}</Text>
             <InfoWrapper>

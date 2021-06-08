@@ -35,8 +35,12 @@ const ResumeNavigation = styled.div`
     }
     
     ul li {
-        padding-right: 10px;
+        padding: 10px;
         cursor: pointer;
+    }
+
+    ul li:active {
+        background-color: grey;
     }
 `;
 
@@ -69,12 +73,13 @@ export const Resume: FC = () => {
                 <ResumeItemsWrapper>
                     {commentsList.slice(currentPage, currentPage + 10)
                         .map(comment =>
+                            comment.name.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
                             <ResumeItem
                                 key={comment.id}
                                 title={comment.name}
                                 body={comment.body}
-                                author={usersList[comment.postId - 1] ? usersList[comment.postId - 1].name : usersList[0].name}
-                                company={usersList[comment.postId - 1] ? usersList[comment.postId - 1].company.name : usersList[0].company.name}
+                                author={usersList[comment.postId - 1] ? usersList[comment.postId - 1].name : usersList[1].name}
+                                company={usersList[comment.postId - 1] ? usersList[comment.postId - 1].company.name : usersList[1].company.name}
                             />
                         )
                     }
@@ -85,13 +90,10 @@ export const Resume: FC = () => {
                     previousLabel={'previous'}
                     nextLabel={'next'}
                     breakLabel={'...'}
-                    breakClassName={'break-me'}
                     pageCount={commentsList.length / 10}
                     marginPagesDisplayed={3}
                     pageRangeDisplayed={3}
                     onPageChange={handlePageClick}
-                    containerClassName={'pagination'}
-                    activeClassName={'active'}
                 />
             </ResumeNavigation>
         </Wrapper>
