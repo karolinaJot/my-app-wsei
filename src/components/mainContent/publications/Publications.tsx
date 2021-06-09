@@ -106,7 +106,7 @@ export const Publications: FC = () => {
 
     return (
         <Wrapper>
-                <NewPublicationWrapper style={{backgroundImage: `url(${photosList[0].url})`}}>
+                <NewPublicationWrapper style={{backgroundImage: `url(${photosList[0]?.url})`}}>
                     <PublicationText>
                         {postsList[0]?.title}
                     </PublicationText>
