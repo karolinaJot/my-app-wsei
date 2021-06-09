@@ -6,7 +6,6 @@ import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
 const Wrapper = styled.div`
-    border: 2px solid green;
 `;
 
 const TopItems = styled.div`

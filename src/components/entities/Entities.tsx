@@ -12,10 +12,10 @@ import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
 
 const Wrapper = styled.div`
-    border: 2px solid blue;
     width: 900px;
     height: calc(auto - 50px);
     background-color: ${Colors.white};
+    border-radius: 5px;
 `;
 
 const ItemsWrapper = styled.div`
