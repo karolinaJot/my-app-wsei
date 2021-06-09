@@ -30,8 +30,8 @@ const NewPublicationWrapper = styled.div`
     background-image: linear-gradient(
         to top,
         rgba(156, 71, 143, 0.8),
-        rgba(215, 171, 218, 0.4)), 
-        url('./media/icons/bg-image.jpg');
+        rgba(215, 171, 218, 0.4));
+        /* url('./media/icons/bg-image.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,8 +106,7 @@ export const Publications: FC = () => {
 
     return (
         <Wrapper>
-            {console.log(photosList)}
-                <NewPublicationWrapper>
+                <NewPublicationWrapper style={{backgroundImage: `url(${photosList[0].url})`}}>
                     <PublicationText>
                         {postsList[0]?.title}
                     </PublicationText>

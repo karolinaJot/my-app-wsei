@@ -8,7 +8,6 @@ import { Resume } from './resume/Resume';
 const Wrapper = styled.div`
     width: 900px;
     height: calc(auto - 50px);
-    /* border: solid 4px black; */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
