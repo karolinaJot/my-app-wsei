@@ -149,7 +149,9 @@ const SearchSubmit = styled.input`
 `;
 
 interface IEntitiesHeaderProps {
-    clickFullScreen(): void 
+    clickFullScreen(): void,
+    clickSort(): void 
+
 }
 
 
@@ -197,7 +199,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         <CostumeBtn>...</CostumeBtn>
                     </span>
                     <span>
-                        <CostumeBtn>
+                        <CostumeBtn onClick={props.clickSort}>
                             <span>
                                 <img src='./media/icony_z_sieci/sort_Z-A.png' alt='sorting icon'></img>
                             </span>

@@ -61,6 +61,28 @@ const Entities: FC = () => {
     }));
 
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+    const [isSortedFromA, setIsSortedFromA] = useState<boolean>(true);
+
+    const handleSortClick = () => {
+        photosList?.sort(function (a, b) {
+            let nameA = usersList[a.albumId - 1]?.company.name;
+            let nameB = usersList[b.albumId - 1]?.company.name;
+
+            if (nameA < nameB) {
+                return isSortedFromA ? -1 : 1
+            }
+            if (nameA > nameB) {
+                return isSortedFromA ? 1 : -1
+            }
+            else {
+                return 0
+            }
+
+        })
+
+        isSortedFromA ? setIsSortedFromA(false) : setIsSortedFromA(true);
+    }
+
 
     const handleFullScreenClick = () => {
         if (isFullScreen === false) {
@@ -69,10 +91,48 @@ const Entities: FC = () => {
     };
 
 
+
     return (
         <Wrapper>
-            <EntitiesHeader clickFullScreen={handleFullScreenClick}></EntitiesHeader>
-            {!isFullScreen &&
+            <EntitiesHeader clickFullScreen={handleFullScreenClick}
+                clickSort={handleSortClick}
+            />
+            {isSortedFromA &&
+                <ItemsWrapper>
+                    {
+                        photosList.map((photo, index) =>
+                            (index < 10) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                            />
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 150) && (index < 160) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                            />
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 250) && (index < 260) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                            />
+                        )
+                    }
+                </ItemsWrapper>
+            }
+
+            {!isSortedFromA &&
                 <ItemsWrapper>
                     {
                         photosList.map((photo, index) =>
