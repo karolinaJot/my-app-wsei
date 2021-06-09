@@ -40,12 +40,32 @@ const Entities: FC = () => {
             <ItemsWrapper>
                 {
                     photosList.map((photo, index) => 
-                        (index < 30) &&
-                            <EntitiesItem image={photo?.url}
+                        (index < 10) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId -1]?.company.name}
                                 // companyAddres={usersList[photo?.albumId]?.addres.city}
                             />
-                        
+                    )
+                }
+                {
+                    photosList.map((photo, index) => 
+                        (index > 150) &&   (index < 160) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId -1]?.company.name}
+                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                            />
+                    )
+                }
+                {
+                    photosList.map((photo, index) => 
+                        (index > 250) &&  (index < 260) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId -1]?.company.name}
+                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                            />
                     )
                 }
             </ItemsWrapper>
