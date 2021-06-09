@@ -40,12 +40,12 @@ const Entities: FC = () => {
             <ItemsWrapper>
                 {
                     photosList.map((photo, index) => 
-                        // if(index < 30) {
+                        (index < 30) &&
                             <EntitiesItem image={photo?.url}
                                 companyName={usersList[photo?.albumId -1]?.company.name}
                                 // companyAddres={usersList[photo?.albumId]?.addres.city}
                             />
-                        // } 
+                        
                     )
                 }
             </ItemsWrapper>
