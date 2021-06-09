@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     border: 2px solid blue;
     width: 900px;
     height: calc(auto - 50px);
+    background-color: ${Colors.white};
 `;
 
 const ItemsWrapper = styled.div`
