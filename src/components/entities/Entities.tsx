@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +26,31 @@ const ItemsWrapper = styled.div`
     align-items: center;
  `;
 
+const FullScrennWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: ${Colors.white};
+    width: 100%;
+    height: 100%;
+
+    
+ `;
+
+const ButtonBox = styled.div`
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        padding: 5px 20px;
+        margin: 5px;
+        border-radius: 3px;
+    }
+ `;
+
+
+
 
 
 const Entities: FC = () => {
@@ -35,41 +60,95 @@ const Entities: FC = () => {
         ...state.photos
     }));
 
+    const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+
+    const handleFullScreenClick = () => {
+        if (isFullScreen === false) {
+            setIsFullScreen(true);
+        } else setIsFullScreen(false);
+    };
+
+
     return (
         <Wrapper>
-            <EntitiesHeader></EntitiesHeader>
-            <ItemsWrapper>
-                {
-                    photosList.map((photo, index) => 
-                        (index < 10) &&
+            <EntitiesHeader clickFullScreen={handleFullScreenClick}></EntitiesHeader>
+            {!isFullScreen &&
+                <ItemsWrapper>
+                    {
+                        photosList.map((photo, index) =>
+                            (index < 10) &&
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId -1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
                             />
-                    )
-                }
-                {
-                    photosList.map((photo, index) => 
-                        (index > 150) &&   (index < 160) &&
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 150) && (index < 160) &&
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId -1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
                             />
-                    )
-                }
-                {
-                    photosList.map((photo, index) => 
-                        (index > 250) &&  (index < 260) &&
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 250) && (index < 260) &&
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId -1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                            // companyAddres={usersList[photo?.albumId]?.addres.city}
                             />
-                    )
-                }
-            </ItemsWrapper>
+                        )
+                    }
+                </ItemsWrapper>
+            }
+            {isFullScreen &&
+
+                <FullScrennWrapper>
+                    <ButtonBox>
+                        <button onClick={handleFullScreenClick}>Close</button>
+                    </ButtonBox>
+                    <ItemsWrapper>
+                        {console.log("full screen mode")}
+                        {
+                            photosList.map((photo, index) =>
+                                (index < 10) &&
+                                <EntitiesItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                />
+                            )
+                        }
+                        {
+                            photosList.map((photo, index) =>
+                                (index > 150) && (index < 160) &&
+                                <EntitiesItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                />
+                            )
+                        }
+                        {
+                            photosList.map((photo, index) =>
+                                (index > 250) && (index < 260) &&
+                                <EntitiesItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                />
+                            )
+                        }
+                    </ItemsWrapper>
+                </FullScrennWrapper>
+            }
+
+
         </Wrapper>
     );
 };
