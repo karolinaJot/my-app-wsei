@@ -30,8 +30,8 @@ const NewPublicationWrapper = styled.div`
     background-image: linear-gradient(
         to top,
         rgba(156, 71, 143, 0.8),
-        rgba(215, 171, 218, 0.4)), 
-        url('./media/icons/bg-image.jpg');
+        rgba(215, 171, 218, 0.4));
+        /* url('./media/icons/bg-image.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,43 +106,38 @@ export const Publications: FC = () => {
 
     return (
         <Wrapper>
-            {console.log(postsList)}
-            {postsList && usersList &&
-                <NewPublicationWrapper>
+                <NewPublicationWrapper style={{backgroundImage: `url(${photosList[0].url})`}}>
                     <PublicationText>
-                        {postsList[0].title}
+                        {postsList[0]?.title}
                     </PublicationText>
                     <PublicationDetails>
                         <Date>7 jan. 2020</Date>
                         <ImageBox>
                             <img src='./media/icons/userAvatar_2.jpg'></img>
                         </ImageBox>
-                        <Author>{usersList[0].name}</Author>
+                        <Author>{usersList[0]?.name}</Author>
                     </PublicationDetails>
                 </NewPublicationWrapper>
-            }
-            {postsList && usersList && photosList &&
                 <LatestPublicationsWrapper>
                     <HeaderText>Latest Publications</HeaderText>
                     <ListItemsWrapper>
-                        <ListItem text={postsList[1].body}
-                            image={photosList[postsList[1].userId].url}
-                            author={usersList[postsList[1].userId].name}
+                        <ListItem text={postsList[1]?.body}
+                            image={photosList[postsList[1]?.userId]?.url}
+                            author={usersList[postsList[1]?.userId]?.name}
                         />
-                        <ListItem text={postsList[2].body}
-                            image={photosList[postsList[2].userId].url}
-                            author={usersList[postsList[2].userId].name}
+                        <ListItem text={postsList[2]?.body}
+                            image={photosList[postsList[2]?.userId]?.url}
+                            author={usersList[postsList[2]?.userId]?.name}
                         />
-                        <ListItem text={postsList[3].body}
-                            image={photosList[postsList[3].userId].url}
-                            author={usersList[postsList[3].userId].name}
+                        <ListItem text={postsList[3]?.body}
+                            image={photosList[postsList[3]?.userId]?.url}
+                            author={usersList[postsList[3]?.userId]?.name}
                         />
                     </ListItemsWrapper>
                     <LinkWrapper>
                         <CostumLink to="publications"> See more publications</CostumLink>
                     </LinkWrapper>
                 </LatestPublicationsWrapper>
-            }
         </Wrapper>
     );
 
