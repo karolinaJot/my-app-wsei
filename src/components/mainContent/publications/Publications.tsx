@@ -106,43 +106,39 @@ export const Publications: FC = () => {
 
     return (
         <Wrapper>
-            {console.log(postsList)}
-            {postsList && usersList &&
+            {console.log(photosList)}
                 <NewPublicationWrapper>
                     <PublicationText>
-                        {postsList[0].title}
+                        {postsList[0]?.title}
                     </PublicationText>
                     <PublicationDetails>
                         <Date>7 jan. 2020</Date>
                         <ImageBox>
                             <img src='./media/icons/userAvatar_2.jpg'></img>
                         </ImageBox>
-                        <Author>{usersList[0].name}</Author>
+                        <Author>{usersList[0]?.name}</Author>
                     </PublicationDetails>
                 </NewPublicationWrapper>
-            }
-            {postsList && usersList && photosList &&
                 <LatestPublicationsWrapper>
                     <HeaderText>Latest Publications</HeaderText>
                     <ListItemsWrapper>
-                        <ListItem text={postsList[1].body}
-                            image={photosList[postsList[1].userId].url}
-                            author={usersList[postsList[1].userId].name}
+                        <ListItem text={postsList[1]?.body}
+                            image={photosList[postsList[1]?.userId]?.url}
+                            author={usersList[postsList[1]?.userId]?.name}
                         />
-                        <ListItem text={postsList[2].body}
-                            image={photosList[postsList[2].userId].url}
-                            author={usersList[postsList[2].userId].name}
+                        <ListItem text={postsList[2]?.body}
+                            image={photosList[postsList[2]?.userId]?.url}
+                            author={usersList[postsList[2]?.userId]?.name}
                         />
-                        <ListItem text={postsList[3].body}
-                            image={photosList[postsList[3].userId].url}
-                            author={usersList[postsList[3].userId].name}
+                        <ListItem text={postsList[3]?.body}
+                            image={photosList[postsList[3]?.userId]?.url}
+                            author={usersList[postsList[3]?.userId]?.name}
                         />
                     </ListItemsWrapper>
                     <LinkWrapper>
                         <CostumLink to="publications"> See more publications</CostumLink>
                     </LinkWrapper>
                 </LatestPublicationsWrapper>
-            }
         </Wrapper>
     );
 
