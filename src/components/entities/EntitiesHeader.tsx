@@ -149,9 +149,12 @@ const SearchSubmit = styled.input`
     };
 `;
 
+interface IEntitiesHeaderProps {
+    clickFullScreen(): void 
+}
 
 
-const EntitiesHeader: FC = () => {
+const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) => {
     return (
         <Wrapper>
             <TopItems>
@@ -211,7 +214,7 @@ const EntitiesHeader: FC = () => {
                         </CostumeBtn>
                     </span>
                     <span>
-                        <CostumeBtn>
+                        <CostumeBtn onClick={props.clickFullScreen}>
                             <span>
                                 <img src='./media/icony_z_sieci/full_screen.png' alt='filter icon'></img>
                             </span>
