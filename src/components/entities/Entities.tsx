@@ -62,6 +62,7 @@ const Entities: FC = () => {
 
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
     const [isSortedFromA, setIsSortedFromA] = useState<boolean>(true);
+    const [isCopied, setIsCopied] = useState<boolean>(false);
 
     const handleSortClick = () => {
         photosList?.sort(function (a, b) {
@@ -91,11 +92,24 @@ const Entities: FC = () => {
     };
 
 
+    const handleCopyClick = () => {
+            console.log("copy");
+            const el = document.createElement('input');
+            el.value = window.location.href;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            setIsCopied(true);
+            console.log("copied");
+    }
+
 
     return (
         <Wrapper>
             <EntitiesHeader clickFullScreen={handleFullScreenClick}
                 clickSort={handleSortClick}
+                clickCopy={handleCopyClick}
             />
             {isSortedFromA &&
                 <ItemsWrapper>
@@ -207,8 +221,6 @@ const Entities: FC = () => {
                     </ItemsWrapper>
                 </FullScrennWrapper>
             }
-
-
         </Wrapper>
     );
 };

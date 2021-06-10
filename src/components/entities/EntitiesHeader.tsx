@@ -150,7 +150,8 @@ const SearchSubmit = styled.input`
 
 interface IEntitiesHeaderProps {
     clickFullScreen(): void,
-    clickSort(): void 
+    clickSort(): void,
+    clickCopy(): void
 
 }
 
@@ -222,7 +223,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         </CostumeBtn>
                     </span>
                     <span>
-                        <CostumeBtn>
+                        <CostumeBtn onClick={props.clickCopy}>
                             <span>
                                 <img src='./media/icony_z_sieci/share.png' alt='share icon'></img>
                             </span>
