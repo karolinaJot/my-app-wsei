@@ -10,7 +10,7 @@ import { FontSize } from '../../styledHelpers/FontSizes';
 // `;
 const ListItem = styled.div`
     width: 100%;
-    border: 1px solid red;
+    margin-bottom: 10px;
 
     li {
         text-decoration: none;
@@ -21,7 +21,6 @@ const ListItem = styled.div`
     `;
 
 const ImageBox = styled.div`
-    border: 1px solid pink;
     height: 100%;
     width: 30px;
     /* display: flex;
@@ -38,27 +37,26 @@ const ImageBox = styled.div`
 `;
 
 const TextBox = styled.div`
-    border: 1px solid blue;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: baseline;
 `;
 
 const CompanyName = styled.span`
-    background-color: yellow;
     display: block;
     padding-top: 0.3rem;
     font-size: ${FontSize[16]};
     font-weight: 700;
     color:#0381BE;
+    margin-right: 10px;
 `;
 
 const Addres = styled.span`
     display: block;
     padding-bottom: 0.3rem;
-    font-size: ${FontSize[12]};
+    font-size: ${FontSize[16]};
     color: gray;
 
 `;
@@ -68,7 +66,10 @@ const Addres = styled.span`
 interface IEntitiesListItemProps {
     image: string;
     companyName: string;
-    companyAddres: string;
+    companyAddresCity: string;
+    companyAddresZipCode: string;
+    companyAddresStreet: string;
+    companyAddresSuite: string;
 }
 
 const EntitiesListItem: FC<IEntitiesListItemProps> = (props: IEntitiesListItemProps) => {
@@ -80,7 +81,7 @@ const EntitiesListItem: FC<IEntitiesListItemProps> = (props: IEntitiesListItemPr
                 </ImageBox>
                 <TextBox>
                     <CompanyName>{props.companyName}</CompanyName>
-                    <Addres>{props.companyAddres}</Addres>
+                    <Addres>{props.companyAddresCity}, {props.companyAddresZipCode}, {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
                 </TextBox>
             </li>
         </ListItem>

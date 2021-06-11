@@ -53,7 +53,7 @@ const ButtonBox = styled.div`
 const ListWrapper = styled.div`
     width: 100%;
     height: 100%;
-    border: 2px solid green;
+
 `;
 
 
@@ -255,7 +255,10 @@ const Entities: FC = () => {
                                 <EntitiesListItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
@@ -265,7 +268,10 @@ const Entities: FC = () => {
                                 <EntitiesListItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
@@ -275,7 +281,10 @@ const Entities: FC = () => {
                                 <EntitiesListItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
