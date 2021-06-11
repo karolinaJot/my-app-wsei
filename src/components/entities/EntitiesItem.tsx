@@ -58,7 +58,10 @@ const Addres = styled.span`
 interface IEntitiesItemProps {
     image: string;
     companyName: string;
-    // companyAddres: string;
+    companyAddresCity: string;
+    companyAddresZipCode: string;
+    companyAddresStreet: string;
+    companyAddresSuite: string;
 };
 
 const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
@@ -72,7 +75,8 @@ const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
             </ImageBox>
             <TextBox>
                 <CompanyName>{props.companyName}</CompanyName> 
-                {/* <Addres>{props.companyAddres}</Addres>  */}
+                <Addres>{props.companyAddresCity}, {props.companyAddresZipCode},
+                     {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
             </TextBox>
         </Wrapper>
     );

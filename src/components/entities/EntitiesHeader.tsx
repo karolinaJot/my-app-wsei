@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
+import { isPropertyAccessOrQualifiedName, isPropertySignature } from 'typescript';
 
 const Wrapper = styled.div`
-    border: 2px solid green;
 `;
 
 const TopItems = styled.div`
@@ -150,7 +150,12 @@ const SearchSubmit = styled.input`
 `;
 
 interface IEntitiesHeaderProps {
-    clickFullScreen(): void 
+    clickFullScreen(): void,
+    clickSort(): void,
+    clickCopy(): void,
+    clickMosaic(): void,
+    clickList(): void
+
 }
 
 
@@ -165,13 +170,13 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                     </span>
                 </EntitiesBox>
                 <TopButtonBox>
-                    <button>
+                    <button onClick={props.clickMosaic}>
                         <span>
                             <img src='./media/icony_z_sieci/grid.png' alt='grid icon'></img>
                         </span>
                         <span>Mosaic</span>
                     </button>
-                    <button>
+                    <button onClick={props.clickList}>
                         <span>
                             <img src='./media/icony_z_sieci/list.png' alt='list icon'></img>
                         </span>
@@ -198,7 +203,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         <CostumeBtn>...</CostumeBtn>
                     </span>
                     <span>
-                        <CostumeBtn>
+                        <CostumeBtn onClick={props.clickSort}>
                             <span>
                                 <img src='./media/icony_z_sieci/sort_Z-A.png' alt='sorting icon'></img>
                             </span>
@@ -221,11 +226,12 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         </CostumeBtn>
                     </span>
                     <span>
-                        <CostumeBtn>
+                        <CostumeBtn onClick={props.clickCopy}>
                             <span>
                                 <img src='./media/icony_z_sieci/share.png' alt='share icon'></img>
                             </span>
                             <span>Share</span>
+                            {/* <span>{!isCopied? "Share link" : "Link Copied"}</span> */}
                         </CostumeBtn>
                     </span>
                 </LeftBottomBtns>
