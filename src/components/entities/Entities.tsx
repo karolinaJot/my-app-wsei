@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -71,6 +71,8 @@ const Entities: FC = () => {
     const [isSortedFromA, setIsSortedFromA] = useState<boolean>(true);
     const [isCopied, setIsCopied] = useState<boolean>(false);
     const [isMosaic, setIsMosaic] = useState<boolean>(true);
+    const [inputText, setInputText] = useState<string>("");
+    const [isSearch, setIsSearch] = useState<boolean>(false);
 
     const handleSortClick = () => {
         photosList?.sort(function (a, b) {
@@ -114,11 +116,17 @@ const Entities: FC = () => {
 
     const handleMosaicClick = () => {
         setIsMosaic(true);
-    }
+    };
 
     const handleListClick = () => {
         setIsMosaic(false);
-    }
+    };
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+        setIsSearch(true);
+    };
 
 
     return (
@@ -128,7 +136,60 @@ const Entities: FC = () => {
                 clickCopy={handleCopyClick}
                 clickMosaic={handleMosaicClick}
                 clickList={handleListClick}
+                changeText={inputHandler}
             />
+
+            {isSearch &&
+                <ItemsWrapper>
+                    {
+                        // --------- coś tu nie działa, dubluje wyświetlane elementy  -
+                        photosList.map((photo, index) =>
+                            (index < 10) &&
+                            <div>
+                                {usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                                    .includes(inputText.toLocaleLowerCase()) &&
+                                    <EntitiesItem key={photo?.id}
+                                        image={photo?.thumbnailUrl}
+                                        companyName={usersList[photo?.albumId - 1]?.company.name}
+                                        companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                        companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                        companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                        companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                                    />
+                                }
+                            </div>
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 150) && (index < 160) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                            />
+                        )
+                    }
+                    {
+                        photosList.map((photo, index) =>
+                            (index > 250) && (index < 260) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                            />
+                        )
+                    }
+                </ItemsWrapper>
+
+
+            }
 
             {isSortedFromA &&
                 <ItemsWrapper>

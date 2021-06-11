@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -154,7 +154,8 @@ interface IEntitiesHeaderProps {
     clickSort(): void,
     clickCopy(): void,
     clickMosaic(): void,
-    clickList(): void
+    clickList(): void,
+    changeText(e: ChangeEvent<HTMLInputElement>): void;
 
 }
 
@@ -238,7 +239,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                 <RightBottomBtns>
                     <span>
                         <SearchWrapper>
-                            <SearchInput type='search' placeholder='Search...'></SearchInput>
+                            <SearchInput onChange={props.changeText} type='text' placeholder='Search...'></SearchInput>
                             <SearchSubmit type='image' alt='submit' src='./media/icons/search.png'></SearchSubmit>
                         </SearchWrapper>
                     </span>
