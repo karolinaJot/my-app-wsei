@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
+import EntitiesListItem from './EntitiesListItem';
 
 const Wrapper = styled.div`
     width: 900px;
@@ -49,6 +50,12 @@ const ButtonBox = styled.div`
     }
  `;
 
+const ListWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    border: 2px solid green;
+`;
+
 
 
 
@@ -63,6 +70,7 @@ const Entities: FC = () => {
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
     const [isSortedFromA, setIsSortedFromA] = useState<boolean>(true);
     const [isCopied, setIsCopied] = useState<boolean>(false);
+    const [isMosaic, setIsMosaic] = useState<boolean>(true);
 
     const handleSortClick = () => {
         photosList?.sort(function (a, b) {
@@ -93,15 +101,23 @@ const Entities: FC = () => {
 
 
     const handleCopyClick = () => {
-            console.log("copy");
-            const el = document.createElement('input');
-            el.value = window.location.href;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            setIsCopied(true);
-            console.log("copied");
+        console.log("copy");
+        const el = document.createElement('input');
+        el.value = window.location.href;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        setIsCopied(true);
+        console.log("copied");
+    };
+
+    const handleMosaicClick = () => {
+        setIsMosaic(true);
+    }
+
+    const handleListClick = () => {
+        setIsMosaic(false);
     }
 
 
@@ -110,8 +126,11 @@ const Entities: FC = () => {
             <EntitiesHeader clickFullScreen={handleFullScreenClick}
                 clickSort={handleSortClick}
                 clickCopy={handleCopyClick}
+                clickMosaic={handleMosaicClick}
+                clickList={handleListClick}
             />
-            {isSortedFromA &&
+
+            {/* {isSortedFromA &&
                 <ItemsWrapper>
                     {
                         photosList.map((photo, index) =>
@@ -119,7 +138,7 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
@@ -129,7 +148,7 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
@@ -139,7 +158,7 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
@@ -154,7 +173,7 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
@@ -164,7 +183,7 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
@@ -174,12 +193,15 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                            // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
                             />
                         )
                     }
                 </ItemsWrapper>
             }
+
+
+
             {isFullScreen &&
 
                 <FullScrennWrapper>
@@ -194,7 +216,7 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
                                 />
                             )
                         }
@@ -204,7 +226,7 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
                                 />
                             )
                         }
@@ -214,15 +236,55 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                // companyAddres={usersList[photo?.albumId]?.addres.city}
+                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
                                 />
                             )
                         }
                     </ItemsWrapper>
                 </FullScrennWrapper>
+
+            } */}
+
+            {!isMosaic &&
+                <ListWrapper>
+                    <ul>
+
+                        {
+                            photosList.map((photo, index) =>
+                                (index < 10) &&
+                                <EntitiesListItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                />
+                            )
+                        }
+                        {
+                            photosList.map((photo, index) =>
+                                (index > 150) && (index < 160) &&
+                                <EntitiesListItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                />
+                            )
+                        }
+                        {
+                            photosList.map((photo, index) =>
+                                (index > 250) && (index < 260) &&
+                                <EntitiesListItem key={photo?.id}
+                                    image={photo?.thumbnailUrl}
+                                    companyName={usersList[photo?.albumId - 1]?.company.name}
+                                    companyAddres={usersList[photo?.albumId - 1]?.address.city}
+                                />
+                            )
+                        }
+                    </ul>
+                </ListWrapper>
             }
         </Wrapper>
-    );
-};
+    )
+}
+
 
 export default Entities;

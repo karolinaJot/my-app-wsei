@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
+import { isPropertyAccessOrQualifiedName, isPropertySignature } from 'typescript';
 
 const Wrapper = styled.div`
 `;
@@ -151,7 +152,9 @@ const SearchSubmit = styled.input`
 interface IEntitiesHeaderProps {
     clickFullScreen(): void,
     clickSort(): void,
-    clickCopy(): void
+    clickCopy(): void,
+    clickMosaic(): void,
+    clickList(): void
 
 }
 
@@ -167,13 +170,13 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                     </span>
                 </EntitiesBox>
                 <TopButtonBox>
-                    <button>
+                    <button onClick={props.clickMosaic}>
                         <span>
                             <img src='./media/icony_z_sieci/grid.png' alt='grid icon'></img>
                         </span>
                         <span>Mosaic</span>
                     </button>
-                    <button>
+                    <button onClick={props.clickList}>
                         <span>
                             <img src='./media/icony_z_sieci/list.png' alt='list icon'></img>
                         </span>
