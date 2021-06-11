@@ -130,7 +130,7 @@ const Entities: FC = () => {
                 clickList={handleListClick}
             />
 
-            {/* {isSortedFromA &&
+            {isSortedFromA &&
                 <ItemsWrapper>
                     {
                         photosList.map((photo, index) =>
@@ -138,7 +138,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -148,7 +151,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -158,7 +164,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -173,7 +182,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -183,7 +195,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -193,7 +208,10 @@ const Entities: FC = () => {
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                             />
                         )
                     }
@@ -216,7 +234,10 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
@@ -226,7 +247,10 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
@@ -236,14 +260,17 @@ const Entities: FC = () => {
                                 <EntitiesItem key={photo?.id}
                                     image={photo?.thumbnailUrl}
                                     companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddres={usersList[photo?.albumId -1]?.addres.city}
+                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 />
                             )
                         }
                     </ItemsWrapper>
                 </FullScrennWrapper>
 
-            } */}
+            }
 
             {!isMosaic &&
                 <ListWrapper>

@@ -81,7 +81,8 @@ const EntitiesListItem: FC<IEntitiesListItemProps> = (props: IEntitiesListItemPr
                 </ImageBox>
                 <TextBox>
                     <CompanyName>{props.companyName}</CompanyName>
-                    <Addres>{props.companyAddresCity}, {props.companyAddresZipCode}, {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
+                    <Addres>{props.companyAddresCity}, {props.companyAddresZipCode},
+                     {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
                 </TextBox>
             </li>
         </ListItem>
