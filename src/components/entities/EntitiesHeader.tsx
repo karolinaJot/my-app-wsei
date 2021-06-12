@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 import { isPropertyAccessOrQualifiedName, isPropertySignature } from 'typescript';
+import useDropdown from 'react-dropdown-hook';
+import Filters from './entitiesFilter/Filters';
 
 const Wrapper = styled.div`
 `;
@@ -161,6 +163,13 @@ interface IEntitiesHeaderProps {
 
 
 const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) => {
+    
+    const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
+
+    const menuHandler = () => {
+        togggleDropdown();
+    };
+
     return (
         <Wrapper>
             <TopItems>
@@ -211,13 +220,16 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <span>Sort</span>
                         </CostumeBtn>
                     </span>
-                    <span>
-                        <CostumeBtn>
+                    <span ref={wrapperRef} style='position: relative'>
+                        <CostumeBtn onClick={menuHandler}>
                             <span>
                                 <img src='./media/icony_z_sieci/filter.png' alt='filter icon'></img>
                             </span>
                             <span>Filters</span>
                         </CostumeBtn>
+                        {dropdownOpen && 
+                            <Filters/>
+                        }
                     </span>
                     <span>
                         <CostumeBtn onClick={props.clickFullScreen}>
