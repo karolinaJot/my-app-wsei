@@ -1,18 +1,20 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{isMosaic: boolean}>`
     background-color: ${Colors.white};
     height: 70px;
     display: flex;
     border-radius: 5px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
     margin-bottom: 1rem;
-
+    ${props => !props.isMosaic && css`
+        width: 100%;
+    `}
 `;
 
 const ImageBox = styled.div`
@@ -62,6 +64,7 @@ interface IEntitiesItemProps {
     companyAddresZipCode: string;
     companyAddresStreet: string;
     companyAddresSuite: string;
+    isMosaic: boolean;
 };
 
 const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
@@ -69,7 +72,7 @@ const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
   
     
     return (
-        <Wrapper>
+        <Wrapper isMosaic={props.isMosaic}>
             <ImageBox>
                 <img src={props.image}></img>
             </ImageBox>
