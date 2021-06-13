@@ -75,8 +75,7 @@ const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
             </ImageBox>
             <TextBox>
                 <CompanyName>{props.companyName}</CompanyName> 
-                <Addres>{props.companyAddresCity}, {props.companyAddresZipCode},
-                     {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
+                <Addres>{props.companyAddresCity}, {props.companyAddresZipCode}, {props.companyAddresStreet} {props.companyAddresSuite}</Addres>
             </TextBox>
         </Wrapper>
     );

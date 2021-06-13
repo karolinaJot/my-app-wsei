@@ -86,6 +86,7 @@ const CostumeBtn = styled.button`
     display: flex;
     padding: 5px 5px;
     cursor: pointer;
+    font-size: ${FontSize[16]};
 
     span {
             padding-left: 5px;
@@ -93,8 +94,7 @@ const CostumeBtn = styled.button`
             text-align: center;
 
             img{
-                width: 13px;
-                height: 13px;
+                width: 15px;
                 object-fit: cover;
             };
     };
@@ -105,7 +105,6 @@ const SelectIconBox = styled.span`
     padding-right: 0;
     width: 15px;
     height: 15px;
-
 
     img{
                 width: 80%;
@@ -123,7 +122,6 @@ const RightBottomBtns = styled.div`
         display: block;
         padding-right: 0.5rem;
     };
-
 `;
 
 const SearchWrapper = styled.div`
@@ -132,7 +130,6 @@ const SearchWrapper = styled.div`
     align-items: center;
     border: solid 2px #D2D3D6;
     padding: 5px 0;
-  
 `;
 
 const SearchInput = styled.input`
@@ -210,7 +207,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         </SelectWrapper>
                     </span>
                     <span>
-                        <CostumeBtn>...</CostumeBtn>
+                        <CostumeBtn style={{fontWeight: 700}}>...</CostumeBtn>
                     </span>
                     <span>
                         <CostumeBtn onClick={props.clickSort}>
