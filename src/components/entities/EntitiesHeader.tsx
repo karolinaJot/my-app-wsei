@@ -1,10 +1,12 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 import { isPropertyAccessOrQualifiedName, isPropertySignature } from 'typescript';
+import useDropdown from 'react-dropdown-hook';
+import Filters from './entitiesFilter/Filters';
 
 const Wrapper = styled.div`
 `;
@@ -62,6 +64,7 @@ const BottomBtns = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 1rem;
+    position: relative;
 
 `;
 
@@ -105,9 +108,8 @@ const SelectIconBox = styled.span`
 
 
     img{
-                width: 100%;
-                height: 100%;
-                /* object-fit: cover; */
+                width: 80%;
+                object-fit: cover;
             };
 
 
@@ -154,12 +156,20 @@ interface IEntitiesHeaderProps {
     clickSort(): void,
     clickCopy(): void,
     clickMosaic(): void,
-    clickList(): void
+    clickList(): void,
+    changeText(e: ChangeEvent<HTMLInputElement>): void;
 
 }
 
 
 const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) => {
+    
+    const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
+
+    const menuHandler = () => {
+        togggleDropdown();
+    };
+
     return (
         <Wrapper>
             <TopItems>
@@ -210,13 +220,16 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <span>Sort</span>
                         </CostumeBtn>
                     </span>
-                    <span>
-                        <CostumeBtn>
+                    <span ref={wrapperRef}>
+                        <CostumeBtn onClick={menuHandler}>
                             <span>
                                 <img src='./media/icony_z_sieci/filter.png' alt='filter icon'></img>
                             </span>
                             <span>Filters</span>
                         </CostumeBtn>
+                        {dropdownOpen && 
+                            <Filters/>
+                        }
                     </span>
                     <span>
                         <CostumeBtn onClick={props.clickFullScreen}>
@@ -238,7 +251,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                 <RightBottomBtns>
                     <span>
                         <SearchWrapper>
-                            <SearchInput type='search' placeholder='Search...'></SearchInput>
+                            <SearchInput onChange={props.changeText} type='text' placeholder='Search...'></SearchInput>
                             <SearchSubmit type='image' alt='submit' src='./media/icons/search.png'></SearchSubmit>
                         </SearchWrapper>
                     </span>

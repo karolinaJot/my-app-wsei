@@ -150,6 +150,7 @@ const Badge = styled.span`
 
 
 const TopBar: FC = (props) => {
+    
     const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
 
     const menuHandler = () => {
