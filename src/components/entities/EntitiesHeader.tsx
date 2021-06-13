@@ -64,6 +64,7 @@ const BottomBtns = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 1rem;
+    position: relative;
 
 `;
 
@@ -107,9 +108,8 @@ const SelectIconBox = styled.span`
 
 
     img{
-                width: 100%;
-                height: 100%;
-                /* object-fit: cover; */
+                width: 80%;
+                object-fit: cover;
             };
 
 
@@ -220,7 +220,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <span>Sort</span>
                         </CostumeBtn>
                     </span>
-                    <span ref={wrapperRef} style='position: relative'>
+                    <span ref={wrapperRef}>
                         <CostumeBtn onClick={menuHandler}>
                             <span>
                                 <img src='./media/icony_z_sieci/filter.png' alt='filter icon'></img>
