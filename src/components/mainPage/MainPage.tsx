@@ -14,6 +14,7 @@ import { getUsers } from '../../actions/usersActions';
 import { getPhotos } from '../../actions/photosActions';
 import { getComments } from '../../actions/commentsActions';
 import { getPosts } from '../../actions/postsActions';
+import Workspace from '../workspacePage/Workspace';
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
@@ -66,22 +67,22 @@ const MainPage : FC = () => {
               <UnderConstructionPage />
             </Route>
             <Route path="/clientcontract" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/suppliercontract" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/corporate" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/groupnorms" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/realestatecontracts" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/nextitem" exact>
-              <UnderConstructionPage />
+              <Workspace />
             </Route>
             <Route path="/profile" exact>
               <Profile />
