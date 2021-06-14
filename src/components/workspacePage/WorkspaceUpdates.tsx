@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import ResumeHeader from '../mainContent/resume/ResumeHeader';
 
 
 const Wrapper = styled.div`
@@ -8,7 +9,9 @@ const Wrapper = styled.div`
 
 const WorkspaceUpdates: FC = () => {
     return (
-        <Wrapper>Worspace Updates</Wrapper>
+        <Wrapper>
+            
+        </Wrapper>
     );
 }
  
