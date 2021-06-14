@@ -148,6 +148,11 @@ const SearchSubmit = styled.input`
     };
 `;
 
+const CostumeSelect = styled.select`
+ 
+
+`;
+
 interface IEntitiesHeaderProps {
     clickFullScreen(): void,
     clickSort(): void,
@@ -260,10 +265,10 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                                     <img src='./media/icony_z_sieci/radar.png' alt='target icon'></img>
                                 </SelectIconBox>
                                 <span>
-                                    <select onChange={props.followedChange}>
+                                    <CostumeSelect onChange={props.followedChange}>
                                         <option>All</option>
                                         <option>My</option>
-                                    </select>
+                                    </CostumeSelect>
                                 </span>
                             </CostumeBtn>
                         </SelectWrapper>
