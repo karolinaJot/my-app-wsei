@@ -43,18 +43,6 @@ const ItemsWrapper = styled.div<{ isMosaic: boolean; isFullScreen: boolean }>`
     `}
  `;
 
-const FullScrennWrapper = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: ${Colors.white};
-    width: 100%;
-    height: 100%;
-
-    
- `;
-
 const ButtonBox = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -63,7 +51,7 @@ const ButtonBox = styled.div`
         padding: 5px 20px;
         margin: 5px;
         border-radius: 3px;
-    }
+    };
  `;
 
 
@@ -120,7 +108,6 @@ const Entities: FC = () => {
 
 
     const handleCopyClick = () => {
-        console.log("copy");
         const el = document.createElement('input');
         el.value = window.location.href;
         document.body.appendChild(el);
@@ -128,7 +115,6 @@ const Entities: FC = () => {
         document.execCommand('copy');
         document.body.removeChild(el);
         setIsCopied(true);
-        console.log("copied");
     };
 
     const handleMosaicClick = () => {
@@ -178,14 +164,10 @@ const Entities: FC = () => {
                                 companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 isMosaic={isMosaic}
                             />
-                    
                     )
                 }
-                
             </ItemsWrapper>
-
         </Wrapper>
-
     )
 }
 export default Entities;
