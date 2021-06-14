@@ -149,7 +149,7 @@ const Badge = styled.span`
 
 
 
-const TopBar: FC = (props) => {
+const TopBar: FC = () => {
     
     const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
 

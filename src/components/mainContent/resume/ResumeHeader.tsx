@@ -75,8 +75,6 @@ interface ResumeHeaderProps {
 
 
 const ResumeHeader: FC<ResumeHeaderProps> = (props) =>{
-
-    
     
     return(
         <Wrapper>

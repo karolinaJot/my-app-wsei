@@ -43,18 +43,6 @@ const ItemsWrapper = styled.div<{ isMosaic: boolean; isFullScreen: boolean }>`
     `}
  `;
 
-const FullScrennWrapper = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: ${Colors.white};
-    width: 100%;
-    height: 100%;
-
-    
- `;
-
 const ButtonBox = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -63,7 +51,7 @@ const ButtonBox = styled.div`
         padding: 5px 20px;
         margin: 5px;
         border-radius: 3px;
-    }
+    };
  `;
 
 
@@ -82,8 +70,8 @@ const Entities: FC = () => {
     const [isCopied, setIsCopied] = useState<boolean>(false);
     const [isMosaic, setIsMosaic] = useState<boolean>(true);
     const [inputText, setInputText] = useState<string>("");
-    const [isSearch, setIsSearch] = useState<boolean>(false);
     const [myPhotosList, setMyPhotosList] = useState<ISinglePhoto[]>([]);
+    const [isfollowed, setIsFollowed] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -120,7 +108,6 @@ const Entities: FC = () => {
 
 
     const handleCopyClick = () => {
-        console.log("copy");
         const el = document.createElement('input');
         el.value = window.location.href;
         document.body.appendChild(el);
@@ -128,7 +115,6 @@ const Entities: FC = () => {
         document.execCommand('copy');
         document.body.removeChild(el);
         setIsCopied(true);
-        console.log("copied");
     };
 
     const handleMosaicClick = () => {
@@ -142,7 +128,12 @@ const Entities: FC = () => {
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text);
-        setIsSearch(true);
+    };
+
+    const followedChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        const text = e.target.value;
+
+        text === "My" ? setIsFollowed(true) : setIsFollowed(false);
     };
 
 
@@ -155,20 +146,22 @@ const Entities: FC = () => {
                 clickList={handleListClick}
                 changeText={inputHandler}
                 isCopied={isCopied}
+                followedChange={followedChangeHandler}
             />
 
-            <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
+            {!isfollowed &&
+                <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
 
-                {isFullScreen &&
-                    <ButtonBox>
-                        <button onClick={handleFullScreenClick}>Close</button>
-                    </ButtonBox>
-                }
+                    {isFullScreen &&
+                        <ButtonBox>
+                            <button onClick={handleFullScreenClick}>Close</button>
+                        </ButtonBox>
+                    }
 
-                {
-                    myPhotosList?.map((photo) => 
-                        (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
-                            .includes(inputText.toLocaleLowerCase())) &&
+                    {
+                        myPhotosList?.map((photo) =>
+                            (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                                .includes(inputText.toLocaleLowerCase())) &&
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
@@ -178,14 +171,38 @@ const Entities: FC = () => {
                                 companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 isMosaic={isMosaic}
                             />
-                    
-                    )
-                }
-                
-            </ItemsWrapper>
+                        )
+                    }
+                </ItemsWrapper>
+            }
+            {isfollowed &&
+                <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
 
+                    {isFullScreen &&
+                        <ButtonBox>
+                            <button onClick={handleFullScreenClick}>Close</button>
+                        </ButtonBox>
+                    }
+
+                    {
+                        myPhotosList?.map((photo) =>
+                            (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                                .includes(inputText.toLocaleLowerCase())) &&
+                            photo.albumId === 1 &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                                isMosaic={isMosaic}
+                            />
+                        )
+                    }
+                </ItemsWrapper>
+            }
         </Wrapper>
-
     )
 }
 export default Entities;
