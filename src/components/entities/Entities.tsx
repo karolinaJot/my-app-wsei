@@ -70,8 +70,8 @@ const Entities: FC = () => {
     const [isCopied, setIsCopied] = useState<boolean>(false);
     const [isMosaic, setIsMosaic] = useState<boolean>(true);
     const [inputText, setInputText] = useState<string>("");
-    const [isSearch, setIsSearch] = useState<boolean>(false);
     const [myPhotosList, setMyPhotosList] = useState<ISinglePhoto[]>([]);
+    const [isfollowed, setIsFollowed] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -128,7 +128,12 @@ const Entities: FC = () => {
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text);
-        setIsSearch(true);
+    };
+
+    const followedChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        const text = e.target.value;
+
+        text === "My" ? setIsFollowed(true) : setIsFollowed(false);
     };
 
 
@@ -141,20 +146,22 @@ const Entities: FC = () => {
                 clickList={handleListClick}
                 changeText={inputHandler}
                 isCopied={isCopied}
+                followedChange={followedChangeHandler}
             />
 
-            <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
+            {!isfollowed &&
+                <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
 
-                {isFullScreen &&
-                    <ButtonBox>
-                        <button onClick={handleFullScreenClick}>Close</button>
-                    </ButtonBox>
-                }
+                    {isFullScreen &&
+                        <ButtonBox>
+                            <button onClick={handleFullScreenClick}>Close</button>
+                        </ButtonBox>
+                    }
 
-                {
-                    myPhotosList?.map((photo) => 
-                        (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
-                            .includes(inputText.toLocaleLowerCase())) &&
+                    {
+                        myPhotosList?.map((photo) =>
+                            (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                                .includes(inputText.toLocaleLowerCase())) &&
                             <EntitiesItem key={photo?.id}
                                 image={photo?.thumbnailUrl}
                                 companyName={usersList[photo?.albumId - 1]?.company.name}
@@ -164,9 +171,37 @@ const Entities: FC = () => {
                                 companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
                                 isMosaic={isMosaic}
                             />
-                    )
-                }
-            </ItemsWrapper>
+                        )
+                    }
+                </ItemsWrapper>
+            }
+            {isfollowed &&
+                <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
+
+                    {isFullScreen &&
+                        <ButtonBox>
+                            <button onClick={handleFullScreenClick}>Close</button>
+                        </ButtonBox>
+                    }
+
+                    {
+                        myPhotosList?.map((photo) =>
+                            (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                                .includes(inputText.toLocaleLowerCase())) &&
+                            photo.albumId === 1 &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                                isMosaic={isMosaic}
+                            />
+                        )
+                    }
+                </ItemsWrapper>
+            }
         </Wrapper>
     )
 }

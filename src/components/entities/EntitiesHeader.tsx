@@ -156,12 +156,13 @@ interface IEntitiesHeaderProps {
     clickList(): void,
     isCopied: boolean,
     changeText(e: ChangeEvent<HTMLInputElement>): void;
+    followedChange(e: ChangeEvent<HTMLSelectElement>): void;
 
 }
 
 
 const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) => {
-    
+
     const [wrapperRef, dropdownOpen, togggleDropdown] = useDropdown();
 
     const menuHandler = () => {
@@ -208,7 +209,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                         </SelectWrapper>
                     </span>
                     <span>
-                        <CostumeBtn style={{fontWeight: 700}}>...</CostumeBtn>
+                        <CostumeBtn style={{ fontWeight: 700 }}>...</CostumeBtn>
                     </span>
                     <span>
                         <CostumeBtn onClick={props.clickSort}>
@@ -225,8 +226,8 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             </span>
                             <span>Filters</span>
                         </CostumeBtn>
-                        {dropdownOpen && 
-                            <Filters/>
+                        {dropdownOpen &&
+                            <Filters />
                         }
                     </span>
                     <span>
@@ -241,7 +242,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <span>
                                 <img src='./media/icony_z_sieci/share.png' alt='share icon'></img>
                             </span>
-                            <span>{!props.isCopied? "Share" : "Copied"}</span>
+                            <span>{!props.isCopied ? "Share" : "Copied"}</span>
                         </CostumeBtn>
                     </span>
                 </LeftBottomBtns>
@@ -252,16 +253,18 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <SearchSubmit type='image' alt='submit' src='./media/icons/search.png'></SearchSubmit>
                         </SearchWrapper>
                     </span>
-                    <span>
+                    <span >
                         <SelectWrapper>
                             <CostumeBtn>
                                 <SelectIconBox>
                                     <img src='./media/icony_z_sieci/radar.png' alt='target icon'></img>
                                 </SelectIconBox>
-                                <span>Followed</span>
-                                <SelectIconBox>
-                                    <img src='./media/icons/arrow-down.png' alt='arrow down icon'></img>
-                                </SelectIconBox>
+                                <span>
+                                    <select onChange={props.followedChange}>
+                                        <option>All</option>
+                                        <option>My</option>
+                                    </select>
+                                </span>
                             </CostumeBtn>
                         </SelectWrapper>
                     </span>
