@@ -13,6 +13,7 @@ import EntitiesItem from './EntitiesItem';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
 import EntitiesListItem from './EntitiesListItem';
+import { ISinglePhoto } from '../../entities/photos';
 
 const Wrapper = styled.div`
     width: 900px;
@@ -82,13 +83,15 @@ const Entities: FC = () => {
     const [isMosaic, setIsMosaic] = useState<boolean>(true);
     const [inputText, setInputText] = useState<string>("");
     const [isSearch, setIsSearch] = useState<boolean>(false);
-    // dodać usestte z pustą tablicą
-    // useEffect(() => {
-    //     pusta settablica([...photolist.slice(0, 10), ...photosList.slice(150,160)])
+    const [myPhotosList, setMyPhotosList] = useState<ISinglePhoto[]>([]);
 
-    // },[])
+
+    useEffect(() => {
+        setMyPhotosList([...photosList?.slice(0, 10), ...photosList?.slice(150, 161), ...photosList?.slice(250, 261)]);
+    }, []);
+
     const handleSortClick = () => {
-        photosList?.sort(function (a, b) {
+        myPhotosList?.sort(function (a, b) {
             let nameA = usersList[a.albumId - 1]?.company.name;
             let nameB = usersList[b.albumId - 1]?.company.name;
 
@@ -154,202 +157,8 @@ const Entities: FC = () => {
                 isCopied={isCopied}
             />
 
-            {/* {isSearch &&
-                <ItemsWrapper>
-                    {
-                        // --------- coś tu nie działa, dubluje wyświetlane elementy  -
-                        photosList.map((photo, index) =>
-                            (index < 10) &&
-                            <div>
-                                {usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
-                                    .includes(inputText.toLocaleLowerCase()) &&
-                                    <EntitiesItem key={photo?.id}
-                                        image={photo?.thumbnailUrl}
-                                        companyName={usersList[photo?.albumId - 1]?.company.name}
-                                        companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                        companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                        companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                        companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                                    />
-                                }
-                            </div>
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 150) && (index < 160) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 250) && (index < 260) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                </ItemsWrapper>
-
-
-            }
-
-            {isSortedFromA &&
-                <ItemsWrapper>
-                    {
-                        photosList.map((photo, index) =>
-                            (index < 10) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 150) && (index < 160) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 250) && (index < 260) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                </ItemsWrapper>
-            }
-
-            {!isSortedFromA &&
-                <ItemsWrapper>
-                    {
-                        photosList.map((photo, index) =>
-                            (index < 10) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 150) && (index < 160) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                    {
-                        photosList.map((photo, index) =>
-                            (index > 250) && (index < 260) &&
-                            <EntitiesItem key={photo?.id}
-                                image={photo?.thumbnailUrl}
-                                companyName={usersList[photo?.albumId - 1]?.company.name}
-                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            />
-                        )
-                    }
-                </ItemsWrapper>
-            }
-
-
-
-            {isFullScreen &&
-
-                <FullScrennWrapper>
-                    <ButtonBox>
-                        <button onClick={handleFullScreenClick}>Close</button>
-                    </ButtonBox>
-                    <ItemsWrapper>
-                        {console.log("full screen mode")}
-                        {
-                            photosList.map((photo, index) =>
-                                (index < 10) &&
-                                <EntitiesItem key={photo?.id}
-                                    image={photo?.thumbnailUrl}
-                                    companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                                />
-                            )
-                        }
-                        {
-                            photosList.map((photo, index) =>
-                                (index > 150) && (index < 160) &&
-                                <EntitiesItem key={photo?.id}
-                                    image={photo?.thumbnailUrl}
-                                    companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                                />
-                            )
-                        }
-                        {
-                            photosList.map((photo, index) =>
-                                (index > 250) && (index < 260) &&
-                                <EntitiesItem key={photo?.id}
-                                    image={photo?.thumbnailUrl}
-                                    companyName={usersList[photo?.albumId - 1]?.company.name}
-                                    companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                                    companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                                    companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                                    companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                                />
-                            )
-                        }
-                    </ItemsWrapper>
-                </FullScrennWrapper>
-
-            } */}
-
             <ItemsWrapper isMosaic={isMosaic} isFullScreen={isFullScreen}>
-                {/* <ul> */}
+
                 {isFullScreen &&
                     <ButtonBox>
                         <button onClick={handleFullScreenClick}>Close</button>
@@ -357,52 +166,26 @@ const Entities: FC = () => {
                 }
 
                 {
-                    photosList.map((photo, index) =>
-                        (index < 10) &&
-                        <EntitiesItem key={photo?.id}
-                            image={photo?.thumbnailUrl}
-                            companyName={usersList[photo?.albumId - 1]?.company.name}
-                            companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                            companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                            companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                            companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            isMosaic={isMosaic}
-                        />
+                    myPhotosList?.map((photo) => 
+                        (usersList[photo?.albumId - 1]?.company.name.toLocaleLowerCase()
+                            .includes(inputText.toLocaleLowerCase())) &&
+                            <EntitiesItem key={photo?.id}
+                                image={photo?.thumbnailUrl}
+                                companyName={usersList[photo?.albumId - 1]?.company.name}
+                                companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
+                                companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
+                                companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
+                                companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
+                                isMosaic={isMosaic}
+                            />
+                    
                     )
                 }
-                {
-                    photosList.map((photo, index) =>
-                        (index > 150) && (index < 160) &&
-                        <EntitiesItem key={photo?.id}
-                            image={photo?.thumbnailUrl}
-                            companyName={usersList[photo?.albumId - 1]?.company.name}
-                            companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                            companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                            companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                            companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            isMosaic={isMosaic}
-                        />
-                    )
-                }
-                {
-                    photosList.map((photo, index) =>
-                        (index > 250) && (index < 260) &&
-                        <EntitiesItem key={photo?.id}
-                            image={photo?.thumbnailUrl}
-                            companyName={usersList[photo?.albumId - 1]?.company.name}
-                            companyAddresCity={usersList[photo?.albumId - 1]?.address.city}
-                            companyAddresZipCode={usersList[photo?.albumId - 1]?.address.zipcode}
-                            companyAddresStreet={usersList[photo?.albumId - 1]?.address.street}
-                            companyAddresSuite={usersList[photo?.albumId - 1]?.address.suite}
-                            isMosaic={isMosaic}
-                        />
-                    )
-                }
-                {/* </ul> */}
+                
             </ItemsWrapper>
+
         </Wrapper>
+
     )
 }
-
-
 export default Entities;

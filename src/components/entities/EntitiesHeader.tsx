@@ -241,8 +241,7 @@ const EntitiesHeader: FC<IEntitiesHeaderProps> = (props: IEntitiesHeaderProps) =
                             <span>
                                 <img src='./media/icony_z_sieci/share.png' alt='share icon'></img>
                             </span>
-                            <span>Share</span>
-                            <span>{!props.isCopied? "Share link" : "Link Copied"}</span>
+                            <span>{!props.isCopied? "Share" : "Copied"}</span>
                         </CostumeBtn>
                     </span>
                 </LeftBottomBtns>
