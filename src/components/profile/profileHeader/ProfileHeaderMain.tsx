@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
 
@@ -17,11 +18,15 @@ const Wrapper = styled.div`
 `;
 
 const Wrapper2 = styled.div`
+
+    border: 1px solid red;
+
     display: flex;
 `;
 
 
 const PhotoEleWrapper = styled.div`
+    border: 1px solid green;
     display: flex;
     flex-direction: column;
     margin: 20px 20px 0 0;
@@ -65,14 +70,13 @@ const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     text-align: left;
+    font-size: ${FontSize[16]};
+    color: ${Colors.blue1};
 `;
 
-const PhotoText = styled.span`
-    color: #86d4e2;
-    font-size: ${FontSize[16]};
-`;
 
 const DetailsWrapper = styled.div`
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -89,7 +93,7 @@ const DetailsTextBig = styled.span`
     font-size: ${FontSize[18]};
     font-weight: 700;
     letter-spacing: 2px;
-    color: #575757;
+    color: ${Colors.gray2};
     margin-bottom: 5px;
    
 `;
@@ -97,12 +101,14 @@ const DetailsTextBig = styled.span`
 const DetailsTextSmall = styled.span`
     font-size: ${FontSize[18]};
     letter-spacing: 2px;
-    color: #575757;
+    color: ${Colors.gray2};
     margin-top: 5px;
 `;
 
 
 const EditWrapper = styled.div`
+    border: 1px solid blue;
+
     img {
         padding: 0 15px;
         width: 25px;
@@ -111,6 +117,8 @@ const EditWrapper = styled.div`
  
 `;
 const ContactsWrapper = styled.span`
+    border: 1px solid yellow;
+    display: block;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -123,7 +131,6 @@ const ProfileHeaderMain: FC = () => {
     return (
         <Wrapper>
             <Wrapper2>
-
                 <PhotoEleWrapper>
                     <PhotoWrapper>
                         <PhotoBox>
@@ -132,7 +139,7 @@ const ProfileHeaderMain: FC = () => {
                         <PhotoDotBox></PhotoDotBox>
                     </PhotoWrapper>
                     <CostumLink to='profile'>
-                        <PhotoText>See profile</PhotoText>
+                        See profile
                     </CostumLink>
                 </PhotoEleWrapper>
                 <DetailsWrapper>
