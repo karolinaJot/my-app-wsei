@@ -319,11 +319,11 @@ const ExpandedMenu: FC = () => {
                     </MenuItem>
                     <MenuItem>
                         <IconBox>
-                            <Link to="/settings">
+                            <Link to="settings">
                                 <img src='./media/icons/settings.png'></img>
                             </Link>
                         </IconBox>
-                        <CostumLink to="/settings">
+                        <CostumLink to="settings">
                             <span>Settings</span>
                         </CostumLink>
                     </MenuItem>
