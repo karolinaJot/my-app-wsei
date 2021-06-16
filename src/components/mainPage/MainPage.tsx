@@ -54,6 +54,9 @@ const MainPage : FC = () => {
         <Content>
           <LeftBar />
           <Switch>
+            <Route path="/proposals" exact>
+              <UnderConstructionPage />
+            </Route>
             <Route path="/publications" exact>
               <UnderConstructionPage />
             </Route>

@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
+import { IUserInfo } from './ProfileHeader';
 
 
 
@@ -16,7 +18,7 @@ const Wrapper = styled.div`
 
 `;
 
-const Wrapper2 = styled.div`
+const ContentWrapper = styled.div`
     display: flex;
 `;
 
@@ -49,7 +51,7 @@ const PhotoBox = styled.span`
 `;
 
 const PhotoDotBox = styled.span`
-    background-color:green;
+    background-color: ${Colors.profileGreen};
     border: 3px solid white;
     width: 15px;
     height: 15px;
@@ -65,12 +67,10 @@ const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     text-align: left;
+    font-size: ${FontSize[16]};
+    color: ${Colors.blue1};
 `;
 
-const PhotoText = styled.span`
-    color: #86d4e2;
-    font-size: ${FontSize[16]};
-`;
 
 const DetailsWrapper = styled.div`
     display: flex;
@@ -89,7 +89,7 @@ const DetailsTextBig = styled.span`
     font-size: ${FontSize[18]};
     font-weight: 700;
     letter-spacing: 2px;
-    color: #575757;
+    color: ${Colors.gray2};
     margin-bottom: 5px;
    
 `;
@@ -97,12 +97,13 @@ const DetailsTextBig = styled.span`
 const DetailsTextSmall = styled.span`
     font-size: ${FontSize[18]};
     letter-spacing: 2px;
-    color: #575757;
+    color: ${Colors.gray2};
     margin-top: 5px;
 `;
 
 
 const EditWrapper = styled.div`
+
     img {
         padding: 0 15px;
         width: 25px;
@@ -111,6 +112,7 @@ const EditWrapper = styled.div`
  
 `;
 const ContactsWrapper = styled.span`
+    display: block;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -119,11 +121,15 @@ const ContactsWrapper = styled.span`
 
 `;
 
-const ProfileHeaderMain: FC = () => {
+interface IProfileHeaderInfo {
+    userData: IUserInfo,
+    editHandle(): void,
+}
+
+const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) => {
     return (
         <Wrapper>
-            <Wrapper2>
-
+            <ContentWrapper>
                 <PhotoEleWrapper>
                     <PhotoWrapper>
                         <PhotoBox>
@@ -132,30 +138,34 @@ const ProfileHeaderMain: FC = () => {
                         <PhotoDotBox></PhotoDotBox>
                     </PhotoWrapper>
                     <CostumLink to='profile'>
-                        <PhotoText>See profile</PhotoText>
+                        See profile
                     </CostumLink>
                 </PhotoEleWrapper>
-                <DetailsWrapper>
-                    <div>
-                        <DetailsTextBig>Aniela Kowalska</DetailsTextBig>
-                        <DetailsTextBig>fajna firma</DetailsTextBig>
-                    </div>
-                    <div>
-                        <DetailsTextSmall>City Krakow</DetailsTextSmall>
-                        <DetailsTextSmall>Szef główny</DetailsTextSmall>
-                    </div>
-                </DetailsWrapper>
+                {props.userData &&
+                    <DetailsWrapper>
+                        <div>
+                            <DetailsTextBig>{props.userData.name}</DetailsTextBig>
+                            <DetailsTextBig>{props.userData.companyName}</DetailsTextBig>
+                        </div>
+                        <div>
+                            <DetailsTextSmall>{props.userData.city}</DetailsTextSmall>
+                            <DetailsTextSmall>{props.userData.website}</DetailsTextSmall>
+                        </div>
+                    </DetailsWrapper>
+                }
                 <ContactsWrapper>
-                    <DetailsTextSmall>fajnymail@gmail.com</DetailsTextSmall>
-                    <DetailsTextSmall>+33 (0)62345667733</DetailsTextSmall>
+                    <DetailsTextSmall>{props.userData.email}</DetailsTextSmall>
+                    <DetailsTextSmall>{props.userData.tel}</DetailsTextSmall>
                 </ContactsWrapper>
-            </Wrapper2>
+            </ContentWrapper>
             <EditWrapper>
-                <img src='./media/icons/settings.svg'></img>
+                <button onClick={props.editHandle}>
+                    <img src='./media/icons/settings.svg'></img>
+                </button>
             </EditWrapper>
         </Wrapper>
     );
 };
 
 
-export default ProfileHeaderMain;
+export default ProfileHeaderInfo;
