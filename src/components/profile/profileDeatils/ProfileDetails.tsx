@@ -223,7 +223,6 @@ const ProfileDetails: FC = () => {
                             <label>Expertise</label>
                             <input
                                 type="text"
-                                required
                                 value={experties}
                                 onChange={(e) => setExpertise(e.target.value)}
                             ></input>

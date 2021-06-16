@@ -19,15 +19,11 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-
-    border: 1px solid red;
-
     display: flex;
 `;
 
 
 const PhotoEleWrapper = styled.div`
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     margin: 20px 20px 0 0;
@@ -55,7 +51,7 @@ const PhotoBox = styled.span`
 `;
 
 const PhotoDotBox = styled.span`
-    background-color:green;
+    background-color: ${Colors.profileGreen};
     border: 3px solid white;
     width: 15px;
     height: 15px;
@@ -77,7 +73,6 @@ const CostumLink = styled(Link)`
 
 
 const DetailsWrapper = styled.div`
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -108,7 +103,6 @@ const DetailsTextSmall = styled.span`
 
 
 const EditWrapper = styled.div`
-    border: 1px solid blue;
 
     img {
         padding: 0 15px;
@@ -118,7 +112,6 @@ const EditWrapper = styled.div`
  
 `;
 const ContactsWrapper = styled.span`
-    border: 1px solid yellow;
     display: block;
     display: flex;
     flex-direction: column;
@@ -129,7 +122,8 @@ const ContactsWrapper = styled.span`
 `;
 
 interface IProfileHeaderInfo {
-    userData: IUserInfo
+    userData: IUserInfo,
+    editHandle(): void,
 }
 
 const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) => {
@@ -151,22 +145,23 @@ const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) =>
                     <DetailsWrapper>
                         <div>
                             <DetailsTextBig>{props.userData.name}</DetailsTextBig>
-                            {/* <DetailsTextBig>{props.userData.name === undefined ? "Aniela Kowalska" : props.userData.name}</DetailsTextBig> */}
-                            <DetailsTextBig>fajna firma</DetailsTextBig>
+                            <DetailsTextBig>{props.userData.companyName}</DetailsTextBig>
                         </div>
                         <div>
-                            <DetailsTextSmall>City Krakow</DetailsTextSmall>
-                            <DetailsTextSmall>Szef główny</DetailsTextSmall>
+                            <DetailsTextSmall>{props.userData.city}</DetailsTextSmall>
+                            <DetailsTextSmall>{props.userData.website}</DetailsTextSmall>
                         </div>
                     </DetailsWrapper>
                 }
                 <ContactsWrapper>
-                    <DetailsTextSmall>fajnymail@gmail.com</DetailsTextSmall>
-                    <DetailsTextSmall>+33 (0)62345667733</DetailsTextSmall>
+                    <DetailsTextSmall>{props.userData.email}</DetailsTextSmall>
+                    <DetailsTextSmall>{props.userData.tel}</DetailsTextSmall>
                 </ContactsWrapper>
             </ContentWrapper>
             <EditWrapper>
-                <img src='./media/icons/settings.svg'></img>
+                <button onClick={props.editHandle}>
+                    <img src='./media/icons/settings.svg'></img>
+                </button>
             </EditWrapper>
         </Wrapper>
     );
