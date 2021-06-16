@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
+import { IUserInfo } from './ProfileHeader';
 
 
 
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 
 `;
 
-const Wrapper2 = styled.div`
+const ContentWrapper = styled.div`
 
     border: 1px solid red;
 
@@ -127,10 +128,14 @@ const ContactsWrapper = styled.span`
 
 `;
 
-const ProfileHeaderMain: FC = () => {
+interface IProfileHeaderInfo {
+    userData: IUserInfo
+}
+
+const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) => {
     return (
         <Wrapper>
-            <Wrapper2>
+            <ContentWrapper>
                 <PhotoEleWrapper>
                     <PhotoWrapper>
                         <PhotoBox>
@@ -142,21 +147,24 @@ const ProfileHeaderMain: FC = () => {
                         See profile
                     </CostumLink>
                 </PhotoEleWrapper>
-                <DetailsWrapper>
-                    <div>
-                        <DetailsTextBig>Aniela Kowalska</DetailsTextBig>
-                        <DetailsTextBig>fajna firma</DetailsTextBig>
-                    </div>
-                    <div>
-                        <DetailsTextSmall>City Krakow</DetailsTextSmall>
-                        <DetailsTextSmall>Szef główny</DetailsTextSmall>
-                    </div>
-                </DetailsWrapper>
+                {props.userData &&
+                    <DetailsWrapper>
+                        <div>
+                            <DetailsTextBig>{props.userData.name}</DetailsTextBig>
+                            {/* <DetailsTextBig>{props.userData.name === undefined ? "Aniela Kowalska" : props.userData.name}</DetailsTextBig> */}
+                            <DetailsTextBig>fajna firma</DetailsTextBig>
+                        </div>
+                        <div>
+                            <DetailsTextSmall>City Krakow</DetailsTextSmall>
+                            <DetailsTextSmall>Szef główny</DetailsTextSmall>
+                        </div>
+                    </DetailsWrapper>
+                }
                 <ContactsWrapper>
                     <DetailsTextSmall>fajnymail@gmail.com</DetailsTextSmall>
                     <DetailsTextSmall>+33 (0)62345667733</DetailsTextSmall>
                 </ContactsWrapper>
-            </Wrapper2>
+            </ContentWrapper>
             <EditWrapper>
                 <img src='./media/icons/settings.svg'></img>
             </EditWrapper>
@@ -165,4 +173,4 @@ const ProfileHeaderMain: FC = () => {
 };
 
 
-export default ProfileHeaderMain;
+export default ProfileHeaderInfo;
