@@ -9,6 +9,7 @@ import ProfileHeader from './profileHeader/ProfileHeader';
 const Wrapper = styled.div`
     width: 900px;
     background-color: ${Colors.white};
+    padding-bottom: 20px;
 `;
 
 const Profile: FC = () => {
