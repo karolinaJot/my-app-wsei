@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 import { FontSize } from "../../../styledHelpers/FontSizes";
 import { Colors } from "../../../styledHelpers/Colors";
@@ -74,6 +74,34 @@ const HeaderWrapper = styled.span`
     margin-top: 20px;
 `;
 
+const MessageWrapper = styled.div`
+    display: flex;
+    background-color: ${Colors.bg};
+    margin-bottom: 10px;
+`;
+
+const MessageItemBox = styled.div`
+    display: flex;
+
+    span {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+
+    input {
+        background-color: ${Colors.bg};
+        border: none;
+    }
+`;
+
 
 const TableHeadersWrapper = styled.div`
     width: 100%;
@@ -119,9 +147,16 @@ const MyLink = styled(Link)`
 `;
 
 
+interface IMessage {
+    name: string,
+    content: string,
+    profile: string
+};
+
+
 const ProfileDetails: FC = () => {
 
-    const [isEditing, setIsEditing] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
     const [experties, setExpertise] = useState("Mergers and acqusition");
     const [specialities1, setSpecialities1] = useState("Cross border operation");
     const [specialities2, setSpecialities2] = useState("Transaction over 500M$");
@@ -148,20 +183,72 @@ const ProfileDetails: FC = () => {
     const [expertise3, setExpertise3] = useState<string>("#Social");
     const [date3, setDate3] = useState<string>("18/02/2019");
     const [firm3, setFirm3] = useState<string>("SVZ");
+    const [message1, setMessage1] = useState<IMessage>({
+        name: "Pierwszy Użytkownik",
+        content: "Wiadomość 1",
+        profile: "Profile"
+    });
+    const [message2, setMessage2] = useState<IMessage>({
+        name: "Drugi Użytkownik",
+        content: "Wiadomość 2",
+        profile: "Profile"
+    });
+
+    const [fee1, setFee1] = useState({
+        year: 2018,
+        centerCost: "CS 153",
+        total: "3 500 $",
+        company: "Clickford chance"
+    });
+    const [fee2, setFee2] = useState({
+        year: 2017,
+        centerCost: "CS 47",
+        total: "10 500 $",
+        company: "Linklaters"
+    });
+    const [fee3, setFee3] = useState({
+        year: 2017,
+        centerCost: "CS 153",
+        total: "18 500 $",
+        company: "Linklaters"
+    });
+
+    const handleFee1Change = (e: ChangeEvent<HTMLInputElement>) => {
+        setFee1({ ...fee1, [e.target.name]: e.target.value })
+    };
+
+    const handleFee2Change = (e: ChangeEvent<HTMLInputElement>) => {
+        setFee1({ ...fee2, [e.target.name]: e.target.value })
+    };
+
+    const handleFee3Change = (e: ChangeEvent<HTMLInputElement>) => {
+        setFee1({ ...fee3, [e.target.name]: e.target.value })
+    };
+
+    const handleMessage1Change = (e: ChangeEvent<HTMLInputElement>) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        setMessage1({ ...message1, [name]: value })
+    };
+
+    const handleMessage2Change = (e: ChangeEvent<HTMLInputElement>) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        setMessage2({ ...message2, [name]: value })
+    };
 
     const handlingEditing = () => {
         setIsEditing(true);
     };
 
     const handlingSave = () => {
-        console.log("zapisuje");
         setIsEditing(false);
     };
 
 
     return (
         <Wrapper>
-            {/* {!isEditing && 
+            {!isEditing && 
             <div>
                 <ButtonBox>
                     <button onClick={handlingEditing}>Edit</button>
@@ -208,11 +295,534 @@ const ProfileDetails: FC = () => {
                             value="attachement.jpg"
                         ></input>
                     </FormItem>
-                    <HeaderWrapper>Services & projects</HeaderWrapper>
+                    <FormItem>
+                            <label>Services & projects</label>
+                            <input disabled
+                                type="text"
+                                value={services}
+                                onChange={(e) => setServices(e.target.value)}
+                            ></input>
+                        </FormItem>
+                        <FormItem>
+                            <label>Internal correspondants</label>
+                            <MessageWrapper>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="name"
+                                        value={message1.name}
+                                        onChange={handleMessage1Change}
+                                    ></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/comments.svg' alt="icon"></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="content"
+                                        value={message1.content}
+                                        onChange={handleMessage1Change}></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/people.svg' alt="icon"></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="profile"
+                                        value={message1.profile}
+                                        onChange={handleMessage1Change}
+                                    ></input>
+                                </MessageItemBox>
+                            </MessageWrapper>
+                            <MessageWrapper>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="name"
+                                        value={message2.name}
+                                        onChange={handleMessage2Change}
+                                    ></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/comments.svg' alt="icon"></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="content"
+                                        value={message2.content}
+                                        onChange={handleMessage2Change}></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/people.svg' alt="icon"></img>
+                                    </span>
+                                    <input disabled
+                                        type='text'
+                                        name="profile"
+                                        value={message2.profile}
+                                        onChange={handleMessage2Change}
+                                    ></input>
+                                </MessageItemBox>
+                            </MessageWrapper>
+                        </FormItem>
+                        <SeparationBox></SeparationBox>
+
+                        <HeaderWrapper>Proposlas</HeaderWrapper>
+                        <TableHeadersWrapper>
+                            <span>Name</span>
+                            <span>Entity</span>
+                            <span>Location</span>
+                            <span>Expertise</span>
+                            <span>Data</span>
+                            <span>Firm</span>
+                        </TableHeadersWrapper>
+                        <SeparationBox></SeparationBox>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name1'
+                                    type="text"
+                                    value={name1}
+                                    onChange={(e) => setName1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity1'
+                                    type="text"
+                                    value={entity1}
+                                    onChange={(e) => setEntity1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location1'
+                                    type="text"
+                                    value={location1}
+                                    onChange={(e) => setLocation1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise1'
+                                    type="text"
+                                    value={expertise1}
+                                    onChange={(e) => setExpertise1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date1'
+                                    type="text"
+                                    value={date1}
+                                    onChange={(e) => setDate1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='firm1'
+                                    type="text"
+                                    value={firm1}
+                                    onChange={(e) => setFirm1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name2'
+                                    type="text"
+                                    value={name2}
+                                    onChange={(e) => setName2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity2'
+                                    type="text"
+                                    value={entity2}
+                                    onChange={(e) => setEntity2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location2'
+                                    type="text"
+                                    value={location2}
+                                    onChange={(e) => setLocation2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise2'
+                                    type="text"
+                                    value={expertise2}
+                                    onChange={(e) => setExpertise2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date2'
+                                    type="text"
+                                    value={date2}
+                                    onChange={(e) => setDate2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='firm2'
+                                    type="text"
+                                    value={firm2}
+                                    onChange={(e) => setFirm2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name3'
+                                    type="text"
+                                    value={name3}
+                                    onChange={(e) => setName3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity3'
+                                    type="text"
+                                    value={entity3}
+                                    onChange={(e) => setEntity3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location3'
+                                    type="text"
+                                    value={location3}
+                                    onChange={(e) => setLocation3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise3'
+                                    type="text"
+                                    value={expertise3}
+                                    onChange={(e) => setExpertise3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date3'
+                                    type="text"
+                                    value={date3}
+                                    onChange={(e) => setDate3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='firm3'
+                                    type="text"
+                                    value={firm3}
+                                    onChange={(e) => setFirm3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <LinkWrapper>
+                            <MyLink to='proposals'>See more proposals</MyLink>
+                        </LinkWrapper>
+                        <SeparationBox></SeparationBox>
+                        <HeaderWrapper>Internal reviews</HeaderWrapper>
+                        <TableHeadersWrapper>
+                            <span>Name</span>
+                            <span>Entity</span>
+                            <span>Location</span>
+                            <span>Expertise</span>
+                            <span>Data</span>
+                        </TableHeadersWrapper>
+                        <SeparationBox></SeparationBox>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name1'
+                                    type="text"
+                                    value={name1}
+                                    onChange={(e) => setName1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity1'
+                                    type="text"
+                                    value={entity1}
+                                    onChange={(e) => setEntity1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location1'
+                                    type="text"
+                                    value={location1}
+                                    onChange={(e) => setLocation1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise1'
+                                    type="text"
+                                    value={expertise1}
+                                    onChange={(e) => setExpertise1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date1'
+                                    type="text"
+                                    value={date1}
+                                    onChange={(e) => setDate1(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name2'
+                                    type="text"
+                                    value={name2}
+                                    onChange={(e) => setName2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity2'
+                                    type="text"
+                                    value={entity2}
+                                    onChange={(e) => setEntity2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location2'
+                                    type="text"
+                                    value={location2}
+                                    onChange={(e) => setLocation2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise2'
+                                    type="text"
+                                    value={expertise2}
+                                    onChange={(e) => setExpertise2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date2'
+                                    type="text"
+                                    value={date2}
+                                    onChange={(e) => setDate2(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='name3'
+                                    type="text"
+                                    value={name3}
+                                    onChange={(e) => setName3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='entity3'
+                                    type="text"
+                                    value={entity3}
+                                    onChange={(e) => setEntity3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='location3'
+                                    type="text"
+                                    value={location3}
+                                    onChange={(e) => setLocation3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='expertise3'
+                                    type="text"
+                                    value={expertise3}
+                                    onChange={(e) => setExpertise3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    id='date3'
+                                    type="text"
+                                    value={date3}
+                                    onChange={(e) => setDate3(e.target.value)}
+                                ></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <LinkWrapper>
+                            <MyLink to='proposals'>See more reviews</MyLink>
+                        </LinkWrapper>
+                        <SeparationBox></SeparationBox>
+                        <HeaderWrapper>Amount of fees</HeaderWrapper>
+                        <TableHeadersWrapper>
+                            <span>Year</span>
+                            <span>Cost center</span>
+                            <span>Total amount</span>
+                            <span>Law firm</span>
+                        </TableHeadersWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="year"
+                                    value={fee1.year}
+                                    onChange={handleFee1Change}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee1.centerCost}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="total"
+                                    value={fee1.total}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="company"
+                                    value={fee1.company}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="year"
+                                    value={fee2.year}
+                                    onChange={handleFee2Change}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee2.centerCost}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="total"
+                                    value={fee2.total}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="company"
+                                    value={fee2.company}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee3.centerCost}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="total"
+                                    value={fee3.total}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input disabled
+                                    type="text"
+                                    name="company"
+                                    value={fee3.company}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                        </RowWrapper>
 
                 </form>
             </div>
-            } */}
+            }
             {isEditing &&
                 <div>
                     <ButtonBox>
@@ -288,8 +898,75 @@ const ProfileDetails: FC = () => {
                             ></input>
                         </FormItem>
                         <FormItem>
-                            <label>Internal correspondants TO DOOOO</label>
-
+                            <label>Internal correspondants</label>
+                            <MessageWrapper>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="name"
+                                        value={message1.name}
+                                        onChange={handleMessage1Change}
+                                    ></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/comments.svg' alt="icon"></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="content"
+                                        value={message1.content}
+                                        onChange={handleMessage1Change}></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/people.svg' alt="icon"></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="profile"
+                                        value={message1.profile}
+                                        onChange={handleMessage1Change}
+                                    ></input>
+                                </MessageItemBox>
+                            </MessageWrapper>
+                            <MessageWrapper>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="name"
+                                        value={message2.name}
+                                        onChange={handleMessage2Change}
+                                    ></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/comments.svg' alt="icon"></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="content"
+                                        value={message2.content}
+                                        onChange={handleMessage2Change}></input>
+                                </MessageItemBox>
+                                <MessageItemBox>
+                                    <span>
+                                        <img src='./media/icons/people.svg' alt="icon"></img>
+                                    </span>
+                                    <input
+                                        type='text'
+                                        name="profile"
+                                        value={message2.profile}
+                                        onChange={handleMessage2Change}
+                                    ></input>
+                                </MessageItemBox>
+                            </MessageWrapper>
                         </FormItem>
                         <SeparationBox></SeparationBox>
 
@@ -628,6 +1305,114 @@ const ProfileDetails: FC = () => {
                         <LinkWrapper>
                             <MyLink to='proposals'>See more reviews</MyLink>
                         </LinkWrapper>
+                        <SeparationBox></SeparationBox>
+                        <HeaderWrapper>Amount of fees</HeaderWrapper>
+                        <TableHeadersWrapper>
+                            <span>Year</span>
+                            <span>Cost center</span>
+                            <span>Total amount</span>
+                            <span>Law firm</span>
+                        </TableHeadersWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="year"
+                                    value={fee1.year}
+                                    onChange={handleFee1Change}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee1.centerCost}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="total"
+                                    value={fee1.total}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    value={fee1.company}
+                                    onChange={handleFee1Change}></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="year"
+                                    value={fee2.year}
+                                    onChange={handleFee2Change}
+                                ></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee2.centerCost}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="total"
+                                    value={fee2.total}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    value={fee2.company}
+                                    onChange={handleFee2Change}></input>
+                            </FormItem>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <FormItem>
+                                <label></label>
+                                <input></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="centerCost"
+                                    value={fee3.centerCost}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="total"
+                                    value={fee3.total}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                            <FormItem>
+                                <label></label>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    value={fee3.company}
+                                    onChange={handleFee3Change}></input>
+                            </FormItem>
+                        </RowWrapper>
                     </form>
                 </div>
             }

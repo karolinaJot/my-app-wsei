@@ -22,6 +22,13 @@ const ElementWrapper = styled.span`
 `;
 const ImageBox = styled.span`
     display: block;
+    width: 30px;
+    height: 100%;
+
+    img {
+        height: 90%;
+        width: 90%;
+    }
 `;
 const TextBox = styled.span`
     display: block;
@@ -59,7 +66,9 @@ const ProfileHeaderTopBar: FC = () => {
             </ElementWrapper>
             <ElementWrapper>
                 <CostumLink to='/'>
-                    <ImageBox>X</ImageBox>
+                    <ImageBox>
+                        <img src='./media/icony_z_sieci/close.png'></img>
+                    </ImageBox>
                 </CostumLink>
             </ElementWrapper>
         </Wrapper>
