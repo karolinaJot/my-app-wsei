@@ -1,13 +1,16 @@
 import { FC, useState, ChangeEvent } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { getWorkspaceTitle } from '../../actions/workspaceTitleActions';
 
 import { IState } from '../../reducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
+
+type GetWorkspaceTitle = ReturnType<typeof getWorkspaceTitle>;
 
 const Wrapper = styled.div`
     position: absolute;
@@ -122,12 +125,17 @@ const ExpandedMenu: FC = () => {
         setInputText(text);
     };
 
-    const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer >(state => ({
+    const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer>(state => ({
         ...state.users,
         ...state.photos
-    
+
     }));
-    
+
+    const dispatch = useDispatch();
+
+    const workspaceTitleClickHandle = (e: React.MouseEvent<HTMLButtonElement>) => {
+        dispatch<GetWorkspaceTitle>(getWorkspaceTitle("title 2"));
+    }
 
 
     return (
@@ -194,96 +202,126 @@ const ExpandedMenu: FC = () => {
                     <MenuItem>
                         {'Client Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/clientcontract">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span> Client Contract</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Client Contract"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span> Client Contract</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Supplier Contract'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/suppliercontract">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span>Supplier Contract</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Supplier Contract"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Supplier Contract</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/corporate">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span>Corporate</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Corporate"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Corporate</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/groupnorms">
-                                <IconBox>
-
-                                    <img src='./media/icons/entities2.png'></img>
-
-                                </IconBox>
-                                <span>Group Norms</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Group Norms"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Group Norms</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Real estate contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/realestatecontracts">
-                                <IconBox>
-
-                                    <img src='./media/icons/entities2.png'></img>
-
-                                </IconBox>
-                                <span>Real estate contracts</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Real estate Contract"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Real estate contracts</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/nextitem">
-                                <IconBox>
-
-                                    <img src='./media/icons/entities2.png'></img>
-
-                                </IconBox>
-                                <span>Next Item</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 1"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Next Item 1</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/nextitem">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span>Next Item</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 2"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Next Item 2</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/nextitem">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span>Next Item</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 3"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Next Item 3</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>
                     <MenuItem>
                         {'Next Item'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/nextitem">
-                                <IconBox>
-                                    <img src='./media/icons/entities2.png'></img>
-                                </IconBox>
-                                <span>Next Item</span>
+                                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 4"));
+                                }}>
+                                    <IconBox>
+                                        <img src='./media/icons/entities2.png'></img>
+                                    </IconBox>
+                                    <span>Next Item 4</span>
+                                </button>
                             </CostumLink>
                         }
                     </MenuItem>

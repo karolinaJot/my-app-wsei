@@ -15,11 +15,13 @@ import { getPhotos } from '../../actions/photosActions';
 import { getComments } from '../../actions/commentsActions';
 import { getPosts } from '../../actions/postsActions';
 import Workspace from '../workspacePage/Workspace';
+import { getWorkspaceTitle } from '../../actions/workspaceTitleActions';
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
 type GetComments = ReturnType<typeof getComments>;
 type GetPosts = ReturnType<typeof getPosts>;
+type GetWorkspaceTitle = ReturnType<typeof getWorkspaceTitle>;
 
 
 const Wrapper = styled.div`
