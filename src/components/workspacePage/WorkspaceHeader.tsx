@@ -1,5 +1,8 @@
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { IState } from '../../reducers';
+import  { IWorkspaceTitleReducer } from '../../reducers/workspaceTitleReducers';
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
 
@@ -87,6 +90,12 @@ const ContentTextBox = styled.span`
 
 
 const WorkspaceHeader: FC = () => {
+
+        const { workspaceTitle } = useSelector<IState, IWorkspaceTitleReducer>(state => ({
+            ...state.workspaceTitle
+        }))
+    
+
     return (
         <Wrapper>
             <ImageWrapper>
@@ -94,7 +103,7 @@ const WorkspaceHeader: FC = () => {
             </ImageWrapper>
             <TextWrapper>
                 <HeaderWrapper>
-                    <h3>Corporate holdings</h3>
+                    <h3>{workspaceTitle}</h3>
                     <span>
                         <img src='./media/icony_z_sieci/settings1.png' alt='settings icon'></img>
                     </span>

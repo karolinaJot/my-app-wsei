@@ -75,7 +75,7 @@ export const Resume: FC = () => {
         const selected = data.selected;
         setCurentPage(selected);
     }
-
+        
     return (
         <Wrapper>
             <ResumeHeader changeText={inputHandler}
@@ -129,4 +129,5 @@ export const Resume: FC = () => {
         </Wrapper>
     );
 
-}
+};
+

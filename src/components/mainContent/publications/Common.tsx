@@ -13,6 +13,7 @@ justify-content: left;
 align-items: center;
 font-size: ${FontSize[14]};
 font-weight: 300;
+z-index: 100;
 `;
 
 
@@ -37,4 +38,5 @@ export const PublicationText = styled.p`
     margin-left: 5px;
     font-weight: 500;
     font-size: ${FontSize[16]};
+    z-index: 100;
     `;

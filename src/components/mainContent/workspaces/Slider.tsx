@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import { SliderCard } from './SliderCard';
+
 
 
 
@@ -16,9 +18,7 @@ const Wrapper = styled.div`
 `;
 
 export const Slider: FC = () => {
-
     return(
-        
         <Wrapper>
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
@@ -26,6 +26,8 @@ export const Slider: FC = () => {
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Contract"
                 detailsHeaderUsers="150 users"
+                link="/clientcontract"
+
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
@@ -33,6 +35,7 @@ export const Slider: FC = () => {
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Contract"
                 detailsHeaderUsers="25 users"
+                link="/suppliercontract"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
@@ -40,6 +43,7 @@ export const Slider: FC = () => {
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Contract"
                 detailsHeaderUsers="15 users"
+                link="/corporate"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
@@ -47,6 +51,7 @@ export const Slider: FC = () => {
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Norms"
                 detailsHeaderUsers="45 users"
+                link="/groupnorms"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
@@ -54,34 +59,39 @@ export const Slider: FC = () => {
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Contract"
                 detailsHeaderUsers="10 users"
+                link="/realestatecontracts"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
-                title="Next Item"
+                title="Next Item 1"
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Super"
                 detailsHeaderUsers="100 users"
+                link="/nextitem"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
-                title="Next Item"
+                title="Next Item 2"
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Super"
                 detailsHeaderUsers="200 users"
+                link="/nextitem"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
-                title="Next Item"
+                title="Next Item 3"
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Super"
                 detailsHeaderUsers="300 users"
+                link="/nextitem"
             />
             <SliderCard
                 bigIcon="./media/icons/entities2.svg"
-                title="Next Item"
+                title="Next Item 4"
                 smallIcon="./media/icons/entities2.svg"
                 detailsHeaderText="Super"
                 detailsHeaderUsers="400 users"
+                link="/nextitem"
             />
            
             

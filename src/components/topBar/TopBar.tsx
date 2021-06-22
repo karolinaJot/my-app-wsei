@@ -31,6 +31,7 @@ const LeftWrapper = styled.div`
 const Logo = styled.img`
     height: 40px;
     width: 40px;
+    object-fit: contain;
 `;
 
 const ExpandedMenuWrapper = styled.div`
