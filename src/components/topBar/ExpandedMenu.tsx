@@ -41,7 +41,7 @@ const Filter = styled.input`
 
 const MenuItemsWrapper = styled.div`
     height: 336px;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px ${Colors.black};
     overflow: auto;
 `;
 
@@ -61,9 +61,8 @@ const AccountWrapper = styled.div`
 
 const MenuItem = styled.li`
     display: flex;
-    justify-content: baseline;
     font-size: ${FontSize[14]};
-
+    align-items: center;
     margin: 5px 0;
 
     span {
@@ -76,7 +75,7 @@ const MenuItem = styled.li`
 const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
-    color: black;
+    color: ${Colors.black};
     display: flex;
     align-items: baseline;
 
@@ -124,7 +123,7 @@ const AccountUserName = styled.div`
 `;
 
 const AccountUserLink = styled.span`
-    color: blue;
+    color: ${Colors.blue1};
     font-size: ${FontSize[16]};
 `;
 
@@ -137,6 +136,12 @@ const LogoutBtn = styled.button`
     padding: 10px;
     width: 100%;
     cursor: pointer;
+`;
+
+const CostumList =styled.ul`
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
 `;
 
 
@@ -354,7 +359,7 @@ const ExpandedMenu: FC = () => {
             </MenuItemsWrapper>
             <AccountWrapper>
                 <SectionTitle>Account</SectionTitle>
-                <ul style={{marginLeft: "10px" }}>
+                <CostumList>
                     <MenuItem>
                         <ImageBox>
                             <Link to="profile">
@@ -390,7 +395,7 @@ const ExpandedMenu: FC = () => {
                             <span>Settings</span>
                         </CostumLink>
                     </MenuItem>
-                </ul>
+                </CostumList>
             </AccountWrapper>
             <LogoutWrapper>
                 <LogoutBtn>Logout</LogoutBtn>
