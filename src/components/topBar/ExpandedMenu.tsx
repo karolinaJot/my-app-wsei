@@ -2,8 +2,8 @@ import { FC, useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { getWorkspaceTitle } from '../../actions/workspaceTitleActions';
 
+import { getWorkspaceTitle } from '../../actions/workspaceTitleActions';
 import { IState } from '../../reducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
@@ -48,7 +48,7 @@ const MenuItemsWrapper = styled.div`
 const SectionTitle = styled.span`
     margin: 15px 0;
     display: block;
-    color: gray;
+    color: ${Colors.gray2};
     font-weight: 700;
     text-align: left;
     padding-left: 10px;
@@ -61,11 +61,15 @@ const AccountWrapper = styled.div`
 
 const MenuItem = styled.li`
     display: flex;
+    justify-content: baseline;
+    font-size: ${FontSize[14]};
+
     margin: 5px 0;
 
     span {
         margin-left: 10px;
-        display: inline-block;
+        display: block;
+        font-size: ${FontSize[14]};
     }
 `;
 
@@ -73,13 +77,34 @@ const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     color: black;
-    text-align: left;
+    display: flex;
+    align-items: baseline;
+
+
+
+    button {
+        background-color: ${Colors.white};
+        width: 200px;
+        display: flex;
+        justify-content:start;
+        align-items: baseline;
+        font-size: ${FontSize[14]};
+        font-weight: 400;
+        border: none;
+    }
 `;
 
 const IconBox = styled.span`
     width: 30px;
     height: 30px;
     display: block;
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    };
 `;
 
 const ImageBox = styled(IconBox)`
@@ -145,7 +170,7 @@ const ExpandedMenu: FC = () => {
             </FilterBox>
             <MenuItemsWrapper>
                 <SectionTitle>Platform</SectionTitle>
-                <ul>
+                <ul style={{marginLeft: "10px" }}>
                     <MenuItem>
                         {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/">
@@ -329,7 +354,7 @@ const ExpandedMenu: FC = () => {
             </MenuItemsWrapper>
             <AccountWrapper>
                 <SectionTitle>Account</SectionTitle>
-                <ul>
+                <ul style={{marginLeft: "10px" }}>
                     <MenuItem>
                         <ImageBox>
                             <Link to="profile">
