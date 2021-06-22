@@ -60,7 +60,7 @@ const ListItem: FC<IListItemProps> = (props: IListItemProps) => {
                 <PublicationDetails>
                     <Date>7 jan. 2020</Date>
                     <ImageBox>
-                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                        <img src={props.image}></img>
                     </ImageBox>
                     <Author>{props.author}</Author>
                 </PublicationDetails>

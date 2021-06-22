@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import ListItem from './ListItem';
 import { PublicationDetails, ImageBox, PublicationText } from './Common';
-import { useSelector } from 'react-redux';
 import { IState } from '../../../reducers';
 import { IUsersReducer } from '../../../reducers/usersReducers';
 import { IPhotosReducer } from '../../../reducers/photosReducers';
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 const NewPublicationWrapper = styled.div`
     height: 100%;
     flex: 1;
-    background-image: linear-gradient(
+    background: linear-gradient(
         to top,
         rgba(156, 71, 143, 0.8),
         rgba(215, 171, 218, 0.4));
@@ -41,6 +41,20 @@ const NewPublicationWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
+    position: relative;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+        to top,
+        rgba(156, 71, 143, 0.8),
+        rgba(215, 171, 218, 0.4));
+    }
 
 `;
 
@@ -113,7 +127,7 @@ export const Publications: FC = () => {
                     <PublicationDetails>
                         <Date>7 jan. 2020</Date>
                         <ImageBox>
-                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                            <img src={photosList[0]?.thumbnailUrl}></img>
                         </ImageBox>
                         <Author>{usersList[0]?.name}</Author>
                     </PublicationDetails>
@@ -122,15 +136,15 @@ export const Publications: FC = () => {
                     <HeaderText>Latest Publications</HeaderText>
                     <ListItemsWrapper>
                         <ListItem text={postsList[1]?.body}
-                            image={photosList[postsList[1]?.userId]?.url}
+                            image={photosList[postsList[1]?.userId]?.thumbnailUrl}
                             author={usersList[postsList[1]?.userId]?.name}
                         />
                         <ListItem text={postsList[2]?.body}
-                            image={photosList[postsList[2]?.userId]?.url}
+                            image={photosList[postsList[2]?.userId]?.thumbnailUrl}
                             author={usersList[postsList[2]?.userId]?.name}
                         />
                         <ListItem text={postsList[3]?.body}
-                            image={photosList[postsList[3]?.userId]?.url}
+                            image={photosList[postsList[3]?.userId]?.thumbnailUrl}
                             author={usersList[postsList[3]?.userId]?.name}
                         />
                     </ListItemsWrapper>
