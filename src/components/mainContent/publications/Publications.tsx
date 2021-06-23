@@ -31,7 +31,6 @@ const NewPublicationWrapper = styled.div`
         to top,
         rgba(156, 71, 143, 0.8),
         rgba(215, 171, 218, 0.4));
-        /* url('./media/icons/bg-image.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
