@@ -1,9 +1,9 @@
-import styled from "styled-components";
 import { ChangeEvent, FC, useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { FontSize } from "../../../styledHelpers/FontSizes";
 import { Colors } from "../../../styledHelpers/Colors";
-import { Link } from "react-router-dom";
 
 
 
@@ -218,11 +218,11 @@ const ProfileDetails: FC = () => {
     };
 
     const handleFee2Change = (e: ChangeEvent<HTMLInputElement>) => {
-        setFee1({ ...fee2, [e.target.name]: e.target.value })
+        setFee2({ ...fee2, [e.target.name]: e.target.value })
     };
 
     const handleFee3Change = (e: ChangeEvent<HTMLInputElement>) => {
-        setFee1({ ...fee3, [e.target.name]: e.target.value })
+        setFee3({ ...fee3, [e.target.name]: e.target.value })
     };
 
     const handleMessage1Change = (e: ChangeEvent<HTMLInputElement>) => {
@@ -248,54 +248,54 @@ const ProfileDetails: FC = () => {
 
     return (
         <Wrapper>
-            {!isEditing && 
-            <div>
-                <ButtonBox>
-                    <button onClick={handlingEditing}>Edit</button>
-                </ButtonBox>
-                <form>
-                    <FormItem>
-                        <label>Expertise</label>
-                        <input disabled
-                            value={experties}
-                        ></input>
-                    </FormItem>
-                    <FormItem>
-                        <label>Specialities</label>
-                        <div>
+            {!isEditing &&
+                <div>
+                    <ButtonBox>
+                        <button onClick={handlingEditing}>Edit</button>
+                    </ButtonBox>
+                    <form>
+                        <FormItem>
+                            <label>Expertise</label>
                             <input disabled
-                                value={specialities1}></input>
+                                value={experties}
+                            ></input>
+                        </FormItem>
+                        <FormItem>
+                            <label>Specialities</label>
+                            <div>
+                                <input disabled
+                                    value={specialities1}></input>
+                                <input disabled
+                                    value={specialities2}></input>
+                            </div>
+                        </FormItem>
+                        <FormItem>
+                            <label>Admission to practice law</label>
                             <input disabled
-                                value={specialities2}></input>
-                        </div>
-                    </FormItem>
-                    <FormItem>
-                        <label>Admission to practice law</label>
-                        <input disabled
-                            value={addmission}></input>
-                    </FormItem>
-                    <FormItem>
-                        <label>Countires</label>
-                        <input disabled
-                            value={countries}></input>
-                    </FormItem>
-                    <SeparationBox></SeparationBox>
-                    <HeaderWrapper>Panel Information</HeaderWrapper>
-                    <FormItem>
-                        <label>Hourly fee</label>
-                        <input disabled
-                            value={fee}></input>
-                    </FormItem>
-                    <FormItem>
-                        <label>Terms & Conditions</label>
-                        <input disabled
-                            value={terms}></input>
-                        <input disabled
-                            style={{ marginTop: '10px' }}
-                            value="attachement.jpg"
-                        ></input>
-                    </FormItem>
-                    <FormItem>
+                                value={addmission}></input>
+                        </FormItem>
+                        <FormItem>
+                            <label>Countires</label>
+                            <input disabled
+                                value={countries}></input>
+                        </FormItem>
+                        <SeparationBox></SeparationBox>
+                        <HeaderWrapper>Panel Information</HeaderWrapper>
+                        <FormItem>
+                            <label>Hourly fee</label>
+                            <input disabled
+                                value={fee}></input>
+                        </FormItem>
+                        <FormItem>
+                            <label>Terms & Conditions</label>
+                            <input disabled
+                                value={terms}></input>
+                            <input disabled
+                                style={{ marginTop: '10px' }}
+                                value="attachement.jpg"
+                            ></input>
+                        </FormItem>
+                        <FormItem>
                             <label>Services & projects</label>
                             <input disabled
                                 type="text"
@@ -816,12 +816,13 @@ const ProfileDetails: FC = () => {
                                     type="text"
                                     name="company"
                                     value={fee3.company}
-                                    onChange={handleFee3Change}></input>
+                                    onChange={handleFee3Change}
+                                />
                             </FormItem>
                         </RowWrapper>
 
-                </form>
-            </div>
+                    </form>
+                </div>
             }
             {isEditing &&
                 <div>
@@ -835,7 +836,7 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={experties}
                                 onChange={(e) => setExpertise(e.target.value)}
-                            ></input>
+                            />
                         </FormItem>
                         <FormItem>
                             <label>Specialities</label>
@@ -844,11 +845,12 @@ const ProfileDetails: FC = () => {
                                     type="text"
                                     value={specialities1}
                                     onChange={(e) => setSpecialities1(e.target.value)}
-                                ></input>
+                                />
                                 <input
                                     type="text"
                                     value={specialities2}
-                                    onChange={(e) => setSpecialities2(e.target.value)}></input>
+                                    onChange={(e) => setSpecialities2(e.target.value)}
+                                />
                             </div>
                         </FormItem>
                         <FormItem>
@@ -857,7 +859,7 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={addmission}
                                 onChange={(e) => setAddmission(e.target.value)}
-                            ></input>
+                            />
                         </FormItem>
                         <FormItem>
                             <label>Countires</label>
@@ -865,7 +867,7 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={countries}
                                 onChange={(e) => setCountires(e.target.value)}
-                            ></input>
+                            />
                         </FormItem>
                         <SeparationBox></SeparationBox>
                         <HeaderWrapper>Panel Information</HeaderWrapper>
@@ -875,7 +877,7 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={fee}
                                 onChange={(e) => setFee(e.target.value)}
-                            ></input>
+                            />
                         </FormItem>
                         <FormItem>
                             <label>Terms & Conditions</label>
@@ -883,11 +885,11 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={terms}
                                 onChange={(e) => setTerms(e.target.value)}
-                            ></input>
+                            />
                             <input style={{ marginTop: '10px' }}
                                 type="file"
                                 accept="image/png, image/jpg"
-                            ></input>
+                            />
                         </FormItem>
                         <FormItem>
                             <label>Services & projects</label>
@@ -895,42 +897,49 @@ const ProfileDetails: FC = () => {
                                 type="text"
                                 value={services}
                                 onChange={(e) => setServices(e.target.value)}
-                            ></input>
+                            />
                         </FormItem>
                         <FormItem>
-                            <label>Internal correspondants</label>
+                            <HeaderWrapper>Internal correspondants</HeaderWrapper>
                             <MessageWrapper>
                                 <MessageItemBox>
                                     <span>
                                         <img src='./media/icons/userAvatar_2.jpg'></img>
                                     </span>
+                                    <label htmlFor='message1_name'></label>
                                     <input
+                                        id='message1_name'
                                         type='text'
-                                        name="name"
+                                        name='name'
                                         value={message1.name}
                                         onChange={handleMessage1Change}
-                                    ></input>
+                                    />
                                 </MessageItemBox>
                                 <MessageItemBox>
                                     <span>
                                         <img src='./media/icons/comments.svg' alt="icon"></img>
                                     </span>
+                                    <label htmlFor='message1_content'></label>
                                     <input
+                                        id='message1_content'
                                         type='text'
-                                        name="content"
+                                        name='content'
                                         value={message1.content}
-                                        onChange={handleMessage1Change}></input>
+                                        onChange={handleMessage1Change}
+                                    />
                                 </MessageItemBox>
                                 <MessageItemBox>
                                     <span>
                                         <img src='./media/icons/people.svg' alt="icon"></img>
                                     </span>
+                                    <label htmlFor='message1_profile'></label>
                                     <input
+                                        id='message1_profile'
                                         type='text'
-                                        name="profile"
+                                        name='profile'
                                         value={message1.profile}
                                         onChange={handleMessage1Change}
-                                    ></input>
+                                    />
                                 </MessageItemBox>
                             </MessageWrapper>
                             <MessageWrapper>
@@ -938,33 +947,40 @@ const ProfileDetails: FC = () => {
                                     <span>
                                         <img src='./media/icons/userAvatar_2.jpg'></img>
                                     </span>
+                                    <label htmlFor='message2_name'></label>
                                     <input
+                                        id='message2_name'
                                         type='text'
-                                        name="name"
+                                        name='name'
                                         value={message2.name}
                                         onChange={handleMessage2Change}
-                                    ></input>
+                                    />
                                 </MessageItemBox>
                                 <MessageItemBox>
                                     <span>
                                         <img src='./media/icons/comments.svg' alt="icon"></img>
                                     </span>
+                                    <label htmlFor='message2_content'></label>
                                     <input
+                                        id='message2_content'
                                         type='text'
-                                        name="content"
+                                        name='content'
                                         value={message2.content}
-                                        onChange={handleMessage2Change}></input>
+                                        onChange={handleMessage2Change}
+                                    />
                                 </MessageItemBox>
                                 <MessageItemBox>
                                     <span>
                                         <img src='./media/icons/people.svg' alt="icon"></img>
                                     </span>
+                                    <label htmlFor='message2_profile'></label>
                                     <input
+                                        id='message2_profile'
                                         type='text'
-                                        name="profile"
+                                        name='profile'
                                         value={message2.profile}
                                         onChange={handleMessage2Change}
-                                    ></input>
+                                    />
                                 </MessageItemBox>
                             </MessageWrapper>
                         </FormItem>
@@ -982,170 +998,170 @@ const ProfileDetails: FC = () => {
                         <SeparationBox></SeparationBox>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name1'></label>
                                 <input
                                     id='name1'
-                                    type="text"
+                                    type='text'
                                     value={name1}
                                     onChange={(e) => setName1(e.target.value)}
                                 ></input>
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity1'></label>
                                 <input
                                     id='entity1'
-                                    type="text"
+                                    type='text'
                                     value={entity1}
                                     onChange={(e) => setEntity1(e.target.value)}
                                 ></input>
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location1'></label>
                                 <input
                                     id='location1'
-                                    type="text"
+                                    type='text'
                                     value={location1}
                                     onChange={(e) => setLocation1(e.target.value)}
                                 ></input>
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise1'></label>
                                 <input
                                     id='expertise1'
-                                    type="text"
+                                    type='text'
                                     value={expertise1}
                                     onChange={(e) => setExpertise1(e.target.value)}
                                 ></input>
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date1'></label>
                                 <input
                                     id='date1'
-                                    type="text"
+                                    type='text'
                                     value={date1}
                                     onChange={(e) => setDate1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='firm1'></label>
                                 <input
                                     id='firm1'
-                                    type="text"
+                                    type='text'
                                     value={firm1}
                                     onChange={(e) => setFirm1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name2'></label>
                                 <input
                                     id='name2'
-                                    type="text"
+                                    type='text'
                                     value={name2}
                                     onChange={(e) => setName2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity2'></label>
                                 <input
                                     id='entity2'
-                                    type="text"
+                                    type='text'
                                     value={entity2}
                                     onChange={(e) => setEntity2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location2'></label>
                                 <input
                                     id='location2'
-                                    type="text"
+                                    type='text'
                                     value={location2}
                                     onChange={(e) => setLocation2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise2'></label>
                                 <input
                                     id='expertise2'
-                                    type="text"
+                                    type='text'
                                     value={expertise2}
                                     onChange={(e) => setExpertise2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date2'></label>
                                 <input
                                     id='date2'
-                                    type="text"
+                                    type='text'
                                     value={date2}
                                     onChange={(e) => setDate2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='firm2'></label>
                                 <input
                                     id='firm2'
-                                    type="text"
+                                    type='text'
                                     value={firm2}
                                     onChange={(e) => setFirm2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name3'></label>
                                 <input
                                     id='name3'
-                                    type="text"
+                                    type='text'
                                     value={name3}
                                     onChange={(e) => setName3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity3'></label>
                                 <input
                                     id='entity3'
-                                    type="text"
+                                    type='text'
                                     value={entity3}
                                     onChange={(e) => setEntity3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location3'></label>
                                 <input
                                     id='location3'
-                                    type="text"
+                                    type='text'
                                     value={location3}
                                     onChange={(e) => setLocation3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise3'></label>
                                 <input
                                     id='expertise3'
-                                    type="text"
+                                    type='text'
                                     value={expertise3}
                                     onChange={(e) => setExpertise3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date3'></label>
                                 <input
                                     id='date3'
-                                    type="text"
+                                    type='text'
                                     value={date3}
                                     onChange={(e) => setDate3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='firm3'></label>
                                 <input
                                     id='firm3'
-                                    type="text"
+                                    type='text'
                                     value={firm3}
                                     onChange={(e) => setFirm3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <LinkWrapper>
@@ -1163,143 +1179,143 @@ const ProfileDetails: FC = () => {
                         <SeparationBox></SeparationBox>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name1'></label>
                                 <input
                                     id='name1'
-                                    type="text"
+                                    type='text'
                                     value={name1}
                                     onChange={(e) => setName1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity1'></label>
                                 <input
                                     id='entity1'
-                                    type="text"
+                                    type='text'
                                     value={entity1}
                                     onChange={(e) => setEntity1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location1'></label>
                                 <input
                                     id='location1'
-                                    type="text"
+                                    type='text'
                                     value={location1}
                                     onChange={(e) => setLocation1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise1'></label>
                                 <input
                                     id='expertise1'
-                                    type="text"
+                                    type='text'
                                     value={expertise1}
                                     onChange={(e) => setExpertise1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date1'></label>
                                 <input
                                     id='date1'
-                                    type="text"
+                                    type='text'
                                     value={date1}
                                     onChange={(e) => setDate1(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name2' ></label>
                                 <input
                                     id='name2'
-                                    type="text"
+                                    type='text'
                                     value={name2}
                                     onChange={(e) => setName2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity2'></label>
                                 <input
                                     id='entity2'
-                                    type="text"
+                                    type='text'
                                     value={entity2}
                                     onChange={(e) => setEntity2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location2'></label>
                                 <input
                                     id='location2'
-                                    type="text"
+                                    type='text'
                                     value={location2}
                                     onChange={(e) => setLocation2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise2'></label>
                                 <input
                                     id='expertise2'
-                                    type="text"
+                                    type='text'
                                     value={expertise2}
                                     onChange={(e) => setExpertise2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date2'></label>
                                 <input
                                     id='date2'
-                                    type="text"
+                                    type='text'
                                     value={date2}
                                     onChange={(e) => setDate2(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='name3'></label>
                                 <input
                                     id='name3'
-                                    type="text"
+                                    type='text'
                                     value={name3}
                                     onChange={(e) => setName3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='entity3'></label>
                                 <input
                                     id='entity3'
-                                    type="text"
+                                    type='text'
                                     value={entity3}
                                     onChange={(e) => setEntity3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='location3'></label>
                                 <input
                                     id='location3'
-                                    type="text"
+                                    type='text'
                                     value={location3}
                                     onChange={(e) => setLocation3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='expertise3'></label>
                                 <input
                                     id='expertise3'
-                                    type="text"
+                                    type='text'
                                     value={expertise3}
                                     onChange={(e) => setExpertise3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='date3' ></label>
                                 <input
                                     id='date3'
-                                    type="text"
+                                    type='text'
                                     value={date3}
                                     onChange={(e) => setDate3(e.target.value)}
-                                ></input>
+                                />
                             </FormItem>
                         </RowWrapper>
                         <LinkWrapper>
@@ -1315,102 +1331,122 @@ const ProfileDetails: FC = () => {
                         </TableHeadersWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee1_year'></label>
                                 <input
-                                    type="text"
-                                    name="year"
+                                    id='fee1_year'
+                                    type='text'
+                                    name='year'
                                     value={fee1.year}
                                     onChange={handleFee1Change}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee1_centerCost'></label>
                                 <input
-                                    type="text"
-                                    name="centerCost"
+                                    id='fee1_centerCost'
+                                    type='text'
+                                    name='centerCost'
                                     value={fee1.centerCost}
-                                    onChange={handleFee1Change}></input>
+                                    onChange={handleFee1Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee1_total'></label>
                                 <input
-                                    type="text"
-                                    name="total"
+                                    id='fee1_total'
+                                    type='text'
+                                    name='total'
                                     value={fee1.total}
-                                    onChange={handleFee1Change}></input>
+                                    onChange={handleFee1Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee1_company'></label>
                                 <input
-                                    type="text"
-                                    name="company"
+                                    id='fee1_company'
+                                    type='text'
+                                    name='company'
                                     value={fee1.company}
-                                    onChange={handleFee1Change}></input>
+                                    onChange={handleFee1Change}
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee2_year'></label>
                                 <input
-                                    type="text"
-                                    name="year"
+                                    id='fee2_year'
+                                    type='text'
+                                    name='year'
                                     value={fee2.year}
                                     onChange={handleFee2Change}
-                                ></input>
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee2_centerCost'></label>
                                 <input
-                                    type="text"
-                                    name="centerCost"
+                                    id='fee2_centerCost'
+                                    type='text'
+                                    name='centerCost'
                                     value={fee2.centerCost}
-                                    onChange={handleFee2Change}></input>
+                                    onChange={handleFee2Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee2_total'></label>
                                 <input
-                                    type="text"
-                                    name="total"
+                                    id='fee2_total'
+                                    type='text'
+                                    name='total'
                                     value={fee2.total}
-                                    onChange={handleFee2Change}></input>
+                                    onChange={handleFee2Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee2_company'></label>
                                 <input
-                                    type="text"
-                                    name="company"
+                                    id='fee2_company'
+                                    type='text'
+                                    name='company'
                                     value={fee2.company}
-                                    onChange={handleFee2Change}></input>
+                                    onChange={handleFee2Change}
+                                />
                             </FormItem>
                         </RowWrapper>
                         <RowWrapper>
                             <FormItem>
-                                <label></label>
-                                <input></input>
+                                <label htmlFor='fee3_year'></label>
+                                <input id='fee3_year' />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee3_centerCost'></label>
                                 <input
-                                    type="text"
-                                    name="centerCost"
+                                    id='fee3_centerCost'
+                                    type='text'
+                                    name='centerCost'
                                     value={fee3.centerCost}
-                                    onChange={handleFee3Change}></input>
+                                    onChange={handleFee3Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee3_total'></label>
                                 <input
-                                    type="text"
-                                    name="total"
+                                    id='fee3_total'
+                                    type='text'
+                                    name='total'
                                     value={fee3.total}
-                                    onChange={handleFee3Change}></input>
+                                    onChange={handleFee3Change}
+                                />
                             </FormItem>
                             <FormItem>
-                                <label></label>
+                                <label htmlFor='fee3_company'></label>
                                 <input
-                                    type="text"
-                                    name="company"
+                                    id='fee3_company'
+                                    type='text'
+                                    name='company'
                                     value={fee3.company}
-                                    onChange={handleFee3Change}></input>
+                                    onChange={handleFee3Change}
+                                />
                             </FormItem>
                         </RowWrapper>
                     </form>

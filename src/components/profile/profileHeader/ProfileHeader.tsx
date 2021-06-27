@@ -23,12 +23,12 @@ const Wrapper = styled.div`
 `;
 
 export interface IUserInfo {
-    name: string | undefined,
-    companyName: string | undefined,
-    city: string | undefined,
-    website: string | undefined,
-    email: string | undefined,
-    tel: string | undefined
+    name: string,
+    companyName: string,
+    city: string,
+    website: string,
+    email: string,
+    tel: string
 }
 
 const ProfileHeader: FC = () => {
@@ -39,22 +39,47 @@ const ProfileHeader: FC = () => {
     }));
 
     const [isEdit, setIsEdit] = useState<boolean>(false);
-
-    // -------------NIE DZIAŁA WPISANIE DANYCH Z API DO userInfo--------
     const [currentUser, setCurrentUser] = useState<ISingleUser>();
 
+    // -------------NIE DZIAŁA WPISANIE DANYCH Z API DO userInfo--------
+
     const [userInfo, setUserInfo] = useState<IUserInfo>({
-        name: "Aniela Kowalska",
-        companyName: "Fajna firma",
-        city: "Kraków",
-        website: "www.fajnafirma.ok",
-        email: "fajnyEmali@gmail.com",
-        tel: "(000) 666 666 666"
+        name:'',
+        companyName: '',
+        city: '',
+        website: '',
+        email: '',
+        tel: ''
     });
 
+
+
+    // const [userInfo, setUserInfo] = useState<IUserInfo>({
+    //     name: "Aniela Kowalska",
+    //     companyName: "Fajna firma",
+    //     city: "Kraków",
+    //     website: "www.fajnafirma.ok",
+    //     email: "fajnyEmali@gmail.com",
+    //     tel: "(000) 666 666 666"
+    // });
+
+    // useEffect(() => {
+    //     console.log("1",usersList);
+    //     setCurrentUser(usersList?.[0])
+    // }, []);
+
     useEffect(() => {
+        console.log("2", usersList);
         setCurrentUser(usersList?.[0])
-    }, []);
+        setUserInfo({
+            name:usersList?.[0]?.name,
+            companyName: usersList?.[0]?.company.name,
+            city: usersList?.[0]?.address.city,
+            website: usersList?.[0]?.website,
+            email: usersList?.[0]?.email,
+            tel: usersList?.[0]?.phone
+        })
+    }, [usersList]);
 
     const handleEditClick = () => {
         setIsEdit(isEdit => !isEdit);
