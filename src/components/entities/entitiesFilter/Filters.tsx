@@ -204,14 +204,14 @@ const Filters: FC = () => {
             <FooterWrapper>
                 <FooterElement>
                     <AddIconBox>
-                        <img src='./media/icony_z_sieci/plus.png'></img>
+                        <img src='./media/icony_z_sieci/plus.png' alt='plus'></img>
                     </AddIconBox>
                     <TextBox>Add filter</TextBox>
                 </FooterElement>
                 <FooterElement>
                     <TextBox>choose property</TextBox>
                     <ArrowIconBox>
-                        <img src='./media/icons/arrow-down.png' alt='arrow icon'></img>
+                        <img src='./media/icons/arrow-down.png' alt='arrow'></img>
                     </ArrowIconBox>
                 </FooterElement>
             </FooterWrapper>

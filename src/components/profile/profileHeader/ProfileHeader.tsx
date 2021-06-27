@@ -1,4 +1,3 @@
-import { mainModule } from 'node:process';
 import { ChangeEvent, useEffect } from 'react';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -41,7 +40,6 @@ const ProfileHeader: FC = () => {
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const [currentUser, setCurrentUser] = useState<ISingleUser>();
 
-    // -------------NIE DZIAŁA WPISANIE DANYCH Z API DO userInfo--------
 
     const [userInfo, setUserInfo] = useState<IUserInfo>({
         name:'',
@@ -52,21 +50,6 @@ const ProfileHeader: FC = () => {
         tel: ''
     });
 
-
-
-    // const [userInfo, setUserInfo] = useState<IUserInfo>({
-    //     name: "Aniela Kowalska",
-    //     companyName: "Fajna firma",
-    //     city: "Kraków",
-    //     website: "www.fajnafirma.ok",
-    //     email: "fajnyEmali@gmail.com",
-    //     tel: "(000) 666 666 666"
-    // });
-
-    // useEffect(() => {
-    //     console.log("1",usersList);
-    //     setCurrentUser(usersList?.[0])
-    // }, []);
 
     useEffect(() => {
         console.log("2", usersList);

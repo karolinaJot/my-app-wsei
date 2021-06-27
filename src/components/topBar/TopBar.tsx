@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import  { FC } from 'react';
 import useDropdown from 'react-dropdown-hook';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -163,16 +163,16 @@ const TopBar: FC = () => {
         <Wrapper>
             <LeftWrapper>
                 <Link to="/">
-                    <Logo src='./media/icons/logo.png'></Logo>
+                    <Logo src='./media/icons/logo.png' alt="logo"></Logo>
                 </Link>
                 <ExpandedMenuWrapper ref={wrapperRef} >
                     <ButtonExpandedMenu onClick={menuHandler}>
                         <IconBox>
-                            <img src='./media/icons/house2.png'></img>
+                            <img src='./media/icons/house2.png' alt="house"></img>
                         </IconBox>
                         <MenuItemText>Home</MenuItemText>
                         <ArrowWrapper>
-                            <ArrowIcon src='./media/icons/arrow-down.png' ></ArrowIcon>
+                            <ArrowIcon src='./media/icons/arrow-down.png' alt="arrow" ></ArrowIcon>
                         </ArrowWrapper>
                     </ButtonExpandedMenu>
                     {dropdownOpen &&
@@ -185,13 +185,13 @@ const TopBar: FC = () => {
                 <SearchSubmit type='image' alt='submit' src='./media/icons/search.png'></SearchSubmit>
             </SearchWrapper>
             <IconsRightWrapper>
-                <HomeRightIcon src='./media/icons/house.png'></HomeRightIcon>
+                <HomeRightIcon src='./media/icons/house.png' alt="house"></HomeRightIcon>
                 <NotificationsIcon>
-                    <img src='./media/icons/comments.png'></img>
+                    <img src='./media/icons/comments.png' alt="comments"></img>
                     <Badge>3</Badge>
                  </NotificationsIcon>
                 <NotificationsIcon>
-                    <img src='./media/icons/bell.png'></img>
+                    <img src='./media/icons/bell.png' alt="bell"></img>
                     <Badge>3</Badge>
                 </NotificationsIcon>
             </IconsRightWrapper>

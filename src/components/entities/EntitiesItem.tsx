@@ -74,7 +74,7 @@ const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
     return (
         <Wrapper isMosaic={props.isMosaic}>
             <ImageBox>
-                <img src={props.image}></img>
+                <img src={props.image} alt='mosaic'></img>
             </ImageBox>
             <TextBox>
                 <CompanyName>{props.companyName}</CompanyName> 

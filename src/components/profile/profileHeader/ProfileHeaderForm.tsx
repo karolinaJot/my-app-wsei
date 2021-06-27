@@ -139,7 +139,7 @@ const ProfileHeaderForm: FC<IProfileHeaderForm> = (props: IProfileHeaderForm) =>
                 <PhotoEleWrapper>
                     <PhotoWrapper>
                         <PhotoBox>
-                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                            <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                         </PhotoBox>
                         <PhotoDotBox></PhotoDotBox>
                     </PhotoWrapper>
@@ -151,70 +151,76 @@ const ProfileHeaderForm: FC<IProfileHeaderForm> = (props: IProfileHeaderForm) =>
                     <DetailsWrapper>
                         <div>
                             <DetailsTextBig>
-                                <label></label>
+                                <label htmlFor='userData_name'></label>
                                 <input
+                                    id='userData_name'
                                     type="text"
                                     name='name'
                                     value={props.userData.name}
                                     onChange={props.textChange}
-                                ></input>
+                                />
                             </DetailsTextBig>
                             <DetailsTextBig>
-                            <label></label>
+                                <label htmlFor="userData_companyName"></label>
                                 <input
+                                    id="userData_companyName"
                                     type="text"
                                     name='companyName'
                                     value={props.userData.companyName}
                                     onChange={props.textChange}
-                                ></input>
+                                />
                             </DetailsTextBig>
                         </div>
                         <div>
                             <DetailsTextSmall>
-                            <label></label>
+                                <label htmlFor='userData_city'></label>
                                 <input
+                                    id='userData_city'
                                     type="text"
                                     name='city'
                                     value={props.userData.city}
                                     onChange={props.textChange}
-                                ></input>
+                                />
                             </DetailsTextSmall>
                             <DetailsTextSmall>
-                            <label></label>
+                                <label htmlFor='userData_website'></label>
                                 <input
+                                    id='userData_website'
                                     type="text"
                                     name='website'
                                     value={props.userData.website}
                                     onChange={props.textChange}
-                                ></input>
+                                />
                             </DetailsTextSmall>
                         </div>
                     </DetailsWrapper>
                     <ContactsWrapper>
                         <DetailsTextSmall>
-                        <label></label>
-                                <input
-                                    type="text"
-                                    name='email'
-                                    value={props.userData.email}
-                                    onChange={props.textChange}
-                                ></input>
+                            <label htmlFor='userData_email'></label>
+                            <input
+                                id='userData_email'
+                                type="text"
+                                name='email'
+                                value={props.userData.email}
+                                onChange={props.textChange}
+                            />
                         </DetailsTextSmall>
                         <DetailsTextSmall>
-                        <label></label>
-                                <input
-                                    type="text"
-                                    name='tel'
-                                    value={props.userData.tel}
-                                    onChange={props.textChange}
-                                ></input>
+                            <label htmlFor="userData_tel"></label>
+                            <input
+                                id="userData_tel"
+                                type="text"
+                                name='tel'
+                                value={props.userData.tel}
+                                onChange={props.textChange}
+                            />
                         </DetailsTextSmall>
                     </ContactsWrapper>
                 </CostumeForm>
             </ContentWrapper>
             <EditWrapper>
                 <button onClick={props.editHandle}>
-                    <img src='./media/icons/settings.svg'></img>
+                    <img src='./media/icons/settings.svg' alt=''></img>
                 </button>
             </EditWrapper>
         </Wrapper>

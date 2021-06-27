@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 import { IUserInfo } from './ProfileHeader';
@@ -133,7 +134,7 @@ const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) =>
                 <PhotoEleWrapper>
                     <PhotoWrapper>
                         <PhotoBox>
-                            <img src='./media/icons/userAvatar_2.jpg'></img>
+                            <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                         </PhotoBox>
                         <PhotoDotBox></PhotoDotBox>
                     </PhotoWrapper>
@@ -160,7 +161,7 @@ const ProfileHeaderInfo: FC<IProfileHeaderInfo> = (props: IProfileHeaderInfo) =>
             </ContentWrapper>
             <EditWrapper>
                 <button onClick={props.editHandle}>
-                    <img src='./media/icons/settings.svg'></img>
+                    <img src='./media/icons/settings.svg' alt='settings'></img>
                 </button>
             </EditWrapper>
         </Wrapper>

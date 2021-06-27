@@ -308,7 +308,7 @@ const ProfileDetails: FC = () => {
                             <MessageWrapper>
                                 <MessageItemBox>
                                     <span>
-                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                        <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                                     </span>
                                     <input disabled
                                         type='text'
@@ -342,7 +342,7 @@ const ProfileDetails: FC = () => {
                             <MessageWrapper>
                                 <MessageItemBox>
                                     <span>
-                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                        <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                                     </span>
                                     <input disabled
                                         type='text'
@@ -904,7 +904,7 @@ const ProfileDetails: FC = () => {
                             <MessageWrapper>
                                 <MessageItemBox>
                                     <span>
-                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                        <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                                     </span>
                                     <label htmlFor='message1_name'></label>
                                     <input
@@ -945,7 +945,7 @@ const ProfileDetails: FC = () => {
                             <MessageWrapper>
                                 <MessageItemBox>
                                     <span>
-                                        <img src='./media/icons/userAvatar_2.jpg'></img>
+                                        <img src='./media/icons/userAvatar_2.jpg' alt=''></img>
                                     </span>
                                     <label htmlFor='message2_name'></label>
                                     <input

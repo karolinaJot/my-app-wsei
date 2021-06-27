@@ -67,7 +67,7 @@ const ProfileHeaderTopBar: FC = () => {
             <ElementWrapper>
                 <CostumLink to='/'>
                     <ImageBox>
-                        <img src='./media/icony_z_sieci/close.png'></img>
+                        <img src='./media/icony_z_sieci/close.png' alt=''></img>
                     </ImageBox>
                 </CostumLink>
             </ElementWrapper>
