@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
+import  { ChangeEvent,  FC,  } from 'react';
 import styled from 'styled-components';
 
 
@@ -21,7 +21,7 @@ const HeaderText = styled.span`
     font-size: ${FontSize[18]};
     font-weight: 700;
     display: block;
-    color: grey;
+    color: ${Colors.gray2};
     margin-left: 10px;
 `;
 

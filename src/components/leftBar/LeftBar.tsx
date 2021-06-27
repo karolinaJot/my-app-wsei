@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import { useSelector } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import { IState } from '../../reducers';
@@ -143,7 +143,7 @@ const ListItem = styled.li`
 const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
-    color: black;
+    color: ${Colors.black};
     text-align: left;
 `;
 
@@ -169,7 +169,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                 <UserCardInfoWrapper>
                     <ImageBox>
                         <Link to="profile">
-                            <img src={photosList[0]?.url}></img>
+                            <img src={photosList[0]?.url} alt='user image'></img>
                         </Link>
                     </ImageBox>
                     <CostumLink to="profile">
@@ -184,7 +184,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                         <CardLinksItem>
                             <CardLinksItemIconBox>
                                 <Link to="network">
-                                    <img src='./media/icons/network.png'></img>
+                                    <img src='./media/icons/network.png' alt='network icon'></img>
                                 </Link>
                             </CardLinksItemIconBox>
                             <CostumLink to="network">
@@ -199,7 +199,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                         <CardLinksItem>
                             <CardLinksItemIconBox>
                                 <Link to="/publications">
-                                    <img src='./media/icons/publications.png'></img>
+                                    <img src='./media/icons/publications.png' alt='publications icon'></img>
                                 </Link>
                             </CardLinksItemIconBox>
                             <CostumLink to="/publications">
@@ -219,7 +219,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                     <ListItem>
                         <IconBox>
                             <Link to="/publications">
-                                <img src='./media/icons/publications.png'></img>
+                                <img src='./media/icons/publications.png' alt='publication icon'></img>
                             </Link>
                         </IconBox>
                         <CostumLink to="/publications">
@@ -229,7 +229,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                     <ListItem>
                         <IconBox>
                             <Link to="/ecosystem">
-                                <img src='./media/icons/ecosystem.png'></img>
+                                <img src='./media/icons/ecosystem.png' alt='ecosystem icon'></img>
                             </Link>
                         </IconBox>
                         <CostumLink to="/ecosystem">
@@ -239,7 +239,7 @@ const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosRed
                     <ListItem>
                         <IconBox>
                             <Link to="/entities">
-                                <img src='./media/icons/entities2.png'></img>
+                                <img src='./media/icons/entities2.png' alt='entities icon'></img>
                             </Link>
                         </IconBox>
                         <CostumLink to="/entities">

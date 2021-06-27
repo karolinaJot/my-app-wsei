@@ -1,9 +1,6 @@
-import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Colors } from '../../../styledHelpers/Colors';
-import { FontSize } from '../../../styledHelpers/FontSizes';
 import { SliderCard } from './SliderCard';
 
 
@@ -13,7 +10,6 @@ const Wrapper = styled.div`
     height: 100%;
     margin-top: 3px;
     display: flex;
-    
     overflow: auto;
 `;
 
@@ -93,11 +89,6 @@ export const Slider: FC = () => {
                 detailsHeaderUsers="400 users"
                 link="/nextitem"
             />
-           
-            
-          
         </Wrapper>
-    
     );
-
 }

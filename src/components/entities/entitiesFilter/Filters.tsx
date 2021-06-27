@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 
 const HeaderWrapper = styled.div`
     width: 100%;
-    color: #808080;
+    color: ${Colors.gray1};
     margin: 10px;
 `;
 
@@ -78,7 +79,7 @@ const InputElement = styled.input`
 
 const FooterWrapper = styled.div`
     width: 100%;
-    color: #1d1d97;
+    color: ${Colors.blue1};
     margin: 0 10px 10px 10px;
     display: flex;
 `;
@@ -203,14 +204,14 @@ const Filters: FC = () => {
             <FooterWrapper>
                 <FooterElement>
                     <AddIconBox>
-                        <img src='./media/icony_z_sieci/plus.png'></img>
+                        <img src='./media/icony_z_sieci/plus.png' alt='plus'></img>
                     </AddIconBox>
                     <TextBox>Add filter</TextBox>
                 </FooterElement>
                 <FooterElement>
                     <TextBox>choose property</TextBox>
                     <ArrowIconBox>
-                        <img src='./media/icons/arrow-down.png' alt='arrow icon'></img>
+                        <img src='./media/icons/arrow-down.png' alt='arrow'></img>
                     </ArrowIconBox>
                 </FooterElement>
             </FooterWrapper>

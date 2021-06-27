@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import WorkspaceCenter from './WorkspaceCenter';
 import WorkspaceHeader from './WorkspaceHeader';
-import WorkspaceUpdates from './WorkspaceUpdates';
 import {Resume}  from '../mainContent/resume/Resume';
 
 

@@ -1,4 +1,3 @@
-import { mainModule } from 'node:process';
 import { ChangeEvent, useEffect } from 'react';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -23,12 +22,12 @@ const Wrapper = styled.div`
 `;
 
 export interface IUserInfo {
-    name: string | undefined,
-    companyName: string | undefined,
-    city: string | undefined,
-    website: string | undefined,
-    email: string | undefined,
-    tel: string | undefined
+    name: string,
+    companyName: string,
+    city: string,
+    website: string,
+    email: string,
+    tel: string
 }
 
 const ProfileHeader: FC = () => {
@@ -39,22 +38,30 @@ const ProfileHeader: FC = () => {
     }));
 
     const [isEdit, setIsEdit] = useState<boolean>(false);
-
-    // -------------NIE DZIAŁA WPISANIE DANYCH Z API DO userInfo--------
     const [currentUser, setCurrentUser] = useState<ISingleUser>();
 
+
     const [userInfo, setUserInfo] = useState<IUserInfo>({
-        name: "Aniela Kowalska",
-        companyName: "Fajna firma",
-        city: "Kraków",
-        website: "www.fajnafirma.ok",
-        email: "fajnyEmali@gmail.com",
-        tel: "(000) 666 666 666"
+        name:'',
+        companyName: '',
+        city: '',
+        website: '',
+        email: '',
+        tel: ''
     });
+
 
     useEffect(() => {
         setCurrentUser(usersList?.[0])
-    }, []);
+        setUserInfo({
+            name:usersList?.[0]?.name,
+            companyName: usersList?.[0]?.company.name,
+            city: usersList?.[0]?.address.city,
+            website: usersList?.[0]?.website,
+            email: usersList?.[0]?.email,
+            tel: usersList?.[0]?.phone
+        })
+    }, [usersList]);
 
     const handleEditClick = () => {
         setIsEdit(isEdit => !isEdit);
@@ -69,7 +76,7 @@ const ProfileHeader: FC = () => {
 
 
     return (
-        <Wrapper> {console.log(currentUser)}
+        <Wrapper>
             <ProfileHeaderTopBar></ProfileHeaderTopBar>
 
             {!isEdit &&

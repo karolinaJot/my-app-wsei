@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+
 
 import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
@@ -74,7 +74,7 @@ const EntitiesItem: FC<IEntitiesItemProps> = (props: IEntitiesItemProps) => {
     return (
         <Wrapper isMosaic={props.isMosaic}>
             <ImageBox>
-                <img src={props.image}></img>
+                <img src={props.image} alt='mosaic'></img>
             </ImageBox>
             <TextBox>
                 <CompanyName>{props.companyName}</CompanyName> 

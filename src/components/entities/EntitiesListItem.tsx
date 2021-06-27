@@ -1,13 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+
 import { FontSize } from '../../styledHelpers/FontSizes';
 
-// const List = styled.ul`
-//     border: 2px solid green;
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-// `;
+
 const ListItem = styled.div`
     width: 100%;
     margin-bottom: 10px;
@@ -23,8 +19,6 @@ const ListItem = styled.div`
 const ImageBox = styled.div`
     height: 100%;
     width: 30px;
-    /* display: flex;
-    align-items: center; */
     overflow: hidden;
     padding-left: 0.3rem;
 

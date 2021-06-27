@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -40,7 +40,7 @@ const ResumeNavigation = styled.div`
     }
 
     ul li:active {
-        background-color: grey;
+        background-color: ${Colors.gray1};
     }
 `;
 

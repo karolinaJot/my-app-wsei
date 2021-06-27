@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -78,7 +78,7 @@ const HeaderText = styled.span`
     font-size: ${FontSize[18]};
     font-weight: 700;
     letter-spacing: 0.4px;
-    color: grey;
+    color: ${Colors.gray2};
     flex: 1;
 `;
 
@@ -100,7 +100,7 @@ const LinkWrapper = styled.div`
 const CostumLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
-    color: #0381BE;
+    color: ${Colors.blue1};
     text-align: left;
     font-size: ${FontSize[14]};
     font-weight: 500;
@@ -126,7 +126,7 @@ export const Publications: FC = () => {
                     <PublicationDetails>
                         <Date>7 jan. 2020</Date>
                         <ImageBox>
-                            <img src={photosList[0]?.thumbnailUrl}></img>
+                            <img src={photosList[0]?.thumbnailUrl} alt='publication image'></img>
                         </ImageBox>
                         <Author>{usersList[0]?.name}</Author>
                     </PublicationDetails>
