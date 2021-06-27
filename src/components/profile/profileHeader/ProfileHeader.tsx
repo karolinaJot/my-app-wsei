@@ -52,7 +52,6 @@ const ProfileHeader: FC = () => {
 
 
     useEffect(() => {
-        console.log("2", usersList);
         setCurrentUser(usersList?.[0])
         setUserInfo({
             name:usersList?.[0]?.name,
@@ -77,7 +76,7 @@ const ProfileHeader: FC = () => {
 
 
     return (
-        <Wrapper> {console.log(currentUser)}
+        <Wrapper>
             <ProfileHeaderTopBar></ProfileHeaderTopBar>
 
             {!isEdit &&
