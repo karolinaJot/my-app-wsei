@@ -1,10 +1,7 @@
-import React, { ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import { Colors } from '../../styledHelpers/Colors';
 import { FontSize } from '../../styledHelpers/FontSizes';
-import { isPropertyAccessOrQualifiedName, isPropertySignature } from 'typescript';
 import useDropdown from 'react-dropdown-hook';
 import Filters from './entitiesFilter/Filters';
 

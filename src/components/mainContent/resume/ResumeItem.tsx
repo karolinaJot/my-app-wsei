@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 
@@ -21,7 +21,7 @@ const Title = styled.span`
     margin: 5px 0;   
     font-size: ${FontSize[16]}; 
     font-weight: 500;
-    color: #0381BE;
+    color: ${Colors.blue1};
 `;
 
 const Text = styled.p`
@@ -65,13 +65,13 @@ const IconBox = styled.span`
 `;
 
 const InfoText = styled.span`
-    color: gray;
+    color: ${Colors.gray2};
     padding-right: 5px;
 `;
 
 const InfoDot = styled.span`
     font-size: ${FontSize[12]};
-    color: gray;
+    color: ${Colors.gray2};
     font-weight: 700;
     padding-right: 10px;
 `;
@@ -79,7 +79,7 @@ const InfoDot = styled.span`
 
 
 const Update = styled.span`
-    color: lightgray;
+    color: ${Colors.gray1};
 
     span {
         display: inline-block;

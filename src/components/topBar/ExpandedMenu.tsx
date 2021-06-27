@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     left: 0;
     width: 230px;
     background-color: ${Colors.white};
-    border: solid 1px gray;
+    border: solid 1px ${Colors.gray2};
     z-index: 160;
 `;
 
@@ -29,7 +29,7 @@ const FilterBox = styled.div`
 `;
 
 const Filter = styled.input`
-    border: solid 1px grey;
+    border: solid 1px ${Colors.gray2};
     width: 100%;
     height: 100%;
     border-radius: 5%;
@@ -163,10 +163,6 @@ const ExpandedMenu: FC = () => {
 
     const dispatch = useDispatch();
 
-    const workspaceTitleClickHandle = (e: React.MouseEvent<HTMLButtonElement>) => {
-        dispatch<GetWorkspaceTitle>(getWorkspaceTitle("title 2"));
-    }
-
 
     return (
         <Wrapper>
@@ -180,7 +176,7 @@ const ExpandedMenu: FC = () => {
                         {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/">
                                 <IconBox>
-                                    <img src='./media/icons/house2.png'></img>
+                                    <img src='./media/icons/house2.png' alt='media image'></img>
                                 </IconBox>
                                 <span>Home</span>
                             </CostumLink>
@@ -190,7 +186,7 @@ const ExpandedMenu: FC = () => {
                         {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/publications">
                                 <IconBox>
-                                    <img src='./media/icons/publications.png'></img>
+                                    <img src='./media/icons/publications.png' alt='publication image'></img>
                                 </IconBox>
                                 <span>Publications</span>
                             </CostumLink>
@@ -200,7 +196,7 @@ const ExpandedMenu: FC = () => {
                         {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/people">
                                 <IconBox>
-                                    <img src='./media/icons/people.png'></img>
+                                    <img src='./media/icons/people.png' alt='media image'></img>
                                 </IconBox>
                                 <span>People</span>
                             </CostumLink>
@@ -210,7 +206,7 @@ const ExpandedMenu: FC = () => {
                         {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/entities">
                                 <IconBox>
-                                    <img src='./media/icons/entities.png'></img>
+                                    <img src='./media/icons/entities.png' alt='media image'></img>
                                 </IconBox>
                                 <span>Entities</span>
                             </CostumLink>
@@ -220,7 +216,7 @@ const ExpandedMenu: FC = () => {
                         {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
                             <CostumLink to="/administration">
                                 <IconBox>
-                                    <img src='./media/icons/administration.png'></img>
+                                    <img src='./media/icons/administration.png' alt='media image'></img>
                                 </IconBox>
                                 <span>Administration</span>
                             </CostumLink>
@@ -236,7 +232,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Client Contract"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span> Client Contract</span>
                                 </button>
@@ -250,7 +246,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Supplier Contract"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Supplier Contract</span>
                                 </button>
@@ -264,7 +260,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Corporate"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Corporate</span>
                                 </button>
@@ -278,7 +274,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Group Norms"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Group Norms</span>
                                 </button>
@@ -292,7 +288,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Real estate Contract"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Real estate contracts</span>
                                 </button>
@@ -306,7 +302,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 1"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Next Item 1</span>
                                 </button>
@@ -320,7 +316,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 2"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Next Item 2</span>
                                 </button>
@@ -334,7 +330,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 3"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Next Item 3</span>
                                 </button>
@@ -348,7 +344,7 @@ const ExpandedMenu: FC = () => {
                                     dispatch<GetWorkspaceTitle>(getWorkspaceTitle("Next Item 4"));
                                 }}>
                                     <IconBox>
-                                        <img src='./media/icons/entities2.png'></img>
+                                        <img src='./media/icons/entities2.png' alt='media image'></img>
                                     </IconBox>
                                     <span>Next Item 4</span>
                                 </button>
@@ -363,7 +359,7 @@ const ExpandedMenu: FC = () => {
                     <MenuItem>
                         <ImageBox>
                             <Link to="profile">
-                                <img src={photosList[0].url}></img>
+                                <img src={photosList[0].url} alt='media image'></img>
                             </Link>
                         </ImageBox>
                         <AccountUserName>
@@ -378,7 +374,7 @@ const ExpandedMenu: FC = () => {
                     <MenuItem>
                         <IconBox>
                             <Link to="privacy">
-                                <img src='./media/icons/privacy.png'></img>
+                                <img src='./media/icons/privacy.png' alt='media image'></img>
                             </Link>
                         </IconBox>
                         <CostumLink to="privacy">
@@ -388,7 +384,7 @@ const ExpandedMenu: FC = () => {
                     <MenuItem>
                         <IconBox>
                             <Link to="settings">
-                                <img src='./media/icons/settings.png'></img>
+                                <img src='./media/icons/settings.png' alt='media image'></img>
                             </Link>
                         </IconBox>
                         <CostumLink to="settings">

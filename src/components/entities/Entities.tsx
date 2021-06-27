@@ -1,23 +1,19 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { Colors } from '../../styledHelpers/Colors';
-import { FontSize } from '../../styledHelpers/FontSizes';
 import { IState } from '../../reducers';
-
 import EntitiesHeader from './EntitiesHeader';
 import EntitiesItem from './EntitiesItem';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotosReducer } from '../../reducers/photosReducers';
-import EntitiesListItem from './EntitiesListItem';
 import { ISinglePhoto } from '../../entities/photos';
 
 const Wrapper = styled.div`
     width: 900px;
-    height: calc(auto - 50px);
+    height: auto;
     background-color: ${Colors.white};
     border-radius: 5px;
 `;
@@ -29,9 +25,11 @@ const ItemsWrapper = styled.div<{ isMosaic: boolean; isFullScreen: boolean }>`
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+
     ${props => !props.isMosaic && css`
         flex-direction: column;
     `}
+
     ${props => props.isFullScreen && css`
     position: fixed;
     top: 0;
@@ -40,6 +38,7 @@ const ItemsWrapper = styled.div<{ isMosaic: boolean; isFullScreen: boolean }>`
     background-color: ${Colors.white};
     width: 100%;
     height: 100%;
+
     `}
  `;
 
@@ -100,9 +99,6 @@ const Entities: FC = () => {
 
 
     const handleFullScreenClick = () => {
-        /* if (isFullScreen === false) {
-            setIsFullScreen(true);
-        } else setIsFullScreen(false); */
         setIsFullScreen(isFullScreen => !isFullScreen);
     };
 

@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Publications } from './publications/Publications';
@@ -7,7 +7,7 @@ import { Resume } from './resume/Resume';
 
 const Wrapper = styled.div`
     width: 900px;
-    height: calc(auto - 50px);
+    height: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+
 import { Colors } from '../../../styledHelpers/Colors';
 import { FontSize } from '../../../styledHelpers/FontSizes';
 
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 
 const HeaderWrapper = styled.div`
     width: 100%;
-    color: #808080;
+    color: ${Colors.gray1};
     margin: 10px;
 `;
 
@@ -78,7 +79,7 @@ const InputElement = styled.input`
 
 const FooterWrapper = styled.div`
     width: 100%;
-    color: #1d1d97;
+    color: ${Colors.blue1};
     margin: 0 10px 10px 10px;
     display: flex;
 `;

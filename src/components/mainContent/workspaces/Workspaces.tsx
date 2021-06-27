@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
@@ -18,7 +18,7 @@ const SectionTitle = styled.span`
     font-size: ${FontSize[18]};
     font-weight: 700;
     display: block;
-    color: grey;
+    color: ${Colors.gray2};
     padding-left: 10px;
     margin: 25px 0 10px 0;
 `;

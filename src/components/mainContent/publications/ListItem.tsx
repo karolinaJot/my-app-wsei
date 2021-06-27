@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../../styledHelpers/Colors';
@@ -32,13 +32,13 @@ const ItemText = styled(PublicationText)`
 
 const Date = styled.span` 
     display: block;
-    color: lightgrey;
+    color: ${Colors.gray1};
 `;
 
 const Author = styled.span`
     padding-left: 5px;
     display: block;
-    color: grey;    
+    color: ${Colors.gray2};    
 `;
 
 interface IListItemProps {
@@ -53,14 +53,14 @@ const ListItem: FC<IListItemProps> = (props: IListItemProps) => {
     return (
         <Wrapper>
             <ListItemImg>
-                <img src={props.image}></img>
+                <img src={props.image} alt='item image'></img>
             </ListItemImg>
             <ListItemInfo>
                 <ItemText>{props.text}</ItemText>
                 <PublicationDetails>
                     <Date>7 jan. 2020</Date>
                     <ImageBox>
-                        <img src={props.image}></img>
+                        <img src={props.image} alt='item image'></img>
                     </ImageBox>
                     <Author>{props.author}</Author>
                 </PublicationDetails>
